@@ -1,0 +1,32 @@
+.reference-home {
+  --ref-blue: #0068b5;
+  --ref-dark: #0b1f33;
+  --ref-red: #d71920;
+  --ref-soft: #f3f6f8;
+  --ref-line: #d9e0e7;
+}
+
+.reference-home .container,
+.reference-header .container,
+.reference-footer .container {
+  width: min(100% - 2rem, 90rem);
+}
+
+.reference-home h1,
+.reference-home h2,
+.reference-home h3 {
+  font-family: var(--font-body);
+  font-weight: 850;
+  letter-spacing: -0.045em;
+}
+
+.reference-home .reference-section {
+  padding-block: clamp(5.5rem, 10vw, 9.5rem);
+}
+
+.reference-header {
+  min-height: 76px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 4px 16px rgba(11, 31, 51, 0.06);
+}

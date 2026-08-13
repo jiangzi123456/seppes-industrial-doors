@@ -1,0 +1,29 @@
+.brand-logo-crop { display:block; position:relative; width:175px; height:48px; overflow:hidden; }
+.brand-logo-crop img { position:absolute; width:184px; height:auto; max-width:none; left:-4px; top:-37px; }
+.brand-reverse { display:flex; align-items:center; gap:10px; color:#fff; }
+.brand-reverse > b { display:grid; place-items:center; width:38px; height:38px; border:2px solid #fff; color:#fff; font:800 22px var(--font-display); transform:skew(-8deg); }
+.brand-reverse strong, .brand-reverse small { display:block; line-height:1; color:#fff; }
+.brand-reverse strong { font:800 19px var(--font-display); letter-spacing:.12em; }
+.brand-reverse small { margin-top:5px; font-size:8px; letter-spacing:.16em; }
+.hero-motion { position:absolute; inset:0; overflow:hidden; opacity:.38; }
+.hero-motion i { position:absolute; width:48vw; height:48vw; border:1px solid #31526c; border-radius:50%; animation:heroOrbit 16s linear infinite; }
+.hero-motion i:nth-child(1) { right:-12vw; top:-28vw; }
+.hero-motion i:nth-child(2) { right:-24vw; top:-10vw; animation-duration:22s; animation-direction:reverse; }
+.hero-motion i:nth-child(3) { left:-35vw; bottom:-42vw; animation-duration:28s; }
+@keyframes heroOrbit { 0% { transform:rotate(0) scale(.9); } 50% { transform:rotate(180deg) scale(1.08); } 100% { transform:rotate(360deg) scale(.9); } }
+.proof-grid strong { color:var(--red); }
+.proof-grid span { color:var(--blue); font-weight:700; }
+.product-card { aspect-ratio:2.174/1; min-height:0; align-items:stretch; }
+.product-visual { aspect-ratio:auto; height:100%; align-self:stretch; }
+.clients { padding:42px 0 62px; border-top:1px solid var(--line); background:#fff; }
+.clients-inner { overflow:hidden; }
+.logo-track { display:flex; width:max-content; gap:18px; margin-top:24px; animation:logoMarquee 12s linear infinite; will-change:transform; }
+.client-wordmark { width:260px; height:92px; border:1px solid var(--line); display:grid; place-items:center; color:#7b8792; background:#fafbfc; font:800 25px var(--font-display); letter-spacing:.04em; filter:grayscale(1); transition:.25s; }
+.client-wordmark:hover { filter:grayscale(0); color:var(--blue); border-color:#aab9c4; }
+.client-ikea { font-weight:900; letter-spacing:-.04em; }
+.client-bosch { font-weight:700; letter-spacing:.12em; }
+.client-roche { font-weight:600; }
+.clients p { font-size:10px; margin:16px 0 0; color:#9aa5ad; }
+@keyframes logoMarquee { to { transform:translateX:calc(-50% - 9px)); } }
+@media (prefers-reduced-motion: reduce) { .hero-motion i, .logo-track { animation:none; } }
+@media (max-width:600px) { .brand-logo-crop { width:145px; height:42px; } .brand-logo-crop img { width:152px; top:-31px; } .client-wordmark { width:190px; height:75px; } .product-card { aspect-ratio:auto; } .product-visual { aspect-ratio:1/1; height:auto; } }

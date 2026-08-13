@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js build and development output
+.next/
+out/
+
+# local environment files
+.env*
+!.env.example
+
+# deployment and tooling state
+.vercel/
+
+# logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+
+# operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# TypeScript cache
+*.tsbuildinfo
