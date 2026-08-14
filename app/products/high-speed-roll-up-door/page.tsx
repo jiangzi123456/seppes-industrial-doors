@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Check, Factory, Gauge, Layers3, Maximize2, MessageCircle, PackageCheck, Radio, Settings2, ShieldCheck, Wind, Zap } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
 
-export const metadata: Metadata = { title: "High Speed Roll Up Door", description: "PVC high speed roll up door for frequent industrial traffic, with configurable activation, safety and control options." };
+export const metadata: Metadata = { title: "High Speed Roll Up Door", description: "PVC high speed roll up door for frequent industrial traffic, with configurable activation, safety and control options.", alternates: { canonical: "/products/high-speed-roll-up-door" } };
 const parameters = [["Opening speed","0.6–1.5 m/s"],["Maximum size","5,800 × 6,000 mm"],["Curtain","0.8 mm PVC; 1.2 mm clear vision panel"],["Wind resistance","Grade 6–8 with aluminium wind bars"],["Control system","FROG PUPIL variable-frequency control"],["Safety","Autonics infrared photocell"],["Power supply","220 V standard"],["Motor power","0.75 / 1.5 / 2.2 kW by door area"],["Frame finish","Painted cold-rolled steel, RAL 7035"],["Motor position","Left or right"],["Headroom","500 mm"],["Side room","150 mm non-motor side; 400 mm motor side"]];
 const uses = ["Manufacturing lines","Logistics passages","Food processing","Clean production areas"];
 

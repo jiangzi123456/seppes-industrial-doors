@@ -6,7 +6,7 @@ import { CTA } from "@/components/cta";
 import { products } from "@/data/site";
 import "./products.css";
 
-export const metadata = { title: "Industrial Door Products", description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment." };
+export const metadata = { title: "Industrial Door Products", description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment.", alternates: { canonical: "/products" } };
 
 const images: Record<string, string> = {
   "high-speed-roll-up-door": "/images/high-speed-roll-up-door-product.jpg",

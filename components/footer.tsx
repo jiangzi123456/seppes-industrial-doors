@@ -10,6 +10,6 @@ export function Footer() {
       <div><h3>Contact</h3><p><MapPin size={17} /> Suzhou, Jiangsu, China</p><p><Phone size={17} /> +86 177 9857 8460</p><p><Mail size={17} /> huijia@seppes.com.cn</p></div>
       <div><h3>Start a project</h3><p>Share your opening size, application and quantity. Our team will respond within one business day.</p><Link className="text-link light" href="/contact">Request a proposal →</Link></div>
     </div>
-    <div className="container footer-bottom"><span>© {new Date().getFullYear()} SEPPES. All rights reserved.</span><div className="footer-socials"><a href="https://www.facebook.com/profile.php?id=61580385533175" target="_blank" rel="noreferrer" aria-label="Facebook"><span>f</span></a><a href="https://www.youtube.com/@%E7%8E%8B%E6%9D%BE-o4j" target="_blank" rel="noreferrer" aria-label="YouTube"><span>▶</span></a><a href="https://www.tiktok.com/" target="_blank" rel="noreferrer" aria-label="TikTok"><span>♪</span></a></div><Link href="/privacy">Privacy Policy</Link></div>
+    <div className="container footer-bottom"><span>© {new Date().getFullYear()} SEPPES. All rights reserved.</span><div className="footer-socials"><a href="https://www.facebook.com/profile.php?id=61580385533175" target="_blank" rel="noreferrer" aria-label="Facebook"><span>f</span></a><a href="https://www.youtube.com/@%E7%8E%8B%E6%9D%BE-o4j" target="_blank" rel="noreferrer" aria-label="YouTube"><span>▶</span></a></div><Link href="/privacy">Privacy Policy</Link></div>
   </footer>;
 }

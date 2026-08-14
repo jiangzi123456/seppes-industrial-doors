@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How SEPPES handles information submitted through this industrial door website.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

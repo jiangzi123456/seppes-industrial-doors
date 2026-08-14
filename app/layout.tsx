@@ -18,10 +18,7 @@ import { Footer } from "@/components/footer";
 import { HomeInquiryForm } from "@/components/home-inquiry-form";
 import { BackToTop } from "@/components/back-to-top";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  || (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : undefined)
-  || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined)
-  || "http://localhost:3000";
+const siteUrl = "https://www.seppesde.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -29,9 +26,11 @@ export const metadata: Metadata = {
   description: "Industrial doors and loading dock solutions for global manufacturing, logistics and cold-chain projects.",
   applicationName: "SEPPES Industrial Doors",
   openGraph: {
+    url: "/",
+    siteName: "SEPPES Industrial Doors",
     title: "SEPPES | Industrial Door Systems for Modern Facilities",
     description: "Industrial doors and loading dock solutions for global manufacturing, logistics and cold-chain projects.",
-    images: [{ url: "/og.png", width: 1536, height: 1024, alt: "SEPPES industrial door systems" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "SEPPES industrial door systems" }],
   },
   twitter: { card: "summary_large_image", images: ["/og.png"] },
 };

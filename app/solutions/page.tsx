@@ -4,7 +4,7 @@ import { ArrowRight, Bot, Check, Factory, PackageCheck, ShieldCheck, Snowflake, 
 import { CTA } from "@/components/cta";
 import { Breadcrumb } from "@/components/breadcrumb";
 
-export const metadata = { title: "Industrial Door Solutions", description: "Industrial door solutions for logistics, clean rooms, cold storage, food processing, automotive and smart manufacturing facilities." };
+export const metadata = { title: "Industrial Door Solutions", description: "Industrial door solutions for logistics, clean rooms, cold storage, food processing, automotive and smart manufacturing facilities.", alternates: { canonical: "/solutions" } };
 
 const solutions = [
   {number:"01",title:"Logistics & Warehousing",description:"Keep busy loading bays moving while protecting people, goods and building temperature.",image:"/images/logistics-door.jpg",icon:Truck,points:["Fast vehicle flow","Dock safety","Weather sealing"]},

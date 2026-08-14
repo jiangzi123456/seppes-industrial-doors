@@ -18,6 +18,7 @@ import {
 export const metadata = {
   title: "Discuss Your Industrial Door Project",
   description: "Contact SEPPES about industrial doors and loading dock equipment. Share opening dimensions, project location and site requirements for review.",
+  alternates: { canonical: "/contact" },
 };
 
 const whatsapp = "https://wa.me/8617798578460?text=Hello%2C%20I%20would%20like%20to%20discuss%20an%20industrial%20door%20project%20with%20SEPPES.";

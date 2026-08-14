@@ -4,6 +4,10 @@ import { ArrowRight, ArrowUpRight, Check, FileText, MessageCircle, PackageCheck,
 import { products } from "@/data/site";
 import { ClientLogos } from "@/components/client-logos";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 const productImages = ["/images/hero-industrial-door.jpg", "/images/logistics-door.jpg", "/images/cleanroom-door.jpg", "/images/factory-doors.jpg"];
 const applicationCards = [
   { title: "Manufacturing Lines", image: "/images/hero-industrial-door.jpg", copy: "Rapid, safe separation for automated equipment and high-frequency production flow." },
