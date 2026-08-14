@@ -17,6 +17,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { HomeInquiryForm } from "@/components/home-inquiry-form";
 import { BackToTop } from "@/components/back-to-top";
+import { Analytics } from "@vercel/analytics/next";
 
 const siteUrl = "https://www.seppesde.com";
 
@@ -36,5 +37,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><Header /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /></body></html>;
+  return <html lang="en"><body><Header /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /><Analytics /></body></html>;
 }
