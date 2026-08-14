@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@vercel/speed-insights':
+        specifier: ^2.0.0
+        version: 2.0.0(next@16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
       lucide-react:
         specifier: latest
         version: 1.28.0(react@19.2.8)
@@ -381,6 +384,32 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@vercel/speed-insights@2.0.0':
+    resolution: {integrity: sha512-jwkNcrTeafWxjmWq4AHBaptSqZiJkYU5adLC9QBSqeim0GcqDMgN5Ievh8OG1rJ6W3A4l1oiP7qr9CWxGuzu3w==}
+    peerDependencies:
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      nuxt: '>= 3'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      nuxt:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
+
   baseline-browser-mapping@2.11.7:
     resolution: {integrity: sha512-APw5YuIQAg6L9w4sHDI6j26DGFJI6RpYOhnkMPdC9lWbkKvsyPHzDsve1yd73lk21yz7Y09Kci8B2Pp9FonzWA==}
     engines: {node: '>=6.0.0'}
@@ -691,6 +720,11 @@ snapshots:
 
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
+
+  '@vercel/speed-insights@2.0.0(next@16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)':
+    optionalDependencies:
+      next: 16.2.12(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      react: 19.2.8
 
   baseline-browser-mapping@2.11.7: {}
 
