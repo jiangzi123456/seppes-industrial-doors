@@ -7,10 +7,32 @@ export function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const updateVisibility = () => setVisible(window.scrollY > 520);
+    const getPageScrollTop = () =>
+      Math.max(
+        window.scrollY,
+        document.documentElement.scrollTop,
+        document.body.scrollTop,
+        document.scrollingElement?.scrollTop ?? 0,
+      );
+
+    const updateVisibility = (event?: Event) => {
+      const target = event?.target;
+      const containerScrollTop =
+        target instanceof HTMLElement && target.closest("main")
+          ? target.scrollTop
+          : 0;
+
+      setVisible(Math.max(getPageScrollTop(), containerScrollTop) > 520);
+    };
+
     updateVisibility();
     window.addEventListener("scroll", updateVisibility, { passive: true });
-    return () => window.removeEventListener("scroll", updateVisibility);
+    document.addEventListener("scroll", updateVisibility, { passive: true, capture: true });
+
+    return () => {
+      window.removeEventListener("scroll", updateVisibility);
+      document.removeEventListener("scroll", updateVisibility, { capture: true });
+    };
   }, []);
 
   return <button

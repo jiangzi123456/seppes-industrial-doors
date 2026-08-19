@@ -24,6 +24,12 @@
 .client-bosch { font-weight:700; letter-spacing:.12em; }
 .client-roche { font-weight:600; }
 .clients p { font-size:10px; margin:16px 0 0; color:#9aa5ad; }
-@keyframes logoMarquee { to { transform:translateX:calc(-50% - 9px)); } }
+@keyframes logoMarquee { to { transform:translateX(calc(-50% - 9px)); } }
 @media (prefers-reduced-motion: reduce) { .hero-motion i, .logo-track { animation:none; } }
 @media (max-width:600px) { .brand-logo-crop { width:145px; height:42px; } .brand-logo-crop img { width:152px; top:-31px; } .client-wordmark { width:190px; height:75px; } .product-card { aspect-ratio:auto; } .product-visual { aspect-ratio:1/1; height:auto; } }
+
+.logo-track { animation-duration:24s; }
+.client-wordmark { flex:0 0 260px; background:#fff; opacity:.72; }
+.client-wordmark img { width:auto; height:auto; max-width:78%; max-height:58px; object-fit:contain; }
+.client-wordmark:hover { opacity:1; }
+@media (max-width:600px) { .client-wordmark { flex-basis:190px; } }

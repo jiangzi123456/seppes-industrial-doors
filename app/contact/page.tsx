@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { ContactMap } from "@/components/contact-map";
 import {
   ArrowRight,
   Building2,
@@ -75,9 +76,9 @@ export default function ContactPage() {
       <div className="contact-company__heading"><p className="contact-kicker blue">COMPANY CONTACT DETAILS</p><h2>Visit or Contact SEPPES</h2><p><strong>Seppes Door Industry (Suzhou) Co., Ltd.</strong> supports project communication, technical drawings, quotation requirements and follow-up for global industrial door projects.</p></div>
       <div className="contact-company__content">
         <div className="contact-company__map">
-          <iframe title="SEPPES manufacturing location on Google Maps" src="https://www.google.com/maps?q=%E8%8B%8F%E5%B7%9E%E5%B8%82%E5%90%B4%E4%B8%AD%E5%8C%BA%E6%9C%A8%E6%B8%8E%E9%95%87%E8%B5%B0%E9%A9%AC%E5%A1%98%E8%B7%AF59%E5%8F%B74%E5%B9%A2&output=embed" loading="lazy" allowFullScreen referrerPolicy="no-referrer-when-downgrade" />
+          <ContactMap />
         </div>
-        <div className="contact-company__panel"><h3>Project Contact</h3><dl><div><dt>Email</dt><dd><a href="mailto:huijia@seppes.com.cn">huijia@seppes.com.cn</a></dd></div><div><dt>Phone / WhatsApp</dt><dd><a href="tel:+8617798578460">+86 177 9857 8460</a></dd></div><div><dt>Address</dt><dd>4 Building, No. 59 Zoumatang Road, Mudu Town, Wuzhong District, Suzhou, China<br />苏州市吴中区木渎镇走马塘路59号4幢</dd></div><div><dt>Response time</dt><dd>Within one business day</dd></div></dl></div>
+        <div className="contact-company__panel"><h3>Project Contact</h3><dl><div><dt>Email</dt><dd><a href="mailto:huijia@seppes.com.cn">huijia@seppes.com.cn</a></dd></div><div><dt>Phone / WhatsApp</dt><dd><a href="tel:+8617798578460">+86 177 9857 8460</a></dd></div><div><dt>Address</dt><dd>Building 4, No. 59 Zoumatang Road, Mudu Town, Wuzhong District, Suzhou, Jiangsu, China</dd></div><div><dt>Response time</dt><dd>Within one business day</dd></div></dl></div>
       </div>
     </div></section>
   </div>;

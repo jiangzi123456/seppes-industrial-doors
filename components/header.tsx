@@ -21,6 +21,18 @@ const links: NavItem[] = [
         label: "High Speed Roll Up Door",
         href: "/products/high-speed-roll-up-door",
       },
+      {
+        label: "High Speed Spiral Door",
+        href: "/products/high-speed-spiral-door",
+      },
+      {
+        label: "Industrial Sectional Door",
+        href: "/products/industrial-sectional-door",
+      },
+      {
+        label: "Hydraulic Dock Leveler",
+        href: "/products/hydraulic-dock-leveler",
+      },
     ],
   },
   { label: "Solutions", href: "/solutions" },
@@ -35,10 +47,32 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 56);
+    const getPageScrollTop = () =>
+      Math.max(
+        window.scrollY,
+        document.documentElement.scrollTop,
+        document.body.scrollTop,
+        document.scrollingElement?.scrollTop ?? 0,
+      );
+
+    const update = (event?: Event) => {
+      const target = event?.target;
+      const containerScrollTop =
+        target instanceof HTMLElement && target.closest("main")
+          ? target.scrollTop
+          : 0;
+
+      setScrolled(Math.max(getPageScrollTop(), containerScrollTop) > 56);
+    };
+
     update();
     window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
+    document.addEventListener("scroll", update, { passive: true, capture: true });
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      document.removeEventListener("scroll", update, { capture: true });
+    };
   }, []);
 
   return (

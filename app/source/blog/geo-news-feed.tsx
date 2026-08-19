@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Clock3, Search } from "lucide-react";
 import { FormEvent, useMemo, useState } from "react";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { InquirySubmitState, submitInquiry } from "@/components/inquiry-submit";
 
 const categories = ["All", "Product News", "Solutions", "Project Stories", "Buying Guides"];
 const posts = [
@@ -19,11 +20,23 @@ const posts = [
 export function GeoNewsFeed() {
   const [category, setCategory] = useState("All");
   const [query, setQuery] = useState("");
+  const [newsletterState, setNewsletterState] = useState<InquirySubmitState>("idle");
+  const [newsletterFeedback, setNewsletterFeedback] = useState("");
   const visible = useMemo(() => posts.filter((post) => (category === "All" || post.category === category) && `${post.title} ${post.excerpt}`.toLowerCase().includes(query.toLowerCase())), [category, query]);
-  const subscribe = (event: FormEvent<HTMLFormElement>) => {
+  const subscribe = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const email = new FormData(event.currentTarget).get("email");
-    window.location.href = `mailto:huijia@seppes.com.cn?subject=${encodeURIComponent("SEPPES industry updates request")}&body=${encodeURIComponent(`Please add this work email to SEPPES industry updates: ${email}`)}`;
+    const form = event.currentTarget;
+    setNewsletterState("submitting");
+    setNewsletterFeedback("");
+    try {
+      const result = await submitInquiry(form, "Blog newsletter");
+      form.reset();
+      setNewsletterState("success");
+      setNewsletterFeedback(result.message || "Thank you. Your update request has been sent.");
+    } catch (error) {
+      setNewsletterState("error");
+      setNewsletterFeedback(error instanceof Error ? error.message : "We could not send your request. Please try again.");
+    }
   };
 
   return <div className="geo-blog">
@@ -44,6 +57,6 @@ export function GeoNewsFeed() {
         <div className="geo-card__body"><p className="geo-meta">{post.date} <span>·</span> <Clock3 size={13} /> {post.read}</p><h3>{post.title}</h3><p>{post.excerpt}</p><Link href="#newsletter" aria-label={`Read ${post.title}`}>Read insight <ArrowRight size={16} /></Link></div></article>)}</div> : <div className="geo-empty"><h3>No briefings found.</h3><p>Try another topic or clear your search.</p></div>}
     </div></section>
 
-    <section className="geo-newsletter" id="newsletter"><div className="container geo-newsletter__inner"><div><p className="geo-kicker">SEPPES Industry Updates</p><h2>New products.<br />Practical solutions.</h2></div><div><p>Receive selected product releases, application advice and industrial project stories from our manufacturing team.</p><form onSubmit={subscribe}><label><span className="sr-only">Work email</span><input required name="email" type="email" placeholder="Work email address" /></label><button type="submit">Request Updates <ArrowRight size={17} /></button></form><small>This opens your email application so you can confirm the subscription request.</small></div></div></section>
+    <section className="geo-newsletter" id="newsletter"><div className="container geo-newsletter__inner"><div><p className="geo-kicker">SEPPES Industry Updates</p><h2>New products.<br />Practical solutions.</h2></div><div><p>Receive selected product releases, application advice and industrial project stories from our manufacturing team.</p><form onSubmit={subscribe}><div className="inquiry-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div><label><span className="sr-only">Work email</span><input required name="email" type="email" autoComplete="email" placeholder="Work email address" /></label><button type="submit" disabled={newsletterState === "submitting"}>{newsletterState === "submitting" ? "Sending…" : "Request Updates"} <ArrowRight size={17} /></button></form><small>Your request will be sent directly to our team.</small>{newsletterFeedback && <p className={`inquiry-feedback is-${newsletterState}`} role="status" aria-live="polite">{newsletterFeedback}</p>}</div></div></section>
   </div>;
 }

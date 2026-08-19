@@ -9,10 +9,10 @@ import "./products.css";
 export const metadata = { title: "Industrial Door Products", description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment.", alternates: { canonical: "/products" } };
 
 const images: Record<string, string> = {
-  "high-speed-roll-up-door": "/images/high-speed-roll-up-door-product.jpg",
-  "high-speed-spiral-door": "/images/hero-industrial-door.jpg",
-  "industrial-sectional-door": "/images/factory-doors.jpg",
-  "hydraulic-dock-leveler": "/images/logistics-door.jpg",
+  "high-speed-roll-up-door": "/images/catalog-high-speed-roll-up.webp",
+  "high-speed-spiral-door": "/images/catalog-high-speed-spiral.webp",
+  "industrial-sectional-door": "/images/industrial-sectional-door.webp",
+  "hydraulic-dock-leveler": "/images/catalog-dock-leveler.webp",
 };
 const factors = [
   ["01", "Traffic Frequency", "Confirm daily cycles, peak traffic and required opening speed.", "High-speed door direction"],
@@ -44,9 +44,9 @@ export default function ProductsPage() {
     <section className="products-overview__section" id="product-families"><div className="container">
       <div className="products-overview__section-heading"><span className="eyebrow">Product families</span><h2>Four Solutions for Industrial Openings</h2><p>Each family addresses a different balance of speed, sealing, security, insulation and loading efficiency.</p></div>
       <div className="products-overview__family-grid">{products.map(product => <article className="products-overview__family-card" id={product.slug} key={product.slug}>
-        {product.slug === "high-speed-roll-up-door" ? <Link className="products-overview__media" href={`/products/${product.slug}`} aria-label={`View ${product.name} details`}><Image src={images[product.slug]} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" /></Link> : <div className="products-overview__media"><Image src={images[product.slug]} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" /></div>}
+        <Link className="products-overview__media" href={`/products/${product.slug}`} aria-label={`View ${product.name} details`}><Image src={images[product.slug]} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" /></Link>
         <div className="products-overview__family-body"><span className="eyebrow">{product.category}</span><h3>{product.name}</h3><p>{product.description}</p><h4>Key capabilities</h4><ul>{product.specs.map(spec => <li key={spec}><Check size={17}/>{spec}</li>)}</ul>
-          <Link className="products-overview__text-link" href={product.slug === "high-speed-roll-up-door" ? `/products/${product.slug}` : "/contact"}>View product details <ArrowRight size={17}/></Link>
+          <Link className="products-overview__text-link" href={`/products/${product.slug}`}>View product details <ArrowRight size={17}/></Link>
         </div></article>)}</div>
     </div></section>
     <section className="products-overview__section products-overview__section--tint" id="compare-products"><div className="container">

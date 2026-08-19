@@ -15,14 +15,14 @@ const milestones = [
   { year: "2016", title: "Factory capability expanded", text: "Dedicated production, testing and quality-control processes were established for industrial doors and dock equipment." },
   { year: "2019", title: "Global project support", text: "Our products entered more overseas markets, backed by English documentation, export packing and remote installation guidance." },
   { year: "2022", title: "A complete entrance portfolio", text: "High-speed doors, sectional doors, hangar doors and loading dock systems formed one coordinated solution platform." },
-  { year: "2025", title: "Serving 80+ countries", text: "SEPPES continued to grow as a trusted manufacturing partner for factories, logistics hubs and clean facilities worldwide." },
+  { year: "2025", title: "Serving 90+ countries", text: "SEPPES continued to grow as a trusted manufacturing partner for factories, logistics hubs and clean facilities worldwide." },
 ];
 
 const strengths = [
   { icon: Factory, number: "20,000+ m²", label: "Manufacturing base", text: "Purpose-built production space for door systems, controls and loading equipment." },
-  { icon: Globe2, number: "80+", label: "Countries & regions", text: "Export-ready support for international contractors, distributors and end users." },
+  { icon: Globe2, number: "90+", label: "Countries & regions", text: "Export-ready support for international contractors, distributors and end users." },
   { icon: BadgeCheck, number: "50+", label: "Product certifications", text: "Products developed around recognized safety, quality and performance requirements." },
-  { icon: Wrench, number: "14+ years", label: "Industry experience", text: "Application knowledge built through demanding industrial projects since 2011." },
+  { icon: Wrench, number: "15 years", label: "Industry experience", text: "Application knowledge built through demanding industrial projects since 2011." },
 ];
 
 const factoryProof = [
@@ -109,7 +109,7 @@ export default function AboutPage() {
 
     <section className="founder-section">
       <div className="founder-portrait"><Image src="/images/seppes-founder.jpg" alt="Yuanjia Yang, founder of SEPPES" fill sizes="(max-width: 900px) 100vw, 48vw" /></div>
-      <div className="founder-copy"><span className="about-kicker">FOUNDER'S STORY</span><p className="founder-quote">“A dependable industrial door is not simply a product. It is our promise to the people and businesses operating behind it.”</p><div className="founder-name"><strong>Yuanjia Yang</strong><span>Founder of SEPPES</span></div><p>Founded in 2011, SEPPES grew from a focused industrial door team into a global brand serving customers across more than 80 countries and regions. Yuanjia Yang has kept the company anchored to a simple belief: strong products come from understanding real operating conditions, respecting manufacturing details and supporting customers for the long term.</p><Link className="founder-link" href="/contact">Connect with our team <ArrowRight size={18} /></Link></div>
+      <div className="founder-copy"><span className="about-kicker">FOUNDER'S STORY</span><p className="founder-quote">“A dependable industrial door is not simply a product. It is our promise to the people and businesses operating behind it.”</p><div className="founder-name"><strong>Yuanjia Yang</strong><span>Founder of SEPPES</span></div><p>Founded in 2011, SEPPES grew from a focused industrial door team into a global brand serving customers across more than 90 countries and regions. Yuanjia Yang has kept the company anchored to a simple belief: strong products come from understanding real operating conditions, respecting manufacturing details and supporting customers for the long term.</p><Link className="founder-link" href="/contact">Connect with our team <ArrowRight size={18} /></Link></div>
     </section>
 
     <section className="about-seo-section">
