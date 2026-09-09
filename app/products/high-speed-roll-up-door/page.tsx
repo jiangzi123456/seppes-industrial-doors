@@ -13,10 +13,10 @@ const applicationCases = [
   { image: "/images/cleanroom-door.jpg", number: "03", title: "Clean Production Area", text: "A flexible PVC curtain and perimeter sealing help manage dust, insects and uncontrolled air exchange between work areas." },
 ];
 const relatedProducts = [
-  { href: "/products/high-speed-roll-up-door", image: "/images/catalog-high-speed-roll-up.webp", category: "High Speed Doors", title: "High Speed Roll Up Door", text: "Flexible PVC rapid access for frequent internal traffic." },
+  { href: "/products/high-speed-roll-up-door", image: "/images/home-high-speed-roll-up.webp", category: "High Speed Doors", title: "High Speed Roll Up Door", text: "Flexible PVC rapid access for frequent internal traffic." },
   { href: "/products/high-speed-spiral-door", image: "/images/catalog-high-speed-spiral.webp", category: "High Speed Doors", title: "High Speed Spiral Door", text: "Rigid insulated slats for fast, secure exterior openings." },
-  { href: "/products/industrial-sectional-door", image: "/images/catalog-sectional-door.webp", category: "Sectional Doors", title: "Industrial Sectional Door", text: "Insulated vertical access for factories and warehouses." },
-  { href: "/products/hydraulic-dock-leveler", image: "/images/catalog-dock-leveler.webp", category: "Loading Dock Equipment", title: "Hydraulic Dock Leveler", text: "A dependable bridge between loading bays and vehicles." },
+  { href: "/products/industrial-sectional-door", image: "/images/industrial-sectional-door.webp", category: "Sectional Doors", title: "Industrial Sectional Door", text: "Insulated vertical access for factories and warehouses." },
+  { href: "/products/hydraulic-dock-leveler", image: "/images/home-dock-leveler.webp", category: "Loading Dock Equipment", title: "Hydraulic Dock Leveler", text: "A dependable bridge between loading bays and vehicles." },
 ];
 const productDetails = [
   { image: "/images/rapid-door-control-system.jpg", title: "Visual Servo Control System", text: "The controller combines a clear operating display, status feedback, parameter adjustment and an emergency-stop function in one protected enclosure." },

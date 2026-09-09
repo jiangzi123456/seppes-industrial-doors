@@ -78,7 +78,7 @@ export default function ContactPage() {
         <div className="contact-company__map">
           <ContactMap />
         </div>
-        <div className="contact-company__panel"><h3>Project Contact</h3><dl><div><dt>Email</dt><dd><a href="mailto:huijia@seppes.com.cn">huijia@seppes.com.cn</a></dd></div><div><dt>Phone / WhatsApp</dt><dd><a href="tel:+8617798578460">+86 177 9857 8460</a></dd></div><div><dt>Address</dt><dd>Building 4, No. 59 Zoumatang Road, Mudu Town, Wuzhong District, Suzhou, Jiangsu, China</dd></div><div><dt>Response time</dt><dd>Within one business day</dd></div></dl></div>
+        <div className="contact-company__panel"><h3>Project Contact</h3><dl><div><dt>Email</dt><dd><a href="mailto:huijia@seppes.com.cn">huijia@seppes.com.cn</a></dd></div><div><dt>Phone / WhatsApp</dt><dd><a href="tel:+8617798578460">+86 177 9857 8460</a></dd></div><div><dt>Address</dt><dd>Building 4, No. 59 Zoumatang Road, Mudu Town, Wuzhong District, Suzhou, Jiangsu, China</dd></div><div><dt>Response time</dt><dd>Within one business day</dd></div></dl><div className="contact-company__social"><span>Stay connected</span><p>Follow our channels to explore product demonstrations, factory insights, project updates and the latest news from SEPPES.</p><div><a href="https://www.youtube.com/@%E7%8E%8B%E6%9D%BE-o4j" target="_blank" rel="noreferrer">YouTube <b aria-hidden="true">↗</b></a><a href="https://www.tiktok.com/@seppes_george" target="_blank" rel="noreferrer">TikTok <b aria-hidden="true">↗</b></a><a href="https://www.facebook.com/profile.php?id=61580385533175" target="_blank" rel="noreferrer">Facebook <b aria-hidden="true">↗</b></a></div></div></div>
       </div>
     </div></section>
   </div>;

@@ -17,6 +17,13 @@ const contentSecurityPolicy = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [{
+      source: "/cases",
+      destination: "/project-support/rapid-doors-for-an-automated-assembly-workshop",
+      permanent: true,
+    }];
+  },
   async headers() {
     return [{
       source: "/(.*)",

@@ -14,13 +14,13 @@ import {
   Truck,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
-import "./cases.css";
+import "./case-study.css";
 
 export const metadata = {
   title: "Customer Case Studies",
   description:
     "Explore SEPPES industrial door projects for manufacturing, logistics, clean production and cold-chain facilities worldwide.",
-  alternates: { canonical: "/cases" },
+  alternates: { canonical: "/project-support/rapid-doors-for-an-automated-assembly-workshop" },
 };
 
 const projects = [
@@ -124,7 +124,7 @@ export default function CasesPage() {
         </div>
       </section>
 
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Customer Cases" }]} />
+      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Project Support", href: "/project-support" }, { label: "Rapid doors for an automated assembly workshop" }]} />
 
       <section className="cases-intro">
         <div className="container cases-intro__grid">

@@ -31,3 +31,6 @@ Thumbs.db
 
 .vercel
 .env*.local
+
+# Local website verification artifacts
+.qa/
