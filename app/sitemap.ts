@@ -13,7 +13,7 @@ const routes = [
   "/source/blog",
   "/source/blog/new-generation-high-speed-roll-up-door",
   "/source/blog/control-dust-and-airflow-between-production-zones",
-  "/source/blog/faster-loading-route-modern-logistics-center",
+  "/source/blog/high-speed-roll-up-door-food-material-access",
   "/about",
   "/contact",
   "/privacy",

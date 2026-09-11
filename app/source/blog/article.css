@@ -47,6 +47,7 @@
 .blog-post__figure>div{position:relative;aspect-ratio:16/10;overflow:hidden;background:#e8f3fb}
 .blog-post__figure img{object-fit:cover}
 .blog-post__figure figcaption{padding:16px 20px;color:#c7d5df;font-size:12px;line-height:1.6}
+.blog-post__lead-figure{margin:0 0 70px}
 .blog-post__faq{margin-top:90px!important;padding-top:65px;border-top:1px solid var(--post-line)}
 .blog-post__faq>div{margin-top:30px;border-top:1px solid var(--post-line)}
 .blog-post__faq details{border-bottom:1px solid var(--post-line)}

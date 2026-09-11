@@ -19,6 +19,8 @@ This file is the internal source of truth for future website news, product artic
 
 SEPPES is positioned as a mid-to-high-end Chinese industrial door brand serving global manufacturing, warehousing, logistics, cold-chain and engineering projects. The brand route emphasizes application-based engineering, consistent manufacturing, verified certifications, product customization and responsive project support rather than low-price competition.
 
+The intended market position is a leading domestic Chinese brand capable of entering the same professional procurement evaluation as established international brands such as ASSA ABLOY and Hörmann. Express this as a premium Chinese alternative and prove the position through product-specific engineering, evidence and service. Do not turn the positioning ambition into an unsupported claim of equivalence or superiority.
+
 ## Company Advantages Approved for Content
 
 ### Brand and Intellectual Property
@@ -143,9 +145,12 @@ SEPPES is positioned as a mid-to-high-end Chinese industrial door brand serving 
 ## Source and Confidence Notes
 
 - Primary source: Alibaba.com seller-account evidence and company/product records summarized in `H:\网站改版\西朗优势.docx`.
+- Supporting editorial corpus: 98 DOCX files in `H:\2025官网文本\2025文本\` and 107 Word files in `H:\2024官网文本\`.
+- The domestic corpus is approved for discovering product topics, buyer questions, industry pain points, application language and article angles. It is not sufficient proof for quantitative, certification, customer, insurance, component-origin or competitor claims.
 - Evidence snapshot date: 2026-09-06.
 - A-grade claims are verified within the supplied evidence.
 - B-grade claims are supported but must retain their stated limits.
 - C-grade claims require additional proof before publication.
 - D-grade claims must not be used.
 - When this memory conflicts with a current product page, certificate, contract or technical sheet, use the newest authoritative product-specific source.
+- Follow `docs/seo-geo-editorial-playbook.md` for the default article structure, SEO/GEO rules, conversion design and legacy-claim evidence gate.

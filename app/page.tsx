@@ -22,9 +22,9 @@ const applicationCards = [
   { title: "Food & Clean Areas", image: "/images/cleanroom-door.jpg", copy: "Controlled access with practical sealing, hygiene and pressure-management options." },
 ];
 const latestNews = [
-  { slug: "new-generation-high-speed-roll-up-door", category: "Product News", date: "August 19, 2026", title: "New-Generation High-Speed Roll-Up Door for Busy Production Areas", excerpt: "Explore the upgraded drive, safety sensing and sealing details developed for high-frequency industrial traffic.", image: "/images/high-speed-roll-up-door-product.jpg" },
+  { slug: "new-generation-high-speed-roll-up-door", category: "Product News", date: "August 19, 2026", title: "New-Generation High-Speed Roll-Up Door for Busy Production Areas", excerpt: "Explore the upgraded drive, safety sensing and sealing details developed for high-frequency industrial traffic.", image: "/images/new-generation-yellow-high-speed-doors.jpg" },
   { slug: "control-dust-and-airflow-between-production-zones", category: "Solutions", date: "August 18, 2026", title: "How to Control Dust and Airflow Between Production Zones", excerpt: "A practical rapid-door solution for facilities that need efficient traffic flow and reliable environmental separation.", image: "/images/hero-industrial-door.jpg" },
-  { slug: "faster-loading-route-modern-logistics-center", category: "Project Stories", date: "August 17, 2026", title: "A Faster Loading Route for a Modern Logistics Center", excerpt: "See how coordinated industrial doors and dock equipment improved access and loading-bay efficiency.", image: "/images/logistics-door.jpg" },
+  { slug: "high-speed-roll-up-door-food-material-access", category: "Solutions", date: "August 17, 2026", title: "High-Speed Roll-Up Doors for Food Material Access", excerpt: "Reduce dust transfer, shorten waiting time and improve raw-material traffic in food production areas.", image: "/images/cleanroom-door.jpg" },
 ];
 
 export default function Home() {
