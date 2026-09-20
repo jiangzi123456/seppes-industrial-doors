@@ -1,4 +1,8 @@
+import { editorialPosts } from "./editorial-posts";
+
 export type BlogSection = {
+  table?: { caption: string; headers: string[]; rows: string[][] };
+  review?: { good: string; flag: string };
   heading: string;
   paragraphs: string[];
   bullets?: string[];
@@ -16,6 +20,14 @@ export type BlogSection = {
 };
 
 export type BlogPost = {
+  keywords?: string[];
+  imageCaption?: string;
+  quickQuestion?: string;
+  quickAnswer?: string;
+  quickFacts?: string[][];
+  faqTitle?: string;
+  faqs?: string[][];
+  relatedLinks?: Array<{ href: string; label: string }>;
   slug: string;
   category: string;
   date: string;
@@ -35,6 +47,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  ...editorialPosts,
   {
     slug: "new-generation-high-speed-roll-up-door",
     category: "Product News",

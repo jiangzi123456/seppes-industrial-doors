@@ -63,3 +63,37 @@
 @media(max-width:900px){.blog-post__layout{grid-template-columns:1fr;gap:55px}.blog-post__aside{position:static}.blog-post__aside-cta{display:none}}
 @media(max-width:700px){.blog-post__hero{min-height:620px}.blog-post__hero-content{padding-bottom:55px}.blog-post__hero h1{font-size:3.35rem}.blog-post__dek{font-size:16px}.blog-post__layout{padding-top:70px;padding-bottom:80px}.blog-post__intro{font-size:19px;margin-bottom:55px}.blog-post__body>section{margin-bottom:55px}.blog-post__next{align-items:flex-start;flex-direction:column;padding:28px}.blog-post__next .reference-button{width:100%}}
 @media(max-width:700px){.blog-post .container{width:calc(100% - 32px);max-width:100%}.blog-post__hero h1{max-width:100%;font-size:clamp(2.5rem,12vw,3.1rem);white-space:normal!important;overflow-wrap:anywhere;word-break:break-word}.blog-post__dek,.blog-post__body h2,.blog-post__intro{max-width:100%;white-space:normal!important;overflow-wrap:anywhere;word-break:break-word}.blog-post__facts{grid-template-columns:1fr;margin-bottom:58px}.blog-post__answer{margin-top:-25px!important;padding:26px 24px 30px}.blog-post__numbered{column-count:1;padding:24px 24px 24px 46px}.blog-post__subsection h3{font-size:1.3rem}.blog-post__figure{margin-left:-16px;margin-right:-16px}.blog-post__faq summary{padding-right:42px}}
+
+/* Editorial guides: readable comparison tables and procurement decision cards. */
+.blog-post__image-note{font-size:11px;color:#68798a;padding-top:12px;margin-bottom:0}
+.blog-post--editorial .blog-post__hero h1{max-width:1000px;font-size:clamp(2.6rem,5.2vw,5.4rem);line-height:1.02}
+.blog-post--editorial .blog-post__aside{max-height:calc(100vh - 140px);overflow-y:auto}
+.blog-post--editorial .blog-post__aside ol{font-size:12px}
+.blog-post__table-wrap{max-width:100%;overflow-x:auto;margin:30px 0 12px;border:1px solid var(--post-line);border-radius:3px}
+.blog-post__table-wrap:focus-visible{outline:3px solid var(--post-blue);outline-offset:4px}
+.blog-post__table-wrap table{width:100%;min-width:540px;border-collapse:collapse;text-align:left;font-size:14px;line-height:1.65}
+.blog-post__table-wrap caption{text-align:left;padding:18px 22px;background:#edf3f7;color:#34516a;font-weight:700}
+.blog-post__table-wrap thead{background:var(--post-navy);color:white}
+.blog-post__table-wrap th,.blog-post__table-wrap td{padding:18px 20px;border-bottom:1px solid var(--post-line);vertical-align:top}
+.blog-post__table-wrap tbody th{width:25%;font-weight:750;color:#16334c}
+.blog-post__table-wrap tbody tr:nth-child(even){background:#f6f9fb}
+.blog-post__table-wrap tbody tr:last-child>*{border-bottom:0}
+.blog-post__review{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.blog-post__review>div{padding:26px;background:#edf5fa;border-top:3px solid #0876be}
+.blog-post__review>div+div{background:#fff6ef;border-color:#ba7744}
+.blog-post__review h3{margin:0 0 12px;font-size:17px;letter-spacing:-.02em}
+.blog-post__review p{font-size:14px!important;margin:0!important}
+.blog-post__reading{padding:32px;border:1px solid var(--post-line);margin-top:60px}
+.blog-post__reading h2{font-size:1.65rem;margin:0 0 18px}
+.blog-post__reading a{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;border-top:1px solid var(--post-line);font-weight:700;color:var(--post-blue)}
+.blog-post__reading svg{flex-shrink:0}
+.blog-post__project-cta{background:var(--post-navy);color:white;padding:40px;margin-top:32px!important}
+.blog-post__project-cta h2{color:white;font-size:clamp(2rem,4vw,3rem)!important}
+.blog-post__project-cta p{color:#d7e3ec!important}
+.blog-post__project-cta>p:first-child{font-size:11px!important;letter-spacing:.12em}
+@media(max-width:900px){.blog-post--editorial .blog-post__aside{max-height:none;overflow:visible}.blog-post--editorial .blog-post__aside ol{columns:2;column-gap:24px}.blog-post--editorial .blog-post__aside li{break-inside:avoid}}
+@media(max-width:700px){.blog-post__review{grid-template-columns:1fr}.blog-post__project-cta,.blog-post__reading{padding:26px}.blog-post--editorial .blog-post__aside ol{columns:1}.blog-post--editorial .blog-post__hero h1{font-size:clamp(2.3rem,10vw,3.1rem)}.blog-post__body{min-width:0}.blog-post__table-wrap table{font-size:13px}}
+
+/* Keep the guide contents visible while reading; clip does not create a scroll container. */
+main:has(.blog-post--editorial){overflow:clip}
+@media(max-width:700px){.blog-post__table-wrap caption:after{content:'Swipe horizontally to compare →';display:block;margin-top:8px;font-weight:400;font-size:11px;color:#526a7d}}
