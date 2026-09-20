@@ -28,7 +28,7 @@ Three English guides adapted from the user's Chinese drafts 14, 15 and 16. Inter
 - Did not inherit draft claims about million-cycle testing, exact pressure or speed ratings, named certification issuers, performance levels, insurance, factory size, patents or distributor counts without current product-specific evidence.
 - The inspection checklist is explicitly a proposed review scope, not a claimed SEPPES production record. Obtain a current actual inspection form before representing it as the factory's executed process.
 - Factory and component evidence is distinguished from installed-system acceptance. No universal cleanroom, regulatory or complete-door conformity claim is made.
-- Images are AI concepts, labeled on article heroes and news cards; not represented as actual facilities or test evidence.
+- Images are AI concepts retained temporarily until the user supplies real product images. At the user’s request, visible AI notes on article heroes and news cards were removed after initial publication. This internal record preserves their origin.
 - September 20 is the publication date; no placeholder August date is retained for the three newly published guides.
 
 ## Images
