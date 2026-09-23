@@ -1,4 +1,5 @@
 import { editorialPosts } from "./editorial-posts";
+import { zipperVsBrushPost } from "./zipper-vs-brush-post";
 
 export type BlogSection = {
   table?: { caption: string; headers: string[]; rows: string[][] };
@@ -47,6 +48,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  zipperVsBrushPost,
   ...editorialPosts,
   {
     slug: "new-generation-high-speed-roll-up-door",

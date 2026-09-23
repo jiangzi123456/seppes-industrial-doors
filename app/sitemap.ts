@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/data/blog-posts";
 
 const routes = [
   "",
@@ -11,12 +12,7 @@ const routes = [
   "/project-support/rapid-doors-for-an-automated-assembly-workshop",
   "/project-support",
   "/source/blog",
-  "/source/blog/new-generation-high-speed-roll-up-door",
-  "/source/blog/control-dust-and-airflow-between-production-zones",
-  "/source/blog/high-speed-roll-up-door-food-material-access",
-  "/source/blog/cleanroom-door-solutions-food-pharmaceutical",
-  "/source/blog/industrial-door-buyer-checklist-12-questions",
-  "/source/blog/industrial-door-pre-delivery-inspection",
+  ...blogPosts.map((post) => "/source/blog/" + post.slug),
   "/about",
   "/contact",
   "/privacy",
