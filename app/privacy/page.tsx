@@ -14,14 +14,15 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
 import "./privacy.css";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Privacy Policy",
   description:
     "Learn how Seppes Door Industry (Suzhou) Co., Ltd. collects, uses, protects and manages personal information submitted through the SEPPES website.",
-  alternates: { canonical: "/privacy" },
+  path: "/privacy",
   robots: { index: true, follow: true },
-};
+});
 
 const sections = [
   ["information", "Information we collect"],
@@ -60,7 +61,7 @@ export default function PrivacyPage() {
         </div>
       </section>
 
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]} />
+      <Breadcrumb currentPath="/privacy" items={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]} />
 
       <section className="privacy-summary" aria-label="Privacy summary">
         <div className="container privacy-summary__grid">

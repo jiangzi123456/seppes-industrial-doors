@@ -9,13 +9,25 @@ import { InquirySubmitState, submitInquiry } from "@/components/inquiry-submit";
 
 const categories = ["All", "Product News", "Solutions", "Project Stories", "Buying Guides"];
 const posts = [
-  { slug: "zipper-vs-brush-sealed-high-speed-doors", category: "Buying Guides", date: "Sep 23, 2026", title: "Zipper vs Brush-Sealed High-Speed Doors: How to Choose", excerpt: "Compare side-guide sealing, traffic fit, wear parts and impact recovery before choosing a high-speed door.", read: "9 min", image: "/images/blog/zipper-sealed-high-speed-door.jpg", tone: "blue" },
+  {
+    slug: "zipper-high-speed-door-for-cleanrooms",
+    category: "Solutions",
+    date: "Oct 9, 2026",
+    title: "Zipper High-Speed Doors for Cleanrooms: Selection Guide",
+    excerpt:
+      "Learn how to evaluate doorway pressure, cleaning, safety and recovery needs when selecting a zipper high-speed door for a cleanroom boundary.",
+    read: "9 min",
+    image: "/images/blog/cleanroom-zipper-door-yellow-window-crop.webp",
+    tone: "green",
+  },
+  { slug: "high-speed-door-for-industrial-equipment-integration", category: "Solutions", date: "Oct 9, 2026", title: "High-Speed Doors for Industrial Equipment and Automated Lines", excerpt: "Integrate a high-speed door with conveyors, machines, AGVs and robot cells by defining signals, safety zones and fault logic before production.", read: "8 min", image: "/images/blog/rapid-door-production-line.jpg", tone: "red" },
+  { slug: "zipper-vs-brush-sealed-high-speed-doors", category: "Buying Guides", date: "Sep 23, 2026", title: "Zipper vs Brush-Sealed High-Speed Doors: How to Choose", excerpt: "Compare side-guide sealing, traffic fit, wear parts and impact recovery before choosing a high-speed door.", read: "9 min", image: "/images/blog/zipper-vs-brush-cleanroom-case-crop.webp", tone: "blue" },
   { slug: "new-generation-high-speed-roll-up-door", category: "Product News", date: "Aug 19, 2026", title: "New-Generation High-Speed Roll-Up Door for Busy Production Areas", excerpt: "See how a SEPPES rapid PVC door improves traffic flow, zone separation and automatic access in busy production areas.", read: "8 min", image: "/images/high-speed-roll-up-door-product.jpg", tone: "blue" },
   { slug: "control-dust-and-airflow-between-production-zones", category: "Solutions", date: "Aug 18, 2026", title: "How to Control Dust and Airflow Between Production Zones", excerpt: "A practical rapid-door solution for facilities that need fast traffic flow without sacrificing environmental separation.", read: "8 min", image: "/images/hero-industrial-door.jpg", tone: "red" },
   { slug: "high-speed-roll-up-door-food-material-access", category: "Solutions", date: "Aug 17, 2026", title: "High-Speed Roll-Up Doors for Food Material Access", excerpt: "Reduce dust transfer, shorten waiting time and improve raw-material traffic in food production areas.", read: "8 min", image: "/images/cleanroom-door.jpg", tone: "green" },
-  {"slug":"cleanroom-door-solutions-food-pharmaceutical","category":"Solutions","date":"Sep 20, 2026","title":"Clean Access Solutions for Food and Pharmaceutical Facilities","excerpt":"Specify clean-area doors around pressure, cleaning methods, traffic and interlocks. A practical selection and validation guide for project teams.","read":"8 min","image":"/images/blog/cleanroom-airlock-concept.webp","tone":"green"},
-  {"slug":"industrial-door-buyer-checklist-12-questions","category":"Buying Guides","date":"Sep 20, 2026","title":"12 Questions to Ask Before Ordering an Industrial Door","excerpt":"A buyer's checklist for duty, site conditions, safety, materials, controls and support—with useful answers and the gaps worth questioning.","read":"8 min","image":"/images/blog/industrial-door-planning-concept.webp","tone":"navy"},
-  {"slug":"industrial-door-pre-delivery-inspection","category":"Product News","date":"Sep 20, 2026","title":"Inside the Factory: Industrial Door Testing Before Delivery","excerpt":"Separate design validation, equipment checks and site acceptance. A practical guide to inspection scope, safety functions and handover records.","read":"8 min","image":"/images/blog/industrial-door-inspection-concept.webp","tone":"purple"},
+  {"slug":"cleanroom-door-solutions-food-pharmaceutical","category":"Solutions","date":"Sep 20, 2026","title":"Clean Access Solutions for Food and Pharmaceutical Facilities","excerpt":"Specify clean-area doors around pressure, cleaning methods, traffic and interlocks. A practical selection and validation guide for project teams.","read":"8 min","image":"/images/blog/clean-access-pharma-case.webp","tone":"green"},
+  {"slug":"industrial-door-buyer-checklist-12-questions","category":"Buying Guides","date":"Sep 20, 2026","title":"12 Questions to Ask Before Ordering an Industrial Door","excerpt":"A buyer's checklist for duty, site conditions, safety, materials, controls and support—with useful answers and the gaps worth questioning.","read":"8 min","image":"/images/blog/industrial-door-selection-case.webp","tone":"navy"},
+  {"slug":"industrial-door-pre-delivery-inspection","category":"Product News","date":"Sep 20, 2026","title":"Inside the Factory: Industrial Door Testing Before Delivery","excerpt":"Separate design validation, equipment checks and site acceptance. A practical guide to inspection scope, safety functions and handover records.","read":"8 min","image":"/images/blog/industrial-door-factory-inspection.webp","tone":"purple"},
 ];
 
 export function GeoNewsFeed() {
@@ -45,11 +57,11 @@ export function GeoNewsFeed() {
       <div><p className="geo-kicker">Products · Solutions · Projects</p><h1>News<br /><em>& Insights</em></h1></div>
       <div className="geo-hero__aside"><p>Explore new industrial door products, application solutions and real project knowledge from the SEPPES manufacturing team.</p><div className="geo-pulse"><span /><b>Fresh industry updates</b><small>From Suzhou to global projects</small></div></div>
     </div></section>
-    <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
+    <Breadcrumb currentPath="/source/blog" items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
     <section className="geo-featured"><div className="container"><div className="geo-section-label"><b>Today’s briefing</b></div>
-      <article className="geo-lead"><div className="geo-lead__image"><Image src="/images/blog/zipper-sealed-high-speed-door.jpg" alt="Blue SEPPES high-speed door installed at a clean production room entrance" fill priority sizes="(min-width: 900px) 55vw, 100vw" /><span>Featured</span></div>
-        <div className="geo-lead__copy"><p className="geo-meta"><span>Buying Guides</span> September 23, 2026 · 9 min read</p><h2>Zipper vs Brush-Sealed High-Speed Doors: How to Choose</h2><p>Compare side-guide sealing, traffic fit, wear parts and impact recovery before choosing a high-speed door.</p><Link href="/source/blog/zipper-vs-brush-sealed-high-speed-doors">Read the selection guide <ArrowUpRight size={18} /></Link><div className="geo-lead__number">01 <span>/ Featured</span></div></div>
+      <article className="geo-lead"><div className="geo-lead__image"><Image src="/images/blog/cleanroom-zipper-door-yellow-window-crop.webp" alt="SEPPES zipper high-speed door with a yellow vision window in a cleanroom" fill priority sizes="(min-width: 900px) 55vw, 100vw" /><span>Featured</span></div>
+        <div className="geo-lead__copy"><p className="geo-meta"><span>Solutions</span> October 9, 2026 · 9 min read</p><h2>Zipper High-Speed Doors for Cleanrooms: Selection Guide</h2><p>Evaluate doorway pressure, cleaning, safety, traffic and recovery needs before specifying a zipper high-speed door for a controlled environment.</p><Link href="/source/blog/zipper-high-speed-door-for-cleanrooms">Read the cleanroom guide <ArrowUpRight size={18} /></Link><div className="geo-lead__number">01 <span>/ Featured</span></div></div>
       </article></div></section>
 
     <section className="geo-latest" id="latest"><div className="container"><div className="geo-section-label"><b>Latest intelligence</b></div>

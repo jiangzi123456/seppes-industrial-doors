@@ -15,13 +15,15 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
 import "./case-study.css";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Customer Case Studies",
+export const metadata = createPageMetadata({
+  title: "Rapid Doors for an Automated Assembly Workshop",
   description:
     "Explore SEPPES industrial door projects for manufacturing, logistics, clean production and cold-chain facilities worldwide.",
-  alternates: { canonical: "/project-support/rapid-doors-for-an-automated-assembly-workshop" },
-};
+  path: "/project-support/rapid-doors-for-an-automated-assembly-workshop",
+  image: "/images/factory-doors.jpg",
+});
 
 const projects = [
   {
@@ -124,7 +126,7 @@ export default function CasesPage() {
         </div>
       </section>
 
-      <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Project Support", href: "/project-support" }, { label: "Rapid doors for an automated assembly workshop" }]} />
+      <Breadcrumb currentPath="/project-support/rapid-doors-for-an-automated-assembly-workshop" items={[{ label: "Home", href: "/" }, { label: "Project Support", href: "/project-support" }, { label: "Rapid doors for an automated assembly workshop" }]} />
 
       <section className="cases-intro">
         <div className="container cases-intro__grid">
@@ -143,9 +145,9 @@ export default function CasesPage() {
         </div>
         <div className="container cases-facts">
           <div><strong>2011</strong><span>Founded in Suzhou</span></div>
-          <div><strong>20,000+ m²</strong><span>Manufacturing base</span></div>
-          <div><strong>7,600+</strong><span>Companies served</span></div>
-          <div><strong>30+</strong><span>Recognized certifications</span></div>
+          <div><strong>20,000 m²</strong><span>Manufacturing base</span></div>
+          <div><strong>7,600+</strong><span>Cooperative customers</span></div>
+          <div><strong>80+</strong><span>Fortune Global 500 companies</span></div>
         </div>
       </section>
 

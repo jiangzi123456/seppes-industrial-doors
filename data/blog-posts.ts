@@ -1,5 +1,7 @@
 import { editorialPosts } from "./editorial-posts";
 import { zipperVsBrushPost } from "./zipper-vs-brush-post";
+import { equipmentIntegratedHighSpeedDoorPost } from "./equipment-integrated-high-speed-door-post";
+import { cleanroomZipperHighSpeedDoorPost } from "./cleanroom-zipper-high-speed-door-post";
 
 export type BlogSection = {
   table?: { caption: string; headers: string[]; rows: string[][] };
@@ -48,6 +50,8 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  equipmentIntegratedHighSpeedDoorPost,
+  cleanroomZipperHighSpeedDoorPost,
   zipperVsBrushPost,
   ...editorialPosts,
   {
@@ -262,6 +266,9 @@ export const blogPosts: BlogPost[] = [
     image: "/images/cleanroom-door.jpg",
     imageAlt: "High-speed roll-up door at a controlled food production entrance",
     intro: "Raw-material entrances in food production facilities must support frequent movement without leaving processing areas continuously exposed. A correctly configured high-speed roll-up door shortens the time the entrance remains open, helps limit dust and airborne contaminants moving between zones, and allows personnel, pallet trucks and forklifts to pass with less waiting. The door should be selected as part of the facility's wider hygiene and material-flow system. It supports environmental separation but does not replace filtration, extraction, pressure control, pest management or established cleaning procedures.",
+    leadImage: "/images/blog/clean-access-production-room.webp",
+    leadImageAlt: "SEPPES high-speed roll-up door at a controlled food production entrance",
+    leadImageCaption: "A rapid door supports frequent material movement while helping the entrance return to a closed, separated state after each passage.",
     sections: [
       {
         heading: "Why raw-material entrances are difficult to control",
@@ -270,6 +277,9 @@ export const blogPosts: BlogPost[] = [
           "These problems are rarely solved by selecting the fastest available door alone. Opening size, traffic direction, operating frequency, detection range, closing delay and safety devices must work together.",
         ],
         bullets: ["Dust from packaging, pallets or raw materials moves into cleaner production areas", "Conventional doors remain open because manual operation slows the workflow", "Forklifts stop and wait for the door, causing queues around the entrance", "Employees leave the door open during repeated material transfers", "Temperature and humidity become more difficult to manage", "An unsuitable sensor opens the door when no authorized passage is required", "Poor visibility increases interaction risks between pedestrians and vehicles"],
+        image: "/images/blog/clean-access-pharma-double-door.webp",
+        imageAlt: "Two SEPPES rapid doors separating adjacent controlled production zones",
+        imageCaption: "Repeated material transfers require a doorway strategy that coordinates traffic, separation and closing logic.",
       },
       {
         heading: "How a high-speed roll-up door supports dust control",
@@ -291,6 +301,9 @@ export const blogPosts: BlogPost[] = [
           "For mixed pedestrian and forklift traffic, separate activation methods or clearly defined routes may be required. The decision should follow a site-specific traffic and safety assessment.",
         ],
         bullets: ["Radar detection for hands-free vehicle or personnel access", "Induction loops for defined forklift routes", "Pull cords for deliberate operator control", "Push buttons for controlled personnel passage", "Remote controls for designated operators", "Access-control signals for restricted production areas", "I/O or communication interfaces for conveyors and automated equipment"],
+        image: "/images/blog/rapid-door-activation-methods.jpg",
+        imageAlt: "Diagram of radar, induction loop, access-control and operator activation options for rapid doors",
+        imageCaption: "Choose the activation method around the real traffic route so the door opens when access is required without unnecessary cycles.",
       },
       {
         heading: "Improving traffic efficiency without weakening control",
@@ -305,6 +318,9 @@ export const blogPosts: BlogPost[] = [
         heading: "Safety requirements for a busy food-production entrance",
         paragraphs: ["Faster movement must be supported by suitable detection and protection.", "Depending on the opening and traffic conditions, a rapid door configuration may include infrared photocells, a safety edge, warning devices or additional presence detection. Transparent vision sections can improve awareness between people approaching from opposite sides.", "Safety devices should be selected for the actual application and verified during commissioning."],
         bullets: ["Pedestrian and vehicle traffic", "Vehicle height and approach direction", "Forklift stopping distance", "Visibility around the doorway", "Operating frequency", "Emergency procedures", "Nearby production equipment", "Cleaning and maintenance access"],
+        image: "/images/blog/rapid-door-bottom-safety-edge.jpg",
+        imageAlt: "Close-up of the bottom safety edge on a SEPPES high-speed roll-up door",
+        imageCaption: "Safety devices and their control response should be selected and commissioned for the actual traffic conditions.",
       },
       {
         heading: "Hygiene and system limitations",

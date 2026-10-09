@@ -6,20 +6,22 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ClientLogos } from "@/components/client-logos";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Industrial Door Project Case Studies",
   description: "Explore SEPPES industrial door project applications across manufacturing, logistics, cold chain, clean facilities and automated production.",
-  alternates: { canonical: "/project-support" },
-};
+  path: "/project-support",
+  image: "/images/factory-doors.jpg",
+});
 
 const sectors = [
-  { icon: Factory, count: "12+", title: "Manufacturing", text: "High-cycle access for production lines, workshops and equipment zones." },
-  { icon: Truck, count: "18+", title: "Logistics & Warehousing", text: "Coordinated door and loading-bay packages for busy distribution sites." },
-  { icon: Snowflake, count: "10+", title: "Cold Chain", text: "Fast separation designed around temperature control and daily traffic." },
-  { icon: Sparkles, count: "15+", title: "Clean Facilities", text: "Sealed, controlled openings for pharmaceutical and precision spaces." },
-  { icon: Utensils, count: "16+", title: "Food & Beverage", text: "Hygienic access solutions for processing, packing and storage zones." },
-  { icon: Bot, count: "9+", title: "Smart Automation", text: "Doors coordinated with AGVs, conveyors and production control signals." },
+  { icon: Factory, focus: "Application", title: "Manufacturing", text: "High-cycle access for production lines, workshops and equipment zones." },
+  { icon: Truck, focus: "Application", title: "Logistics & Warehousing", text: "Coordinated door and loading-bay packages for busy distribution sites." },
+  { icon: Snowflake, focus: "Application", title: "Cold Chain", text: "Fast separation designed around temperature control and daily traffic." },
+  { icon: Sparkles, focus: "Application", title: "Clean Facilities", text: "Sealed, controlled openings for pharmaceutical and precision spaces." },
+  { icon: Utensils, focus: "Application", title: "Food & Beverage", text: "Hygienic access solutions for processing, packing and storage zones." },
+  { icon: Bot, focus: "Application", title: "Smart Automation", text: "Doors coordinated with AGVs, conveyors and production control signals." },
 ];
 
 const featured = [
@@ -58,11 +60,11 @@ export default function ProjectSupportPage() {
         <div className="ps-actions"><a href="#project-library" className="ps-button ps-button--red">Explore case studies <ArrowRight size={18} /></a><Link href="/contact" className="ps-button ps-button--ghost">Discuss a similar project</Link></div>
       </div>
     </section>
-    <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Project Support" }]} />
+    <Breadcrumb currentPath="/project-support" items={[{ label: "Home", href: "/" }, { label: "Project Support" }]} />
 
     <section className="ps-section ps-portfolio"><div className="container">
       <div className="ps-heading"><div><p className="ps-kicker ps-kicker--blue">Project portfolio</p><h2>Experience across demanding industrial environments.</h2></div><p>Every site balances traffic, safety, environmental control and installation constraints differently. Start with your application, then review the project details that matter.</p></div>
-      <div className="ps-sector-grid">{sectors.map(({ icon: Icon, count, title, text }) => <a href="#project-library" key={title}><div><Icon /><span>{count} projects</span></div><h3>{title}</h3><p>{text}</p><b>View related projects <ArrowRight size={16} /></b></a>)}</div>
+      <div className="ps-sector-grid">{sectors.map(({ icon: Icon, focus, title, text }) => <a href="#project-library" key={title}><div><Icon /><span>{focus}</span></div><h3>{title}</h3><p>{text}</p><b>View related projects <ArrowRight size={16} /></b></a>)}</div>
     </div></section>
 
     <section className="ps-section ps-featured"><div className="container">

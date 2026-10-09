@@ -27,10 +27,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `/source/blog/${post.slug}` },
     openGraph: {
       type: "article",
+      url: `/source/blog/${post.slug}`,
       title: post.title,
       description: post.excerpt,
       publishedTime: post.dateISO,
       images: [{ url: post.image, alt: post.imageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
     },
   };
 }
@@ -122,7 +129,7 @@ export default async function BlogArticlePage({ params }: Props) {
       </div>
     </section>
     {post.imageCaption && <p className="container blog-post__image-note">{post.imageCaption}</p>}
-    <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/source/blog" }, { label: post.title }]} />
+    <Breadcrumb currentPath={`/source/blog/${post.slug}`} items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/source/blog" }, { label: post.title }]} />
 
     <article className="container blog-post__layout">
       <aside className="blog-post__aside">

@@ -5,8 +5,9 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { CTA } from "@/components/cta";
 import { products } from "@/data/site";
 import "./products.css";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = { title: "Industrial Door Products", description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment.", alternates: { canonical: "/products" } };
+export const metadata = createPageMetadata({ title: "Industrial Door Products", description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment.", path: "/products", image: "/images/hero-industrial-door.jpg" });
 
 const images: Record<string, string> = {
   "high-speed-roll-up-door": "/images/catalog-high-speed-roll-up.webp",
@@ -40,7 +41,7 @@ export default function ProductsPage() {
         <div className="products-overview__hero-actions"><a className="button" href="#product-families">Explore Door Types <ArrowDown size={18} /></a><Link className="button products-overview__button-ghost" href="/contact">Send Requirements <ArrowRight size={18} /></Link></div>
       </div></div>
     </section>
-    <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Industrial Door Products" }]} />
+    <Breadcrumb currentPath="/products" items={[{ label: "Home", href: "/" }, { label: "Industrial Door Products" }]} />
     <section className="products-overview__section" id="product-families"><div className="container">
       <div className="products-overview__section-heading"><span className="eyebrow">Product families</span><h2>Four Solutions for Industrial Openings</h2><p>Each family addresses a different balance of speed, sealing, security, insulation and loading efficiency.</p></div>
       <div className="products-overview__family-grid">{products.map(product => <article className="products-overview__family-card" id={product.slug} key={product.slug}>

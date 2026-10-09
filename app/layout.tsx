@@ -21,6 +21,35 @@ import { FloatingContact } from "@/components/floating-contact";
 
 const siteUrl = "https://www.seppesde.com";
 
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "SEPPES Industrial Doors",
+      inLanguage: "en",
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Seppes Door Industry (Suzhou) Co., Ltd.",
+      alternateName: "SEPPES",
+      url: siteUrl,
+      logo: `${siteUrl}/seppes-logo-cropped.png`,
+      foundingDate: "2011",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Suzhou",
+        addressRegion: "Jiangsu",
+        addressCountry: "CN",
+      },
+    },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "SEPPES | Industrial Door Solutions", template: "%s | SEPPES" },
@@ -37,5 +66,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><Header /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /><FloatingContact /></body></html>;
+  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} /><Header /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /><FloatingContact /></body></html>;
 }

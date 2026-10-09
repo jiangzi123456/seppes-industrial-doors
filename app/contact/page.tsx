@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ContactMap } from "@/components/contact-map";
+import { createPageMetadata } from "@/lib/seo";
 import {
   ArrowRight,
   Building2,
@@ -16,11 +17,12 @@ import {
   Truck,
 } from "lucide-react";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Discuss Your Industrial Door Project",
   description: "Contact SEPPES about industrial doors and loading dock equipment. Share opening dimensions, project location and site requirements for review.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+  image: "/images/hero-industrial-door.jpg",
+});
 
 const whatsapp = "https://wa.me/8617798578460?text=Hello%2C%20I%20would%20like%20to%20discuss%20an%20industrial%20door%20project%20with%20SEPPES.";
 
@@ -45,7 +47,7 @@ export default function ContactPage() {
         <div className="contact-actions"><a className="contact-button primary" href="#inquiry">Send an Inquiry <ArrowRight size={18} /></a><a className="contact-button secondary" href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Contact Us on WhatsApp</a></div>
       </div></div>
     </header>
-    <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
+    <Breadcrumb currentPath="/contact" items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
 
     <section className="contact-section"><div className="container">
       <div className="contact-heading"><p className="contact-kicker blue">DIRECT CONTACT</p><h2>Contact SEPPES About Your Project</h2><p>Choose the contact method that best matches the information you already have. Send specifications by email, share site photos through WhatsApp, or speak directly with our project team.</p></div>

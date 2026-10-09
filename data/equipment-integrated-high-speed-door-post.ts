@@ -1,0 +1,150 @@
+import type { BlogPost } from "./blog-posts";
+
+export const equipmentIntegratedHighSpeedDoorPost: BlogPost = {
+  slug: "high-speed-door-for-industrial-equipment-integration",
+  category: "Solutions",
+  date: "October 9, 2026",
+  dateISO: "2026-10-09",
+  readTime: "8 min read",
+  title: "High-Speed Doors for Industrial Equipment and Automated Lines",
+  excerpt: "Learn how to integrate a high-speed door with conveyors, machines, AGVs and robot cells by defining signals, safety zones and fault logic before production.",
+  image: "/images/blog/rapid-door-production-line.jpg",
+  imageAlt: "SEPPES high-speed doors installed beside automated industrial equipment",
+  keywords: [
+    "high-speed door for industrial equipment",
+    "machine integrated rapid door",
+    "high-speed door conveyor integration",
+    "AGV high-speed door",
+    "automated production line door",
+  ],
+  intro: "A high-speed door can serve as a controlled moving guard between industrial equipment, conveyors, robot cells and material routes. A reliable installation depends on more than opening speed: the machine signal, door-ready feedback, safety devices, closing permission and fault response must be designed as one operating sequence. Confirming that sequence before production helps the door support automation without creating an avoidable bottleneck or unsafe movement.",
+  quickQuestion: "How should a high-speed door work with industrial equipment?",
+  quickAnswer: "Connect the high-speed door to the equipment through agreed dry-contact I/O or another confirmed interface, then define who requests opening, what proves the doorway is clear, when the machine may move and how both systems respond to a fault or emergency stop. The door, machine and safety devices must be risk-assessed and commissioned as one coordinated system.",
+  quickFacts: [
+    ["Typical interface", "Agreed I/O or RS-485"],
+    ["Traffic sources", "Machines, conveyors & AGVs"],
+    ["Control priority", "Sequence + safety feedback"],
+    ["Confirm before production", "Signals, timing & fault states"],
+  ],
+  faqTitle: "Equipment-Integrated High-Speed Door Questions",
+  faqs: [
+    ["Can a high-speed door receive a signal from a machine or PLC?", "Yes. The current SEPPES rapid-door reference provides reserved I/O terminals and RS-485 communication for agreed automation interfaces. The signal type, voltage, protocol and responsibility for programming must be confirmed for the project."],
+    ["Can the machine move as soon as the door receives an open command?", "No. The equipment should wait for a confirmed door-open or safe-position signal defined by the control design. An opening request alone does not prove that the doorway is clear or that the door has reached the required position."],
+    ["Can one door coordinate with a conveyor or AGV?", "Yes. A conveyor, AGV controller or site PLC can request access and receive agreed door-status feedback. Detection zones, travel speed, stopping distance and timeout logic must be reviewed for the actual route."],
+    ["Does the door replace machine guarding?", "No. A high-speed door can support controlled separation, but the machine builder and site safety team must determine guarding, interlocks, safety integrity and emergency procedures through a project-specific risk assessment."],
+    ["What information is needed for an equipment-integration proposal?", "Provide the opening dimensions, machine layout, traffic direction, cycle frequency, required signals, control voltage or protocol, safety concept, sequence description, project location and available electrical drawings or videos."],
+  ],
+  leadImage: "/images/blog/rapid-door-production-workflow.jpg",
+  leadImageAlt: "High-speed roll-up door coordinated with an industrial production workflow",
+  leadImageCaption: "The door-control sequence should be planned around equipment movement, route clearance and safe closing conditions.",
+  sections: [
+    {
+      heading: "Why automated equipment needs a controlled doorway",
+      paragraphs: [
+        "Production equipment often transfers parts or pallets between zones that must remain separated when no movement is taking place. A permanently open passage weakens environmental control, while a slow or manually operated door can interrupt takt time and force operators to bypass the intended sequence.",
+        "A high-speed roll-up door shortens the access cycle and can respond automatically to an agreed equipment signal. Its role is to create a repeatable boundary: closed while the route is inactive, open when authorized movement is ready, and closed again after the doorway has been confirmed clear.",
+      ],
+      bullets: [
+        "Conveyors transferring products between process stages",
+        "Robot cells receiving racks, pallets or components",
+        "AGVs and AMRs moving between production zones",
+        "Machine enclosures requiring controlled material access",
+        "Automated storage and retrieval routes",
+        "Test equipment separated from adjacent work areas",
+      ],
+    },
+    {
+      heading: "Define the operating sequence before selecting hardware",
+      paragraphs: [
+        "The control sequence should describe each step from the first access request to the final closed-door confirmation. It should identify which controller owns the command, which signals are permissive conditions and what happens if either system does not reach the expected state within the allowed time.",
+        "This sequence belongs in the technical review before the door is manufactured. Leaving it until site commissioning can expose mismatched voltages, missing feedback contacts, unclear responsibilities or unsafe assumptions about equipment movement.",
+      ],
+      numberedItems: [
+        "The equipment or route controller requests access.",
+        "The door controller checks its safety circuit and accepts the request.",
+        "The door opens and sends the agreed open-position or ready feedback.",
+        "The conveyor, AGV or machine moves only after receiving the required permissive signal.",
+        "Presence detection confirms that the passage is clear.",
+        "The equipment releases the opening request and the door closes.",
+        "The closed-position signal restores the separated state or permits the next process step.",
+      ],
+    },
+    {
+      heading: "Choose an interface that both control teams can verify",
+      paragraphs: [
+        "Reserved I/O terminals are a practical starting point for simple commands and status feedback. RS-485 communication may support an agreed higher-level interface, but the protocol, registers and commissioning scope must be confirmed rather than assumed from the connector alone.",
+        "The door supplier, machine builder and site integrator should use one signal list. Every point needs a name, direction, electrical definition, normal state and fault meaning.",
+      ],
+      table: {
+        caption: "Typical signals for an equipment-integrated high-speed door",
+        headers: ["Signal", "Direction", "Purpose"],
+        rows: [
+          ["Open request", "Equipment to door", "Requests an authorized access cycle"],
+          ["Door open / ready", "Door to equipment", "Confirms the agreed movement position"],
+          ["Door closed", "Door to equipment", "Confirms the boundary has been restored"],
+          ["Door fault", "Door to equipment", "Stops or redirects the equipment sequence"],
+          ["Route clear", "Safety system to controls", "Supports safe closing after passage"],
+          ["Emergency condition", "Coordinated circuit", "Places both systems in the defined safe state"],
+        ],
+      },
+    },
+    {
+      heading: "Treat safety sensing and equipment logic as one system",
+      paragraphs: [
+        "A photocell or safety edge protects the door movement within its defined coverage, but it does not automatically validate the entire machine cell or vehicle route. The project risk assessment must consider trapping, impact, unexpected restart, loss of communication and people entering behind a load.",
+        "Detection positions should reflect the actual object size, approach direction and stopping distance. Where people and automated equipment share the opening, additional presence detection, warning devices, barriers or separated routes may be required.",
+      ],
+      bullets: [
+        "Prevent equipment movement until the required door position is confirmed",
+        "Prevent closing while a load, vehicle or person occupies the protected route",
+        "Define the safe response to a broken sensor or lost signal",
+        "Provide manual recovery without bypassing the safety concept",
+        "Coordinate emergency stops and restart permissions",
+        "Validate the complete sequence during site commissioning",
+      ],
+      image: "/images/blog/rapid-door-bottom-safety-edge.jpg",
+      imageAlt: "Safety edge on a high-speed industrial door used near automated equipment",
+      imageCaption: "Door-mounted safety devices form part of the protection strategy, while the wider equipment route still requires a complete risk assessment.",
+    },
+    {
+      heading: "Match timing to the equipment cycle without sacrificing clearance",
+      paragraphs: [
+        "Opening speed is only one part of cycle time. The detection delay, acceleration, open-position threshold, equipment travel time and closing delay all affect throughput. An overly short delay may conflict with long loads, while an overly long delay leaves the boundary open unnecessarily.",
+        "Commissioning should observe the slowest and largest expected load as well as normal operation. The final settings should support reliable clearance under real conditions rather than the shortest theoretical cycle.",
+      ],
+      image: "/images/blog/rapid-door-agv-access.jpg",
+      imageAlt: "AGV approaching a high-speed door connected to production equipment",
+      imageCaption: "AGV speed, detection distance and stopping position should be coordinated with the door opening and feedback sequence.",
+    },
+    {
+      heading: "Information SEPPES needs before configuration",
+      paragraphs: [
+        "A useful proposal combines physical opening data with the automation sequence. Drawings should show the door, equipment, guarding, vehicle path and available control-panel location. A short process video can help the engineering team understand timing and traffic that are difficult to describe in a static layout.",
+      ],
+      numberedItems: [
+        "Clear opening width and height, side room and headroom",
+        "Machine, conveyor, robot-cell or AGV layout",
+        "Object dimensions, speed, direction and cycle frequency",
+        "Required open, closed, ready and fault signals",
+        "PLC, controller, voltage and communication requirements",
+        "Safety devices, guarding and emergency-stop concept",
+        "Temperature, dust, pressure or cleanliness requirements",
+        "Site drawings, electrical diagrams, photos and process video",
+      ],
+    },
+    {
+      heading: "Plan the door as part of the automation project",
+      paragraphs: [
+        "SEPPES configures high-speed doors around the verified opening, operating environment, traffic and control requirements. For equipment applications, the project review can include the required activation method, reserved control interfaces, safety devices and documented signal sequence.",
+        "Share the mechanical layout and control description early. The door supplier, equipment builder and site integrator can then confirm boundaries and responsibilities before manufacturing, reducing avoidable changes during commissioning.",
+      ],
+    },
+  ],
+  relatedLinks: [
+    { href: "/source/blog/new-generation-high-speed-roll-up-door", label: "High-Speed Roll-Up Door for Busy Production Areas" },
+    { href: "/source/blog/control-dust-and-airflow-between-production-zones", label: "Control Dust and Airflow Between Production Zones" },
+    { href: "/source/blog/zipper-sealed-vs-brush-sealed-high-speed-doors", label: "Zipper vs Brush-Sealed High-Speed Doors" },
+  ],
+  relatedHref: "/products/high-speed-roll-up-door",
+  relatedLabel: "Explore the High Speed Roll Up Door",
+};

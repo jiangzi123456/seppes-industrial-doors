@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { ProductDetailLayout, standardHeroIcons, type ProductDetailContent } from "@/components/product-detail-layout";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "High Speed Spiral Door",
   description: "Insulated high speed spiral door for frequent exterior industrial traffic, wind resistance, security and energy control.",
-  alternates: { canonical: "/products/high-speed-spiral-door" },
-};
+  path: "/products/high-speed-spiral-door",
+  image: "/images/catalog-high-speed-spiral.webp",
+});
 
 const product: ProductDetailContent = {
   slug: "high-speed-spiral-door",

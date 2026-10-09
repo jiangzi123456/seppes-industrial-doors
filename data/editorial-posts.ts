@@ -11,8 +11,8 @@ export const editorialPosts: BlogPost[] = [
     "category": "Solutions",
     "title": "Clean Access Solutions for Food and Pharmaceutical Facilities",
     "excerpt": "Specify clean-area doors around pressure, cleaning methods, traffic and interlocks. A practical selection and validation guide for project teams.",
-    "image": "/images/blog/cleanroom-airlock-concept.webp",
-    "imageAlt": "AI concept illustration of blue rapid doors in a stainless-steel clean-area airlock",
+    "image": "/images/blog/clean-access-pharma-case.webp",
+    "imageAlt": "SEPPES high-speed door installed at a controlled production room",
     "keywords": [
       "cleanroom door solutions",
       "hygienic industrial door",
@@ -20,6 +20,9 @@ export const editorialPosts: BlogPost[] = [
       "airlock door interlock"
     ],
     "intro": "A clean-area entrance is both a traffic route and an environmental boundary. In food and pharmaceutical facilities, specify the door around the room pressure strategy, cleaning regime, movement pattern and required documentation. Rapid operation and suitable seals can support separation, but the complete room and its operating procedures must be assessed together.",
+    "leadImage": "/images/blog/clean-access-pharma-double-door.webp",
+    "leadImageAlt": "Two SEPPES high-speed doors installed along a pharmaceutical production corridor",
+    "leadImageCaption": "Real project installation: paired rapid doors provide controlled access along a clean production route.",
     "quickQuestion": "What should a clean-area door be designed to do?",
     "quickAnswer": "Reduce unnecessary open time, support the specified pressure boundary when closed and allow effective cleaning. Match the curtain, guides, seals, activation and safety devices to the actual traffic and cleaning chemicals. Where an airlock is required, define the door sequence and emergency response with the facility team; verify the installed system under real operating conditions.",
     "quickFacts": [
@@ -74,13 +77,19 @@ export const editorialPosts: BlogPost[] = [
           "Reduce unnecessary activation and excessive closing delay.",
           "Check the curtain and sealing arrangement under the specified room conditions.",
           "Include frames, guides, windows and seals in the cleaning plan."
-        ]
+        ],
+        "image": "/images/blog/clean-access-production-room.webp",
+        "imageAlt": "SEPPES high-speed door operating at a clean production room entrance",
+        "imageCaption": "A real clean-area installation showing the stainless-steel head assembly, curtain and controlled room interface."
       },
       {
         "heading": "Food and pharmaceutical priorities",
         "paragraphs": [
           "Both environments need controlled movement and cleanable surfaces. The emphasis varies by process: food areas may need frequent wet cleaning and control of residues or foreign material, while pharmaceutical projects may place greater emphasis on documented room boundaries and validation. The facility's own risk assessment sets the requirements."
         ],
+        "image": "/images/blog/cleanroom-zipper-door-yellow-window-crop.webp",
+        "imageAlt": "Blue SEPPES zipper high-speed door with a vision window in a clean production room",
+        "imageCaption": "Food and pharmaceutical entrances require different cleaning, traffic and documentation reviews even when the doorway layout appears similar.",
         "table": {
           "caption": "Discuss the actual process before selecting the door",
           "headers": [
@@ -147,6 +156,9 @@ export const editorialPosts: BlogPost[] = [
         "paragraphs": [
           "The following are starting points for engineering review, not universal product ratings or guarantees of cleanroom suitability."
         ],
+        "image": "/images/blog/zipper-high-speed-door-cleanroom-case.webp",
+        "imageAlt": "Blue SEPPES zipper high-speed door installed at a clean production room",
+        "imageCaption": "A zipper-guided rapid door may support a controlled-area boundary, but the selected configuration still needs project-specific review.",
         "table": {
           "caption": "Application-to-configuration guide",
           "headers": [
@@ -278,14 +290,17 @@ export const editorialPosts: BlogPost[] = [
     "category": "Buying Guides",
     "title": "12 Questions to Ask Before Ordering an Industrial Door",
     "excerpt": "A buyer's checklist for duty, site conditions, safety, materials, controls and support—with useful answers and the gaps worth questioning.",
-    "image": "/images/blog/industrial-door-planning-concept.webp",
-    "imageAlt": "AI concept illustration of doorway drawings and inspection tools on an engineering desk",
+    "image": "/images/blog/industrial-door-selection-case.webp",
+    "imageAlt": "SEPPES industrial rapid door installed beside production equipment",
     "keywords": [
       "industrial door buyer checklist",
       "industrial door supplier questions",
       "industrial door selection guide"
     ],
     "intro": "The right industrial door starts with a clear brief. Before placing an order, resolve the application, traffic, opening conditions, operating sequence, safety, materials, evidence and support plan. These twelve questions help procurement and engineering teams turn broad claims into a configuration they can review and accept.",
+    "leadImage": "/images/blog/industrial-door-equipment-opening.webp",
+    "leadImageAlt": "Industrial door integrated with automated production equipment",
+    "leadImageCaption": "A real production-line installation illustrates why equipment clearance, guarding and control interfaces must be reviewed before ordering.",
     "quickQuestion": "What should you ask before choosing an industrial door?",
     "quickAnswer": "Ask the supplier to connect each recommendation to your operating conditions and explain the evidence, limitations and responsibilities. Record the opening dimensions, traffic, environment and controls, then agree the configuration, document list, installation scope and maintenance plan. A useful answer is specific enough to check against a drawing, specification or agreed acceptance criterion.",
     "quickFacts": [
@@ -358,7 +373,10 @@ export const editorialPosts: BlogPost[] = [
         "review": {
           "good": "A drawing or survey confirms the opening, fixing surfaces, service access and responsibility for building preparation.",
           "flag": "Installation is left as an undefined site assumption."
-        }
+        },
+        "image": "/images/blog/industrial-door-site-conditions.webp",
+        "imageAlt": "Industrial sectional door installed in an active factory building",
+        "imageCaption": "A real factory opening shows why headroom, structure, vehicle routes and surrounding equipment must be measured together."
       },
       {
         "heading": "4. What opening speed does the process need?",
@@ -388,7 +406,10 @@ export const editorialPosts: BlogPost[] = [
         "review": {
           "good": "The supplier identifies devices, stopping or reversal behaviour, relevant evidence and site assessment responsibilities.",
           "flag": "The entire answer is simply anti-pinch protection, without explaining how or where it works."
-        }
+        },
+        "image": "/images/blog/rapid-door-bottom-safety-edge.jpg",
+        "imageAlt": "Bottom safety edge fitted to a SEPPES high-speed door",
+        "imageCaption": "Ask how each fitted device changes door movement and how that response will be checked after installation."
       },
       {
         "heading": "7. How do the controls behave during a fault or power loss?",
@@ -418,7 +439,10 @@ export const editorialPosts: BlogPost[] = [
         "review": {
           "good": "Interfaces, signal meanings, ready/open confirmation, failure response and commissioning ownership are documented.",
           "flag": "Integration is promised without specifying the interface or control responsibilities."
-        }
+        },
+        "image": "/images/blog/rapid-door-agv-access.jpg",
+        "imageAlt": "AGV approaching a SEPPES rapid door in an automated production route",
+        "imageCaption": "Automated traffic needs defined request, ready, open-confirmation and fault signals rather than an unspecified sensor connection."
       },
       {
         "heading": "10. Which evidence and documents apply to this configuration?",
@@ -448,7 +472,10 @@ export const editorialPosts: BlogPost[] = [
         "review": {
           "good": "The supplier explains inspection tasks, wear parts, identification, maintenance access and recovery planning for the intended duty.",
           "flag": "Maintenance is described as unnecessary, or replacement parts cannot be identified."
-        }
+        },
+        "image": "/images/blog/rapid-door-maintenance.jpg",
+        "imageAlt": "SEPPES technicians checking a high-speed industrial door",
+        "imageCaption": "Maintenance access, wear-part identification and an agreed support route should be reviewed before ordering."
       },
       {
         "heading": "Set priorities for your application",
@@ -519,14 +546,17 @@ export const editorialPosts: BlogPost[] = [
     "category": "Product News",
     "title": "Inside the Factory: Industrial Door Testing Before Delivery",
     "excerpt": "Separate design validation, equipment checks and site acceptance. A practical guide to inspection scope, safety functions and handover records.",
-    "image": "/images/blog/industrial-door-inspection-concept.webp",
-    "imageAlt": "AI concept illustration of a blue rapid door in an industrial inspection bay",
+    "image": "/images/blog/industrial-door-factory-inspection.webp",
+    "imageAlt": "SEPPES factory production equipment used for industrial door component manufacturing",
     "keywords": [
       "industrial door pre-delivery inspection",
       "industrial door factory testing",
       "door acceptance checklist"
     ],
     "intro": "Pre-delivery inspection should establish that the supplied door matches the approved configuration, operates as intended within the agreed test scope and arrives with the required identification and documents. Keep design validation, equipment inspection and site acceptance separate: each answers a different question, and none replaces the others.",
+    "leadImage": "/images/blog/industrial-door-test-installation.webp",
+    "leadImageAlt": "Industrial door installation prepared for functional inspection",
+    "leadImageCaption": "A completed industrial entrance provides the physical reference for checking configuration, movement, controls and handover requirements.",
     "quickQuestion": "What should be checked before an industrial door is shipped?",
     "quickAnswer": "Agree a configuration check, assembly and electrical review, powered functional checks where applicable, safety-device checks, inspection of the specified interfaces, and a packing and document review. Define the acceptance criteria and records for the selected model before production. Factory results support handover, while the installed door still requires commissioning and acceptance at the destination.",
     "quickFacts": [
@@ -614,6 +644,9 @@ export const editorialPosts: BlogPost[] = [
         "paragraphs": [
           "Use this proposed scope to discuss the inspection plan with SEPPES. It is not a published SEPPES factory record or a claim that every item follows an identical procedure across all products. Confirm the applicable checks, acceptance criteria, extent of testing and available records for the specific order."
         ],
+        "image": "/images/blog/industrial-door-final-check.webp",
+        "imageAlt": "Industrial sectional door ready for final site and operating checks",
+        "imageCaption": "A real industrial-door installation ready for final checks of movement, identification, controls and site interfaces.",
         "table": {
           "caption": "Fourteen areas to agree before production",
           "headers": [
@@ -701,7 +734,10 @@ export const editorialPosts: BlogPost[] = [
           "A physical device and the control response behind it need to be considered together. Agree which protective devices are fitted, what happens when they operate, how faults are indicated and how authorized recovery is performed.",
           "Where safety-related reports or certificates are requested, review the exact device, function and model scope. Evidence for a controller or component does not automatically establish the performance or conformity of the complete installed entrance.",
           "Do not improvise obstruction tests or bypass protection. The applicable procedures and acceptance checks should be defined and carried out by qualified personnel for the selected equipment."
-        ]
+        ],
+        "image": "/images/blog/rapid-door-bottom-safety-edge.jpg",
+        "imageAlt": "Close-up of a protective bottom edge on a SEPPES rapid door",
+        "imageCaption": "The physical protective device and the configured control response should be inspected together under the agreed procedure."
       },
       {
         "heading": "Make the document package usable",
@@ -714,7 +750,10 @@ export const editorialPosts: BlogPost[] = [
           "Identify drawings and manuals by revision.",
           "Clarify which parts and accessories arrive separately.",
           "Record open actions and the responsible contact before handover."
-        ]
+        ],
+        "image": "/images/blog/seppes-product-export-shipment.jpg",
+        "imageAlt": "SEPPES industrial door components packed for export shipment",
+        "imageCaption": "Packing identification, drawings, manuals and parts references should form one usable handover package."
       },
       {
         "heading": "Factory checks do not replace site acceptance",

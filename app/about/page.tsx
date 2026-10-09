@@ -2,27 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, Factory, Globe2, ShieldCheck, Wrench } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "About SEPPES: Industrial Door Manufacturer in China",
-  description: "Meet SEPPES, a direct industrial door manufacturer in Suzhou with a 20,000+ m² factory. Explore our history, production capability, founder and global project support.",
+  description: "Meet SEPPES, a direct industrial door manufacturer established in Suzhou in 2011 with a 20,000 m² factory supporting customers across 90+ countries and regions.",
   keywords: ["industrial door manufacturer", "industrial door factory China", "high speed door manufacturer", "loading dock equipment manufacturer", "SEPPES factory"],
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+  image: "/images/factory-building.jpg",
+});
 
 const milestones = [
   { year: "2011", title: "SEPPES was founded", text: "We began in Suzhou with one focus: making industrial entrance systems more reliable and easier to specify." },
   { year: "2016", title: "Factory capability expanded", text: "Dedicated production, testing and quality-control processes were established for industrial doors and dock equipment." },
   { year: "2019", title: "Global project support", text: "Our products entered more overseas markets, backed by English documentation, export packing and remote installation guidance." },
   { year: "2022", title: "A complete entrance portfolio", text: "High-speed doors, sectional doors, hangar doors and loading dock systems formed one coordinated solution platform." },
-  { year: "2025", title: "Serving 90+ countries", text: "SEPPES continued to grow as a trusted manufacturing partner for factories, logistics hubs and clean facilities worldwide." },
+  { year: "2025", title: "Serving 90+ countries and regions", text: "SEPPES continued to grow as a manufacturing partner for factories, logistics hubs and clean facilities worldwide." },
 ];
 
 const strengths = [
-  { icon: Factory, number: "20,000+ m²", label: "Manufacturing base", text: "Purpose-built production space for door systems, controls and loading equipment." },
+  { icon: Factory, number: "20,000 m²", label: "Manufacturing base", text: "Production and assembly support for door systems, controls and loading equipment." },
   { icon: Globe2, number: "90+", label: "Countries & regions", text: "Export-ready support for international contractors, distributors and end users." },
-  { icon: BadgeCheck, number: "50+", label: "Product certifications", text: "Products developed around recognized safety, quality and performance requirements." },
-  { icon: Wrench, number: "15 years", label: "Industry experience", text: "Application knowledge built through demanding industrial projects since 2011." },
+  { icon: BadgeCheck, number: "7,600+", label: "Cooperative customers", text: "Industrial access solutions supplied for a broad international customer base." },
+  { icon: Wrench, number: "80+", label: "Fortune Global 500 companies", text: "Cooperation experience with major global industrial enterprises." },
 ];
 
 const factoryProof = [
@@ -46,10 +48,9 @@ const aboutFaqs = [
 export default function AboutPage() {
   return <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-      "@context": "https://schema.org", "@graph": [
-        { "@type": "Organization", name: "SEPPES", foundingDate: "2011", description: "Industrial door and loading dock equipment manufacturer in Suzhou, China.", url: "https://seppesaccess.com/about/", logo: "https://seppesaccess.com/seppes-logo.png", address: { "@type": "PostalAddress", addressLocality: "Suzhou", addressRegion: "Jiangsu", addressCountry: "CN" }, founder: { "@type": "Person", name: "Yuanjia Yang", jobTitle: "Founder" }, areaServed: "Worldwide", knowsAbout: ["industrial doors", "high speed doors", "sectional doors", "loading dock equipment"] },
-        { "@type": "FAQPage", mainEntity: aboutFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) }
-      ]
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: aboutFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } }))
     }) }} />
     <section className="about-hero">
       <Image src="/images/factory-building.jpg" alt="SEPPES industrial door manufacturing facility" fill priority sizes="100vw" />
@@ -66,7 +67,7 @@ export default function AboutPage() {
       <div className="about-hero-proof"><span>EST. 2011</span><span>SUZHOU · CHINA</span><span>GLOBAL DELIVERY</span></div>
     </section>
 
-    <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
+    <Breadcrumb currentPath="/about" items={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
 
     <section className="about-intro">
       <div className="container about-intro-grid">
@@ -90,7 +91,7 @@ export default function AboutPage() {
       <div className="container">
         <div className="about-section-heading light"><div><span className="about-kicker">FACTORY STRENGTH</span><h2>See where reliable doors begin.</h2></div><p>In-house manufacturing gives us direct control over materials, workmanship, testing and delivery schedules.</p></div>
         <div className="factory-gallery">
-          <figure className="factory-main"><Image src="/images/factory-building.jpg" alt="Exterior of the SEPPES manufacturing facility" fill sizes="(max-width: 800px) 100vw, 66vw" /><figcaption><span>01</span><div><strong>20,000+ m² manufacturing base</strong><small>Suzhou, Jiangsu, China</small></div></figcaption></figure>
+          <figure className="factory-main"><Image src="/images/factory-building.jpg" alt="Exterior of the SEPPES manufacturing facility" fill sizes="(max-width: 800px) 100vw, 66vw" /><figcaption><span>01</span><div><strong>20,000 m² manufacturing base</strong><small>Suzhou, Jiangsu, China</small></div></figcaption></figure>
           <figure><Image src="/images/factory-doors.jpg" alt="Industrial doors manufactured by SEPPES" fill sizes="(max-width: 800px) 100vw, 34vw" /><figcaption><span>02</span><div><strong>Controlled production</strong><small>Consistent processes at every stage</small></div></figcaption></figure>
           <figure><Image src="/images/high-speed-roll-up-door-product.jpg" alt="SEPPES high speed door product" fill sizes="(max-width: 800px) 100vw, 34vw" /><figcaption><span>03</span><div><strong>Application-led engineering</strong><small>Built to fit the opening and operation</small></div></figcaption></figure>
         </div>

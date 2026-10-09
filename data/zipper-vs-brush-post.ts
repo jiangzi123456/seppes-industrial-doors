@@ -8,8 +8,8 @@ export const zipperVsBrushPost: BlogPost = {
   readTime: "9 min read",
   title: "Zipper vs Brush-Sealed High-Speed Doors: How to Choose",
   excerpt: "Compare zipper and brush side guides by sealing demand, traffic, maintenance and recovery after impact—then choose the right high-speed door for the opening.",
-  image: "/images/blog/zipper-sealed-high-speed-door.jpg",
-  imageAlt: "Blue SEPPES high-speed door installed at a clean production room entrance",
+  image: "/images/blog/zipper-vs-brush-cleanroom-case-crop.webp",
+  imageAlt: "Blue SEPPES zipper high-speed door installed in a clean production area",
   keywords: ["zipper high-speed door", "brush-sealed high-speed door", "zipper door vs brush seal door", "self-repairing high-speed door", "cleanroom high-speed door selection"],
   intro: "Zipper and brush-sealed high-speed doors use different side-guide principles. A zipper design retains the curtain edge inside an interlocking guide and is usually considered where tighter perimeter control or impact recovery matters. A brush-sealed design guides the curtain beside replaceable brushes and is often suitable for general production and logistics traffic. The correct choice depends on the verified environmental boundary, traffic and maintenance plan.",
   quickQuestion: "What is the difference between a zipper and a brush-sealed high-speed door?",
@@ -35,7 +35,11 @@ export const zipperVsBrushPost: BlogPost = {
     { heading: "How zipper side guides work", paragraphs: [
       "A zipper-sealed high-speed door uses a shaped curtain edge that engages continuously with the side track. This creates a more enclosed guide interface than a conventional brush arrangement. On self-reinserting configurations, a curtain displaced by an accidental impact can be guided back into the tracks during an authorized operating cycle.",
       "Zipper guides are often evaluated for controlled rooms, clean production areas and routes where impact recovery is valuable. These applications require a model-specific review: the guide style alone does not prove leakage performance, cleanroom suitability or recovery after every type of damage.",
-    ], bullets: ["Discuss where tighter side engagement supports the environmental boundary.", "Confirm whether self-reinsertion is included in the proposed configuration.", "Agree inspection and isolation procedures after a vehicle or load strikes the curtain."]},
+    ], bullets: ["Discuss where tighter side engagement supports the environmental boundary.", "Confirm whether self-reinsertion is included in the proposed configuration.", "Agree inspection and isolation procedures after a vehicle or load strikes the curtain."], image: "/images/blog/zipper-high-speed-door-cleanroom-case.webp", imageAlt: "Front view of a blue SEPPES zipper high-speed door in a clean production room", imageCaption: "A zipper high-speed door uses continuous curtain-edge engagement within the side tracks; the exact guide and recovery configuration should be confirmed for the selected model." },
+    { heading: "Treat impact recovery as an operating procedure", paragraphs: [
+      "A self-reinserting zipper curtain can reduce downtime after certain low-energy contacts because the curtain edge can return to the guide during a controlled cycle. This feature is useful on routes where carts, loads or vehicles may occasionally touch the flexible curtain.",
+      "Recovery is not permission to restart automatically after every collision. Operators should stop the route, check the curtain, guide, bottom edge and safety devices, remove any obstruction and follow the approved reset procedure. Structural damage, torn fabric or a displaced component requires inspection before the door returns to service.",
+    ], bullets: ["Define who is authorized to inspect and reset the door.", "Include the guide and curtain edge in routine maintenance checks.", "Record repeated impacts and correct the traffic or activation cause."], image: "/images/blog/zipper-curtain-impact-recovery.webp", imageAlt: "SEPPES zipper high-speed door curtain viewed during an impact recovery inspection", imageCaption: "The flexible curtain and guide interface should be inspected after contact before an authorized recovery cycle is started." },
     { heading: "Zipper vs brush: a practical comparison", paragraphs: ["Use this table to prepare the technical discussion. It describes selection tendencies rather than universal ratings; ask for product-specific drawings and evidence for the configuration offered."], table: {
       caption: "Compare the two guide systems against the project requirement",
       headers: ["Decision point", "Brush-sealed guide", "Zipper guide"],
@@ -58,11 +62,11 @@ export const zipperVsBrushPost: BlogPost = {
     { heading: "Match the door to the actual application", paragraphs: [
       "A brush-sealed high-speed roll-up door is often a sensible starting point for a frequent internal route whose main needs are shorter waiting time and general separation. A zipper design deserves closer review where the curtain needs more continuous side engagement, where vehicle contact is a foreseeable risk or where a controlled-area strategy calls for a tighter boundary.",
       "For an exposed exterior opening, large span, higher security demand or stronger thermal boundary, compare the requirement with a rigid high-speed or industrial sectional door instead of forcing either flexible-curtain option into the wrong duty.",
-    ]},
+    ], image: "/images/blog/zipper-door-production-application.webp", imageAlt: "Blue SEPPES zipper high-speed door installed at an internal production route", imageCaption: "Application fit depends on the opening, traffic, environmental boundary and required recovery behavior—not the guide name alone." },
     { heading: "Plan the configuration with SEPPES", paragraphs: [
       "SEPPES manufactures configurable high-speed door systems for production, warehousing, logistics and controlled-area projects. The engineering review can coordinate the guide system, curtain, activation, safety devices, control interfaces and project documentation around the confirmed application.",
       "Send the opening dimensions, quantity, application, traffic, operating frequency, environment, cleaning method, control requirements, project location and available photos or drawings. Where sealing or pressure performance matters, include the required criterion and evidence scope in the enquiry.",
-    ]},
+    ], image: "/images/blog/zipper-door-installation-check.webp", imageAlt: "SEPPES zipper high-speed door viewed during an installation and site-condition check", imageCaption: "Clear opening dimensions, headroom, side room, nearby equipment and control locations should be checked before the final configuration is approved." },
   ],
   relatedLinks: [
     { href: "/products/high-speed-roll-up-door", label: "Explore high-speed roll-up doors" },

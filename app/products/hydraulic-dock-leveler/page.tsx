@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { ProductDetailLayout, standardHeroIcons, type ProductDetailContent } from "@/components/product-detail-layout";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Hydraulic Dock Leveler",
   description: "Hydraulic dock leveler systems for safe, efficient vehicle-to-warehouse loading, including swing-lip, telescopic and edge-of-dock options.",
-  alternates: { canonical: "/products/hydraulic-dock-leveler" },
-};
+  path: "/products/hydraulic-dock-leveler",
+  image: "/images/catalog-dock-leveler.webp",
+});
 
 const product: ProductDetailContent = {
   slug: "hydraulic-dock-leveler",

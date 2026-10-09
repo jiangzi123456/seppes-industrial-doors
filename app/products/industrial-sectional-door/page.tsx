@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { ProductDetailLayout, standardHeroIcons, type ProductDetailContent } from "@/components/product-detail-layout";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Industrial Sectional Door",
   description: "Insulated industrial sectional overhead door with flexible track arrangements, sealing and safety protection for factories and warehouses.",
-  alternates: { canonical: "/products/industrial-sectional-door" },
-};
+  path: "/products/industrial-sectional-door",
+  image: "/images/industrial-sectional-door.webp",
+});
 
 const product: ProductDetailContent = {
   slug: "industrial-sectional-door",

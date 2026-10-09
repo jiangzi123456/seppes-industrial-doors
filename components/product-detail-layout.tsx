@@ -96,7 +96,7 @@ export function ProductDetailLayout({ product }: { product: ProductDetailContent
       </div>
     </section>
 
-    <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products" }, { label: product.name }]} />
+    <Breadcrumb currentPath={`/products/${product.slug}`} items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products" }, { label: product.name }]} />
 
     <section className="product-page__intro">
       <div className="container product-page__intro-grid">

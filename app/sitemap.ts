@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blog-posts";
 
-const routes = [
+const staticRoutes = [
   "",
   "/products",
   "/products/high-speed-roll-up-door",
@@ -12,7 +12,6 @@ const routes = [
   "/project-support/rapid-doors-for-an-automated-assembly-workshop",
   "/project-support",
   "/source/blog",
-  ...blogPosts.map((post) => "/source/blog/" + post.slug),
   "/about",
   "/contact",
   "/privacy",
@@ -20,5 +19,11 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.seppesde.com";
-  return routes.map((route) => ({ url: `${base}${route}`, lastModified: new Date() }));
+  return [
+    ...staticRoutes.map((route) => ({ url: `${base}${route}`, lastModified: "2026-10-09" })),
+    ...blogPosts.map((post) => ({
+      url: `${base}/source/blog/${post.slug}`,
+      lastModified: post.dateISO,
+    })),
+  ];
 }

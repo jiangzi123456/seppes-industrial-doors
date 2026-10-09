@@ -41,7 +41,8 @@ The intended market position is a leading domestic Chinese brand capable of ente
 ### Manufacturing and Customization
 
 - SEPPES operates its own manufacturing facility in Mudu Town, Wuzhong District, Suzhou.
-- Alibaba.com company-profile data states a factory area of 5,000-10,000 square metres and 51-100 employees.
+- The current company catalogue supplied and confirmed by the user states a 20,000 square metre factory. Use `20,000 m² factory` as the current approved website figure.
+- Older Alibaba.com company-profile data states a factory area of 5,000-10,000 square metres and 51-100 employees. Treat these as superseded historical platform figures and do not use them for current website copy.
 - OEM and ODM services are available.
 - Customization can include dimensions, colours, functional configuration, branding and packaging, subject to project confirmation.
 - Factory-size and employee figures are seller-provided and should not be described as independently audited.
@@ -49,7 +50,8 @@ The intended market position is a leading domestic Chinese brand capable of ente
 ### Export and International Project Experience
 
 - SEPPES reports export activity since 2011.
-- The supplied profile reports customers or project coverage across more than 35 countries.
+- The current company catalogue supplied and confirmed by the user states coverage across more than 90 countries and regions, more than 7,600 cooperative customers and cooperation with more than 80 Fortune Global 500 companies. These are the current approved website figures.
+- The older supplied profile figure of more than 35 countries is superseded and should not be used in current website copy.
 - Referenced regions include North America, key European markets, Southeast Asia, the Middle East, Latin America and Africa.
 - Use country lists only when supported by current project or shipping evidence.
 - Do not publish revenue ratios, delivery lead times or commercial terms as timeless facts.
@@ -68,6 +70,18 @@ The intended market position is a leading domestic Chinese brand capable of ente
 - These figures may support a dated company or platform-performance story but must always include the snapshot date and must not be presented as current without a fresh check.
 
 ## Product Advantages Approved for Content
+
+## Approved Visual Asset Library
+
+- Use `H:\2025样册\` as the preferred source library for future website articles, product pages and solution content.
+- Also use `H:\2024样册文件\“西朗工业门2025样册”文件夹\Links\` as an approved catalogue-image source. It contains cleaner product, component, certificate and catalogue-layout images and may be preferable for product explanations or tightly cropped editorial illustrations.
+- The library contains selected factory, product, installation, detail, team, certificate and catalogue images, organized into product folders such as 快速门, 拉链快速门, 保温快速门, 硬质快速门, 提升门, 装卸货平台 and 门封.
+- Treat the source folder as read-only. Copy selected assets into the website's `public/images/` structure before editing or publishing.
+- Crop for the intended placement, preserve the product and installation context, export a web-appropriate format and size, and write descriptive English filenames and alt text.
+- Prefer genuine SEPPES factory, product and project photography over generic or AI-generated imagery when a relevant approved photo is available.
+- Prefer `H:\2025样册\` for real installation and project context; prefer the `Links` library when a clean product view, component detail or catalogue-style image communicates the topic more clearly.
+- Do not use source graphics whose filenames or embedded notices state that they are non-commercial, study-only or otherwise license-restricted. Verify ownership or usage permission for logos, stock graphics and third-party artwork before publication.
+- Never expose PSD, AI, EPS, ZIP, customer lists or other working/source files on the public website.
 
 ### High Speed PVC Doors
 
