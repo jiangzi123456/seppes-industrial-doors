@@ -20,3 +20,4 @@
 @media(max-width:1050px){.product-page__related-grid{grid-template-columns:1fr 1fr}.product-page__related-image{height:300px}}
 @media(max-width:900px){.product-page__case-grid{grid-template-columns:1fr 1fr}.product-page__case-grid article:last-child{grid-column:1/-1}.product-page__case-grid article:last-child .product-page__case-image{height:400px}}
 @media(max-width:600px){.product-page__cases,.product-page__related{padding:78px 0}.product-page__case-grid,.product-page__related-grid{grid-template-columns:1fr;margin-top:42px}.product-page__case-grid article:last-child{grid-column:auto}.product-page__case-image,.product-page__case-grid article:last-child .product-page__case-image,.product-page__related-image{height:280px}.product-page__related-head{align-items:flex-start;flex-direction:column;margin-bottom:40px}.product-page__related-grid{margin-top:0}}
+.product-page__intro-copy .reference-text-link+.reference-text-link{margin-left:20px}

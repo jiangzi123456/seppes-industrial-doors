@@ -2,6 +2,7 @@ import { editorialPosts } from "./editorial-posts";
 import { zipperVsBrushPost } from "./zipper-vs-brush-post";
 import { equipmentIntegratedHighSpeedDoorPost } from "./equipment-integrated-high-speed-door-post";
 import { cleanroomZipperHighSpeedDoorPost } from "./cleanroom-zipper-high-speed-door-post";
+import { highSpeedVsSectionalDoorPost } from "./high-speed-vs-sectional-door-post";
 
 export type BlogSection = {
   table?: { caption: string; headers: string[]; rows: string[][] };
@@ -50,6 +51,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  highSpeedVsSectionalDoorPost,
   equipmentIntegratedHighSpeedDoorPost,
   cleanroomZipperHighSpeedDoorPost,
   zipperVsBrushPost,

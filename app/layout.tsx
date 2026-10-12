@@ -66,5 +66,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} /><Header /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /><FloatingContact /></body></html>;
+  return <html lang="en" data-scroll-behavior="smooth"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} /><Header /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /><FloatingContact /></body></html>;
 }

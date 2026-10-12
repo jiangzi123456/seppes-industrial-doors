@@ -101,7 +101,7 @@ export function ProductDetailLayout({ product }: { product: ProductDetailContent
     <section className="product-page__intro">
       <div className="container product-page__intro-grid">
         <div className="product-page__intro-image"><Image src={product.introImage} alt={product.introAlt} fill sizes="(min-width: 900px) 50vw, 100vw" /></div>
-        <div className="product-page__intro-copy"><p className="reference-eyebrow blue">{product.introEyebrow}</p><h2>{product.introTitle}</h2><strong>{product.introLead}</strong><p>{product.introText}</p><Link className="reference-text-link" href="#technical-data">Review technical data <ArrowRight size={17} /></Link></div>
+        <div className="product-page__intro-copy"><p className="reference-eyebrow blue">{product.introEyebrow}</p><h2>{product.introTitle}</h2><strong>{product.introLead}</strong><p>{product.introText}</p><Link className="reference-text-link" href="#technical-data">Review technical data <ArrowRight size={17} /></Link>{product.slug === "industrial-sectional-door" && <Link className="reference-text-link" href="/source/blog/high-speed-door-vs-industrial-sectional-door">Compare with a high-speed door <ArrowRight size={17} /></Link>}</div>
       </div>
       <div className="container product-page__benefits">{product.benefits.map(({ title, text }, index) => { const Icon = benefitIcons[index]; return <article key={title}><Icon /><b>0{index + 1}</b><h3>{title}</h3><p>{text}</p></article>; })}</div>
     </section>

@@ -10,6 +10,17 @@ import { InquirySubmitState, submitInquiry } from "@/components/inquiry-submit";
 const categories = ["All", "Product News", "Solutions", "Project Stories", "Buying Guides"];
 const posts = [
   {
+    slug: "high-speed-door-vs-industrial-sectional-door",
+    category: "Buying Guides",
+    date: "Oct 12, 2026",
+    title: "High-Speed Door vs Industrial Sectional Door: How to Choose",
+    excerpt:
+      "Compare traffic frequency, insulation, security, installation space and controls before choosing the right industrial entrance.",
+    read: "10 min",
+    image: "/images/blog/high-speed-vs-sectional-door-comparison.webp",
+    tone: "navy",
+  },
+  {
     slug: "zipper-high-speed-door-for-cleanrooms",
     category: "Solutions",
     date: "Oct 9, 2026",
@@ -60,8 +71,8 @@ export function GeoNewsFeed() {
     <Breadcrumb currentPath="/source/blog" items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
     <section className="geo-featured"><div className="container"><div className="geo-section-label"><b>Today’s briefing</b></div>
-      <article className="geo-lead"><div className="geo-lead__image"><Image src="/images/blog/cleanroom-zipper-door-yellow-window-crop.webp" alt="SEPPES zipper high-speed door with a yellow vision window in a cleanroom" fill priority sizes="(min-width: 900px) 55vw, 100vw" /><span>Featured</span></div>
-        <div className="geo-lead__copy"><p className="geo-meta"><span>Solutions</span> October 9, 2026 · 9 min read</p><h2>Zipper High-Speed Doors for Cleanrooms: Selection Guide</h2><p>Evaluate doorway pressure, cleaning, safety, traffic and recovery needs before specifying a zipper high-speed door for a controlled environment.</p><Link href="/source/blog/zipper-high-speed-door-for-cleanrooms">Read the cleanroom guide <ArrowUpRight size={18} /></Link><div className="geo-lead__number">01 <span>/ Featured</span></div></div>
+      <article className="geo-lead"><div className="geo-lead__image"><Image src="/images/blog/high-speed-vs-sectional-door-comparison.webp" alt="SEPPES high-speed door and industrial sectional door shown side by side" fill priority sizes="(min-width: 900px) 55vw, 100vw" /><span>Featured</span></div>
+        <div className="geo-lead__copy"><p className="geo-meta"><span>Buying Guides</span> October 12, 2026 · 10 min read</p><h2>High-Speed Door vs Industrial Sectional Door: How to Choose</h2><p>Compare traffic frequency, insulation, security, installation space and controls before choosing the right industrial entrance.</p><Link href="/source/blog/high-speed-door-vs-industrial-sectional-door">Read the comparison guide <ArrowUpRight size={18} /></Link><div className="geo-lead__number">01 <span>/ Featured</span></div></div>
       </article></div></section>
 
     <section className="geo-latest" id="latest"><div className="container"><div className="geo-section-label"><b>Latest intelligence</b></div>

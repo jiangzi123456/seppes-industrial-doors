@@ -119,7 +119,7 @@ export default async function BlogArticlePage({ params }: Props) {
 
   return <div className={post.quickAnswer ? "blog-post blog-post--editorial" : "blog-post"}>
     <section className="blog-post__hero">
-      <Image src={post.image} alt={post.imageAlt} fill priority sizes="100vw" />
+      <Image src={post.image} alt={post.imageAlt} fill loading="eager" sizes="100vw" />
       <div className="blog-post__shade" />
       <div className="container blog-post__hero-content">
         <p className="reference-eyebrow">{post.category}</p>
