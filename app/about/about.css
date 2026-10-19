@@ -21,7 +21,7 @@
 .factory-evidence-intro p{grid-column:2;grid-row:1/3;color:rgba(255,255,255,.66);line-height:1.8;margin:0}
 .factory-proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .factory-proof-grid article{background:#fff;color:#142638;min-width:0}
-.factory-proof-photo{aspect-ratio:1.7/1;background-image:url('/images/factory-proof-grid.png');background-repeat:no-repeat;background-size:400% auto;background-color:#dce5eb}
+.factory-proof-photo{aspect-ratio:1.7/1;background-image:url('/images/factory-proof-grid.webp');background-repeat:no-repeat;background-size:400% auto;background-color:#dce5eb}
 .factory-proof-photo-1,.factory-proof-photo-5,.factory-proof-photo-9{background-position-x:0}
 .factory-proof-photo-2,.factory-proof-photo-6,.factory-proof-photo-10{background-position-x:33.333%}
 .factory-proof-photo-3,.factory-proof-photo-7,.factory-proof-photo-11{background-position-x:66.666%}

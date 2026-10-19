@@ -52,7 +52,12 @@ const product: ProductDetailContent = {
   ],
   parameterIntro: "Panel thickness, track geometry, spring system, sealing and control functions are configured against the building and operating conditions.",
   parameters: [
-    ["Panel thickness", "40-120 mm high-density polyurethane insulated panels"],
+    ["Panel construction", "0.42 mm colour-coated steel skins with 48 kg/m³ polyurethane foam"],
+    ["Panel thickness", "40 mm finger-safe or 50 mm non-finger-safe panel"],
+    ["Opening speed", "0.1–0.25 m/s"],
+    ["Spring reference life", "Approximately 30,000 cycles"],
+    ["Wind resistance", "Grade 11 reference; confirm against final size and structure"],
+    ["Maximum size", "Up to 10,000 × 10,000 mm; engineering confirmation required"],
     ["Foam density", "Up to 45 kg/m³ reference construction"],
     ["Panel joint", "Finger-safe profile with thermal-break sealing"],
     ["Perimeter sealing", "EPDM top, side and bottom seals"],

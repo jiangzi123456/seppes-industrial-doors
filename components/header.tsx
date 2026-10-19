@@ -22,6 +22,10 @@ const links: NavItem[] = [
         href: "/products/high-speed-roll-up-door",
       },
       {
+        label: "Zipper High Speed Door",
+        href: "/products/zipper-high-speed-door",
+      },
+      {
         label: "High Speed Spiral Door",
         href: "/products/high-speed-spiral-door",
       },
@@ -33,18 +37,49 @@ const links: NavItem[] = [
         label: "Hydraulic Dock Leveler",
         href: "/products/hydraulic-dock-leveler",
       },
+      { label: "Stacking High Speed Door", href: "/products/stacking-high-speed-door" },
+      { label: "Aluminium Roller Shutter Door", href: "/products/aluminium-roller-shutter-door" },
+      { label: "Dock Shelter", href: "/products/dock-shelter" },
+      { label: "Garage High Speed Door", href: "/products/garage-high-speed-door" },
     ],
   },
-  { label: "Solutions", href: "/solutions" },
+  { label: "Solutions", href: "/solutions", children: [
+    { label: "Food & Beverage", href: "/solutions/food-beverage" },
+    { label: "Pharmaceutical Cleanrooms", href: "/solutions/pharmaceutical-cleanroom" },
+    { label: "Cold Chain", href: "/solutions/cold-chain" },
+    { label: "Automotive Manufacturing", href: "/solutions/automotive-automated-manufacturing" },
+    { label: "Logistics & Warehousing", href: "/solutions/logistics-warehousing" },
+  ] },
   { label: "Project Support", href: "/project-support" },
   { label: "Blog", href: "/source/blog" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about", children: [{ label: "Quality & Certifications", href: "/quality-certifications" }] },
   { label: "Contact", href: "/contact" },
 ];
+
+const dismissedDropdownKey = "seppes-dismissed-dropdown";
 
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dismissedDropdown, setDismissedDropdown] = useState<string | null>(null);
+
+  const dismissDropdown = (href: string) => {
+    setDismissedDropdown(href);
+    document.documentElement.classList.add("nav-dropdown-dismissed");
+    window.sessionStorage.setItem(dismissedDropdownKey, href);
+  };
+
+  const restoreDropdown = () => {
+    setDismissedDropdown(null);
+    document.documentElement.classList.remove("nav-dropdown-dismissed");
+    window.sessionStorage.removeItem(dismissedDropdownKey);
+  };
+
+  useEffect(() => {
+    const dismissed = window.sessionStorage.getItem(dismissedDropdownKey);
+    setDismissedDropdown(dismissed);
+    document.documentElement.classList.toggle("nav-dropdown-dismissed", Boolean(dismissed));
+  }, []);
 
   useEffect(() => {
     const getPageScrollTop = () =>
@@ -87,11 +122,19 @@ export function Header() {
         <nav className="desktop-nav" aria-label="Main navigation">
           {links.map((item) =>
             item.children ? (
-              <div className="nav-dropdown" key={item.href}>
+              <div
+                className={`nav-dropdown${dismissedDropdown === item.href ? " is-dismissed" : ""}`}
+                key={item.href}
+                onMouseLeave={restoreDropdown}
+              >
                 <Link
                   className="nav-dropdown__trigger"
                   href={item.href}
                   aria-haspopup="true"
+                  onClick={(event) => {
+                    event.currentTarget.blur();
+                    dismissDropdown(item.href);
+                  }}
                 >
                   {item.label}
                   <ChevronDown aria-hidden="true" />
@@ -101,7 +144,14 @@ export function Header() {
                   aria-label={`${item.label} submenu`}
                 >
                   {item.children.map((child) => (
-                    <Link key={child.href} href={child.href}>
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      onClick={(event) => {
+                        event.currentTarget.blur();
+                        dismissDropdown(item.href);
+                      }}
+                    >
                       <span>{child.label}</span>
                       <span aria-hidden="true">→</span>
                     </Link>

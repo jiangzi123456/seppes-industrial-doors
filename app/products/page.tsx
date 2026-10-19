@@ -11,9 +11,14 @@ export const metadata = createPageMetadata({ title: "Industrial Door Products", 
 
 const images: Record<string, string> = {
   "high-speed-roll-up-door": "/images/catalog-high-speed-roll-up.webp",
+  "zipper-high-speed-door": "/images/products/zipper-high-speed-door-cleanroom.webp",
   "high-speed-spiral-door": "/images/catalog-high-speed-spiral.webp",
   "industrial-sectional-door": "/images/industrial-sectional-door.webp",
   "hydraulic-dock-leveler": "/images/catalog-dock-leveler.webp",
+  "stacking-high-speed-door": "/images/products/stacking-high-speed-door-hero.webp",
+  "aluminium-roller-shutter-door": "/images/products/aluminium-roller-shutter-door-hero.webp",
+  "dock-shelter": "/images/products/dock-shelter-hero.webp",
+  "garage-high-speed-door": "/images/products/garage-high-speed-door-hero.webp",
 };
 const factors = [
   ["01", "Traffic Frequency", "Confirm daily cycles, peak traffic and required opening speed.", "High-speed door direction"],
@@ -43,7 +48,7 @@ export default function ProductsPage() {
     </section>
     <Breadcrumb currentPath="/products" items={[{ label: "Home", href: "/" }, { label: "Industrial Door Products" }]} />
     <section className="products-overview__section" id="product-families"><div className="container">
-      <div className="products-overview__section-heading"><span className="eyebrow">Product families</span><h2>Four Solutions for Industrial Openings</h2><p>Each family addresses a different balance of speed, sealing, security, insulation and loading efficiency.</p></div>
+      <div className="products-overview__section-heading"><span className="eyebrow">Product families</span><h2>Five Solutions for Industrial Openings</h2><p>Each family addresses a different balance of speed, sealing, security, insulation and loading efficiency.</p></div>
       <div className="products-overview__family-grid">{products.map(product => <article className="products-overview__family-card" id={product.slug} key={product.slug}>
         <Link className="products-overview__media" href={`/products/${product.slug}`} aria-label={`View ${product.name} details`}><Image src={images[product.slug]} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" /></Link>
         <div className="products-overview__family-body"><span className="eyebrow">{product.category}</span><h3>{product.name}</h3><p>{product.description}</p><h4>Key capabilities</h4><ul>{product.specs.map(spec => <li key={spec}><Check size={17}/>{spec}</li>)}</ul>
@@ -52,12 +57,12 @@ export default function ProductsPage() {
     </div></section>
     <section className="products-overview__section products-overview__section--tint" id="compare-products"><div className="container">
       <div className="products-overview__section-heading"><span className="eyebrow">Product comparison</span><h2>Compare Industrial Door Types</h2><p>Use this as an initial planning reference. Exact configuration follows verified dimensions and site conditions.</p></div>
-      <div className="products-overview__comparison"><table><thead><tr><th>Selection factor</th><th>Roll-up</th><th>Spiral</th><th>Sectional</th><th>Dock leveler</th></tr></thead><tbody>
-        <tr><th>Primary role</th><td>Fast traffic separation</td><td>Fast exterior security</td><td>Insulated general access</td><td>Vehicle-to-dock bridge</td></tr>
-        <tr><th>Typical position</th><td>Interior / sheltered</td><td>Exterior</td><td>Exterior</td><td>Loading bay</td></tr>
-        <tr><th>Operating speed</th><td>Very high</td><td>High</td><td>Standard</td><td>Hydraulic cycle</td></tr>
-        <tr><th>Insulation</th><td>Application dependent</td><td>High</td><td>High</td><td>Not applicable</td></tr>
-        <tr><th>Best suited to</th><td>Logistics, clean areas</td><td>Factories, logistics</td><td>Warehouses, workshops</td><td>Distribution centers</td></tr>
+      <div className="products-overview__comparison"><table><thead><tr><th>Selection factor</th><th>Roll-up</th><th>Zipper</th><th>Spiral</th><th>Sectional</th><th>Dock leveler</th></tr></thead><tbody>
+        <tr><th>Primary role</th><td>Fast traffic separation</td><td>Controlled rapid access</td><td>Fast exterior security</td><td>Insulated general access</td><td>Vehicle-to-dock bridge</td></tr>
+        <tr><th>Typical position</th><td>Interior / sheltered</td><td>Interior / controlled</td><td>Exterior</td><td>Exterior</td><td>Loading bay</td></tr>
+        <tr><th>Operating speed</th><td>Very high</td><td>Very high</td><td>High</td><td>Standard</td><td>Hydraulic cycle</td></tr>
+        <tr><th>Insulation</th><td>Application dependent</td><td>Application dependent</td><td>High</td><td>High</td><td>Not applicable</td></tr>
+        <tr><th>Best suited to</th><td>Logistics, production</td><td>Clean and controlled areas</td><td>Factories, logistics</td><td>Warehouses, workshops</td><td>Distribution centers</td></tr>
       </tbody></table></div>
     </div></section>
     <section className="products-overview__section" id="selection-guide"><div className="container">

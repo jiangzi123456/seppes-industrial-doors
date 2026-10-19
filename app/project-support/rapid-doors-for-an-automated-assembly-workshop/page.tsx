@@ -192,7 +192,7 @@ export default function CasesPage() {
       <section className="cases-feature">
         <div className="container cases-feature__grid">
           <div className="cases-feature__visual">
-            <Image src="/images/rapid-door-control-system.jpg" alt="Industrial rapid door control system and project engineering" fill sizes="(max-width: 820px) 100vw, 50vw" />
+            <Image src="/images/automated-assembly-control-testing.jpg" alt="SEPPES rapid door control units undergoing workshop testing" fill sizes="(max-width: 820px) 100vw, 50vw" />
             <div><ShieldCheck /><span>Safety, controls and access logic reviewed as one system</span></div>
           </div>
           <div className="cases-feature__copy">

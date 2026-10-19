@@ -32,9 +32,9 @@ const featured = [
 
 const library = [
   { title: "Rapid doors for an automated assembly workshop", sector: "Smart Manufacturing", region: "Germany", image: "/images/factory-doors.jpg" },
-  { title: "Exterior spiral doors for a regional logistics center", sector: "Logistics", region: "Poland", image: "/images/logistics-door.jpg" },
-  { title: "Sealed high-speed doors for a clean production suite", sector: "Pharmaceutical", region: "Malaysia", image: "/images/cleanroom-door.jpg" },
-  { title: "Cold-room access for a food distribution facility", sector: "Cold Chain", region: "UAE", image: "/images/high-speed-roll-up-door-product.jpg" },
+  { title: "Exterior spiral doors for a frequent industrial entrance", sector: "Industrial Buildings", region: "Application example", image: "/images/catalog-high-speed-spiral.webp", href: "/project-support/exterior-high-speed-spiral-door" },
+  { title: "Sealed high-speed doors for a clean production suite", sector: "Pharmaceutical", region: "Application example", image: "/images/products/zipper-high-speed-door-cleanroom.webp", href: "/project-support/cleanroom-zipper-door-access" },
+  { title: "Integrated door, leveler and shelter for a loading bay", sector: "Logistics", region: "Application example", image: "/images/products/dock-shelter-case.webp", href: "/project-support/integrated-logistics-loading-bay" },
   { title: "Sectional door package for a manufacturing campus", sector: "Manufacturing", region: "Mexico", image: "/images/factory-building.jpg" },
   { title: "High-frequency traffic separation for a packaging line", sector: "Food & Beverage", region: "Thailand", image: "/images/hero-industrial-door.jpg" },
 ];
@@ -74,7 +74,7 @@ export default function ProjectSupportPage() {
 
     <section className="ps-section ps-library" id="project-library"><div className="container">
       <div className="ps-heading"><div><p className="ps-kicker ps-kicker--blue">Case study library</p><h2>More projects. More operating contexts.</h2></div><p>Browse applications across regions and industries. Final specifications always depend on confirmed site conditions.</p></div>
-      <div className="ps-library-grid">{library.map((item, index) => <article key={item.title}><div className="ps-library-card__image"><Image src={item.image} alt={item.title} fill sizes="(max-width: 760px) 100vw, 33vw" /><span>0{index + 1}</span></div><div className="ps-library-card__body"><div><span>{item.sector}</span><span>{item.region}</span></div><h3>{item.title}</h3><p>Project planning included door selection, safety strategy, technical confirmation and export-ready documentation.</p>{index === 0 ? <Link className="ps-library-card__more" href="/project-support/rapid-doors-for-an-automated-assembly-workshop">View More <ArrowRight size={16} /></Link> : <span className="ps-library-card__more" aria-disabled="true">View More <ArrowRight size={16} /></span>}</div></article>)}</div>
+      <div className="ps-library-grid">{library.slice(0, 4).map((item, index) => <article key={item.title}><div className="ps-library-card__image"><Image src={item.image} alt={item.title} fill sizes="(max-width: 760px) 100vw, 33vw" /><span>0{index + 1}</span></div><div className="ps-library-card__body"><div><span>{item.sector}</span><span>{item.region}</span></div><h3>{item.title}</h3><p>Project planning included door selection, safety strategy, technical confirmation and export-ready documentation.</p><Link className="ps-library-card__more" href={index === 0 ? "/project-support/rapid-doors-for-an-automated-assembly-workshop" : item.href!}>View More <ArrowRight size={16} /></Link></div></article>)}</div>
     </div></section>
 
     <section className="ps-section ps-priorities"><div className="container">

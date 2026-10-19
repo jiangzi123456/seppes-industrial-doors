@@ -10,6 +10,26 @@ import { InquirySubmitState, submitInquiry } from "@/components/inquiry-submit";
 const categories = ["All", "Product News", "Solutions", "Project Stories", "Buying Guides"];
 const posts = [
   {
+    slug: "high-speed-door-safety-sensors-photocell-light-curtain-safety-edge",
+    category: "Buying Guides",
+    date: "Oct 19, 2026",
+    title: "High-Speed Door Safety Sensors: Photocell vs Light Curtain vs Safety Edge",
+    excerpt: "Compare three protective devices by detection coverage, response role and traffic risk before configuring a high-speed door.",
+    read: "9 min",
+    image: "/images/blog/high-speed-door-safety-sensors-comparison.webp",
+    tone: "red",
+  },
+  {
+    slug: "how-to-choose-hydraulic-dock-leveler",
+    category: "Buying Guides",
+    date: "Oct 15, 2026",
+    title: "How to Choose a Hydraulic Dock Leveler: Pit, Traffic and Trailer Fit",
+    excerpt: "Match the leveler to the pit, trailer range, forklift traffic, lip reach and complete loading-bay safety sequence.",
+    read: "10 min",
+    image: "/images/blog/hydraulic-dock-leveler-selection.webp",
+    tone: "navy",
+  },
+  {
     slug: "high-speed-door-vs-industrial-sectional-door",
     category: "Buying Guides",
     date: "Oct 12, 2026",
@@ -71,8 +91,8 @@ export function GeoNewsFeed() {
     <Breadcrumb currentPath="/source/blog" items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
     <section className="geo-featured"><div className="container"><div className="geo-section-label"><b>Today’s briefing</b></div>
-      <article className="geo-lead"><div className="geo-lead__image"><Image src="/images/blog/high-speed-vs-sectional-door-comparison.webp" alt="SEPPES high-speed door and industrial sectional door shown side by side" fill priority sizes="(min-width: 900px) 55vw, 100vw" /><span>Featured</span></div>
-        <div className="geo-lead__copy"><p className="geo-meta"><span>Buying Guides</span> October 12, 2026 · 10 min read</p><h2>High-Speed Door vs Industrial Sectional Door: How to Choose</h2><p>Compare traffic frequency, insulation, security, installation space and controls before choosing the right industrial entrance.</p><Link href="/source/blog/high-speed-door-vs-industrial-sectional-door">Read the comparison guide <ArrowUpRight size={18} /></Link><div className="geo-lead__number">01 <span>/ Featured</span></div></div>
+      <article className="geo-lead"><div className="geo-lead__image"><Image src="/images/blog/high-speed-door-safety-sensors-comparison.webp" alt="SEPPES high-speed door photocell, safety light curtain and safety edge shown side by side" fill priority sizes="(min-width: 900px) 55vw, 100vw" /><span>Featured</span></div>
+        <div className="geo-lead__copy"><p className="geo-meta"><span>Buying Guides</span> October 19, 2026 · 9 min read</p><h2>High-Speed Door Safety Sensors: Photocell vs Light Curtain vs Safety Edge</h2><p>Compare three protective devices by detection coverage, response role and traffic risk before configuring a high-speed door.</p><Link href="/source/blog/high-speed-door-safety-sensors-photocell-light-curtain-safety-edge">Read the safety guide <ArrowUpRight size={18} /></Link><div className="geo-lead__number">01 <span>/ Featured</span></div></div>
       </article></div></section>
 
     <section className="geo-latest" id="latest"><div className="container"><div className="geo-section-label"><b>Latest intelligence</b></div>

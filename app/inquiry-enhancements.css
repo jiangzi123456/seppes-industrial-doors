@@ -96,9 +96,31 @@
   transform: translate(-50%, 0);
 }
 
+.nav-dropdown.is-dismissed .nav-dropdown__menu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 10px);
+}
+
+html.nav-dropdown-dismissed .nav-dropdown__menu {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translate(-50%, 10px) !important;
+}
+
 .nav-dropdown:hover .nav-dropdown__trigger svg,
 .nav-dropdown:focus-within .nav-dropdown__trigger svg {
   transform: rotate(180deg);
+}
+
+.nav-dropdown.is-dismissed .nav-dropdown__trigger svg {
+  transform: rotate(0);
+}
+
+html.nav-dropdown-dismissed .nav-dropdown__trigger svg {
+  transform: rotate(0) !important;
 }
 
 .reference-header.is-scrolled {

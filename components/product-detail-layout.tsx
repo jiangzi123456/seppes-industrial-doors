@@ -49,17 +49,25 @@ export type ProductDetailContent = {
   applicationsText: string;
   applications: string[];
   faqs: Array<[string, string]>;
+  supportingLinks?: Array<{ href: string; label: string }>;
 };
 
 const benefitIcons = [Zap, Layers3, ShieldCheck, Radio];
 const stepIcons = [Radio, Zap, ShieldCheck, Layers3];
 const relatedProducts = [
   { href: "/products/high-speed-roll-up-door", image: "/images/home-high-speed-roll-up.webp", category: "High Speed Doors", title: "High Speed Roll Up Door", text: "Flexible PVC rapid access for frequent internal traffic." },
+  { href: "/products/zipper-high-speed-door", image: "/images/products/zipper-high-speed-door-cleanroom.webp", category: "High Speed Doors", title: "Zipper High Speed Door", text: "Interlocking curtain guides for controlled, frequent-access routes." },
   { href: "/products/high-speed-spiral-door", image: "/images/catalog-high-speed-spiral.webp", category: "High Speed Doors", title: "High Speed Spiral Door", text: "Rigid insulated slats for fast, secure exterior openings." },
   { href: "/products/industrial-sectional-door", image: "/images/industrial-sectional-door.webp", category: "Sectional Doors", title: "Industrial Sectional Door", text: "Insulated vertical access for factories and warehouses." },
   { href: "/products/hydraulic-dock-leveler", image: "/images/home-dock-leveler.webp", category: "Loading Dock Equipment", title: "Hydraulic Dock Leveler", text: "A dependable bridge between loading bays and vehicles." },
+  { href: "/products/dock-shelter", image: "/images/products/dock-shelter-hero.webp", category: "Loading Dock Equipment", title: "Dock Shelter", text: "Vehicle-interface protection for coordinated loading bays." },
 ];
 const productCases: Record<string, Array<{ image: string; title: string; text: string }>> = {
+  "zipper-high-speed-door": [
+    { image: "/images/products/zipper-high-speed-door-cleanroom.webp", title: "Cleanroom Material Access", text: "Rapid automatic movement and zipper side guides support frequent movement across a controlled-room boundary." },
+    { image: "/images/products/zipper-high-speed-door-warehouse.webp", title: "Production and Warehouse Route", text: "A flexible curtain and configurable detection support repeated traffic between adjacent industrial zones." },
+    { image: "/images/products/zipper-high-speed-door-production.webp", title: "Controlled Production Entrance", text: "The opening, controls and recovery method can be planned around equipment, people and material movement." },
+  ],
   "high-speed-spiral-door": [
     { image: "/images/catalog-high-speed-spiral.webp", title: "High-Frequency Exterior Entrance", text: "Rigid insulated slats combine rapid vehicle access with security and thermal separation at exposed factory openings." },
     { image: "/images/logistics-door.jpg", title: "Logistics Traffic Route", text: "Fast controlled movement helps shorten vehicle waiting time at frequently used warehouse and distribution routes." },
@@ -75,10 +83,34 @@ const productCases: Record<string, Array<{ image: string; title: string; text: s
     { image: "/images/logistics-door.jpg", title: "Coordinated Dock System", text: "The leveler can be planned with the industrial door, dock shelter and traffic guidance as one loading sequence." },
     { image: "/images/catalog-dock-leveler.webp", title: "Warehouse Retrofit", text: "Swing-lip, telescopic and edge-mounted arrangements address different pit, reach and renovation conditions." },
   ],
+  "stacking-high-speed-door": [
+    { image: "/images/products/stacking-high-speed-door-case.webp", title: "Wide Industrial Opening", text: "Horizontal reinforcement and project sizing support frequent movement at larger production and logistics openings." },
+    { image: "/images/factory-doors.jpg", title: "Production Traffic Route", text: "Activation, safety sensing and controls are coordinated with the actual vehicle and pedestrian flow." },
+    { image: "/images/logistics-door.jpg", title: "Wind-Exposed Access", text: "The curtain, reinforcement and guides are selected against the confirmed opening and site exposure." },
+  ],
+  "aluminium-roller-shutter-door": [
+    { image: "/images/products/aluminium-roller-shutter-door-case.webp", title: "Compact Building Closure", text: "Interlocking slats coil above the opening where a compact, secure closure is required." },
+    { image: "/images/factory-building.jpg", title: "Industrial Access", text: "Slat construction, finish, guide design and operation are configured around the building opening." },
+    { image: "/images/industrial-sectional-door.webp", title: "Service Entrance", text: "Manual or powered operation can be reviewed for the traffic frequency and access-control requirement." },
+  ],
+  "dock-shelter": [
+    { image: "/images/products/dock-shelter-case.webp", title: "Warehouse Loading Bay", text: "The shelter is matched to vehicle range, dock geometry and the required weather protection." },
+    { image: "/images/home-dock-leveler.webp", title: "Integrated Dock Position", text: "Door, leveler, shelter and traffic controls are planned as one loading sequence." },
+    { image: "/images/solutions/logistics-warehousing.webp", title: "Distribution Workflow", text: "A coordinated dock package supports repeatable vehicle positioning and material movement." },
+  ],
+  "garage-high-speed-door": [
+    { image: "/images/products/garage-high-speed-door-hero.webp", title: "Private Garage Entrance", text: "Rigid aluminium slats provide rapid powered access for a frequently used residential garage." },
+    { image: "/images/products/garage-high-speed-door-case.webp", title: "Architectural Garage Opening", text: "Colour, slat profile, controls and installation clearances are coordinated with the building elevation." },
+    { image: "/images/products/garage-high-speed-door-vehicle-access.jpg", title: "Vehicle Access Route", text: "Remote control, safety detection and warning lighting support the planned vehicle movement." },
+  ],
 };
 
 export function ProductDetailLayout({ product }: { product: ProductDetailContent }) {
-  return <div className="product-page">
+  const schema = { "@context": "https://schema.org", "@graph": [
+    { "@type": "Product", name: product.name, description: product.heroDescription, image: [`https://www.seppesde.com${product.heroImage}`], category: product.category, brand: { "@type": "Brand", name: "SEPPES" }, manufacturer: { "@type": "Organization", name: "SEPPES", url: "https://www.seppesde.com" }, url: `https://www.seppesde.com/products/${product.slug}` },
+    { "@type": "FAQPage", mainEntity: product.faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+  ] };
+  return <><div className="product-page">
     <section className="product-page__hero">
       <Image src={product.heroImage} alt={product.heroAlt} fill priority sizes="100vw" className="product-page__hero-image" />
       <div className="product-page__hero-shade" />
@@ -101,7 +133,7 @@ export function ProductDetailLayout({ product }: { product: ProductDetailContent
     <section className="product-page__intro">
       <div className="container product-page__intro-grid">
         <div className="product-page__intro-image"><Image src={product.introImage} alt={product.introAlt} fill sizes="(min-width: 900px) 50vw, 100vw" /></div>
-        <div className="product-page__intro-copy"><p className="reference-eyebrow blue">{product.introEyebrow}</p><h2>{product.introTitle}</h2><strong>{product.introLead}</strong><p>{product.introText}</p><Link className="reference-text-link" href="#technical-data">Review technical data <ArrowRight size={17} /></Link>{product.slug === "industrial-sectional-door" && <Link className="reference-text-link" href="/source/blog/high-speed-door-vs-industrial-sectional-door">Compare with a high-speed door <ArrowRight size={17} /></Link>}</div>
+        <div className="product-page__intro-copy"><p className="reference-eyebrow blue">{product.introEyebrow}</p><h2>{product.introTitle}</h2><strong>{product.introLead}</strong><p>{product.introText}</p><Link className="reference-text-link" href="#technical-data">Review technical data <ArrowRight size={17} /></Link>{product.slug === "industrial-sectional-door" && <Link className="reference-text-link" href="/source/blog/high-speed-door-vs-industrial-sectional-door">Compare with a high-speed door <ArrowRight size={17} /></Link>}{product.supportingLinks?.map((item) => <Link className="reference-text-link" href={item.href} key={item.href}>{item.label} <ArrowRight size={17} /></Link>)}</div>
       </div>
       <div className="container product-page__benefits">{product.benefits.map(({ title, text }, index) => { const Icon = benefitIcons[index]; return <article key={title}><Icon /><b>0{index + 1}</b><h3>{title}</h3><p>{text}</p></article>; })}</div>
     </section>
@@ -146,7 +178,7 @@ export function ProductDetailLayout({ product }: { product: ProductDetailContent
     <section className="product-page__faq"><div className="container"><div className="product-page__center-head"><p className="reference-eyebrow blue">FAQ</p><h2>{product.name} Questions</h2><p>Use these answers for early planning, then confirm the final configuration in the project proposal.</p></div><div className="product-page__faq-list">{product.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></div></section>
 
     <section className="product-page__project-cta"><div className="container"><div><p className="reference-eyebrow">Project consultation</p><h2>Send Us Your Opening Details.</h2><p>Share the dimensions, quantity, application, project location and available photos or drawings.</p></div><Link className="reference-button reference-button--white" href="/contact">Get a Configuration <ArrowRight size={18} /></Link></div></section>
-  </div>;
+  </div><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></>;
 }
 
 export const standardHeroIcons = { speed: Gauge, size: Maximize2, safety: ShieldCheck };

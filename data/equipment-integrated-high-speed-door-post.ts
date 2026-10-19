@@ -143,7 +143,7 @@ export const equipmentIntegratedHighSpeedDoorPost: BlogPost = {
   relatedLinks: [
     { href: "/source/blog/new-generation-high-speed-roll-up-door", label: "High-Speed Roll-Up Door for Busy Production Areas" },
     { href: "/source/blog/control-dust-and-airflow-between-production-zones", label: "Control Dust and Airflow Between Production Zones" },
-    { href: "/source/blog/zipper-sealed-vs-brush-sealed-high-speed-doors", label: "Zipper vs Brush-Sealed High-Speed Doors" },
+    { href: "/source/blog/zipper-vs-brush-sealed-high-speed-doors", label: "Zipper vs Brush-Sealed High-Speed Doors" },
   ],
   relatedHref: "/products/high-speed-roll-up-door",
   relatedLabel: "Explore the High Speed Roll Up Door",

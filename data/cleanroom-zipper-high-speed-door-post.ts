@@ -158,6 +158,7 @@ export const cleanroomZipperHighSpeedDoorPost: BlogPost = {
     },
   ],
   relatedLinks: [
+    { href: "/products/zipper-high-speed-door", label: "Explore zipper high-speed doors" },
     { href: "/source/blog/zipper-vs-brush-sealed-high-speed-doors", label: "Compare Zipper and Brush-Sealed High-Speed Doors" },
     { href: "/source/blog/cleanroom-door-solutions-food-pharmaceutical", label: "Clean Access Solutions for Food and Pharmaceutical Facilities" },
     { href: "/source/blog/control-dust-and-airflow-between-production-zones", label: "Control Dust and Airflow Between Production Zones" },

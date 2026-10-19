@@ -69,10 +69,11 @@ export const zipperVsBrushPost: BlogPost = {
     ], image: "/images/blog/zipper-door-installation-check.webp", imageAlt: "SEPPES zipper high-speed door viewed during an installation and site-condition check", imageCaption: "Clear opening dimensions, headroom, side room, nearby equipment and control locations should be checked before the final configuration is approved." },
   ],
   relatedLinks: [
+    { href: "/products/zipper-high-speed-door", label: "Explore zipper high-speed doors" },
     { href: "/products/high-speed-roll-up-door", label: "Explore high-speed roll-up doors" },
     { href: "/source/blog/cleanroom-door-solutions-food-pharmaceutical", label: "Clean-access selection guide" },
     { href: "/source/blog/industrial-door-buyer-checklist-12-questions", label: "The 12-question buyer checklist" },
   ],
-  relatedHref: "/products/high-speed-roll-up-door",
-  relatedLabel: "Explore high-speed roll-up doors",
+  relatedHref: "/products/zipper-high-speed-door",
+  relatedLabel: "Explore zipper high-speed doors",
 };

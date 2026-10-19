@@ -2,6 +2,11 @@ import Image from "next/image";
 
 type Detail = { image: string; title: string; text: string };
 const details: Record<string, Detail[]> = {
+  "zipper-high-speed-door": [
+    { image: "zipper-side-guide.webp", title: "Interlocking Zipper Side Guide", text: "The shaped curtain edge travels inside the matching guide to retain the flexible curtain along both sides of the opening." },
+    { image: "zipper-curtain-edge.webp", title: "Flexible Curtain Edge", text: "A project-selected curtain and reinforced edge work with the guide geometry for frequent automatic movement." },
+    { image: "zipper-bottom-edge.webp", title: "Bottom Edge and Seal", text: "The lower edge is configured around safe closing, floor conditions and the required environmental boundary." },
+  ],
   "high-speed-spiral-door": [
     { image: "spiral-track.jpg", title: "Non-Contact Spiral Track", text: "Rigid panels travel into the spiral track without touching each other, reducing friction and operating noise while supporting rapid opening." },
     { image: "spiral-balance.jpg", title: "Precision Balancing Mechanism", text: "A balanced, low-friction transmission supports smooth movement, reduces vibration and helps limit wear during frequent operating cycles." },
