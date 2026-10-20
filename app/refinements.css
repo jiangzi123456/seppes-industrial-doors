@@ -18,8 +18,7 @@
 .clients { padding:42px 0 62px; border-top:1px solid var(--line); background:#fff; }
 .clients-inner { overflow:hidden; }
 .logo-track { display:flex; width:max-content; gap:18px; margin-top:24px; animation:logoMarquee 12s linear infinite; will-change:transform; }
-.client-wordmark { width:260px; height:92px; border:1px solid var(--line); display:grid; place-items:center; color:#7b8792; background:#fafbfc; font:800 25px var(--font-display); letter-spacing:.04em; filter:grayscale(1); transition:.25s; }
-.client-wordmark:hover { filter:grayscale(0); color:var(--blue); border-color:#aab9c4; }
+.client-wordmark { width:260px; height:92px; border:1px solid var(--line); display:grid; place-items:center; color:#7b8792; background:#fafbfc; font:800 25px var(--font-display); letter-spacing:.04em; }
 .client-ikea { font-weight:900; letter-spacing:-.04em; }
 .client-bosch { font-weight:700; letter-spacing:.12em; }
 .client-roche { font-weight:600; }
@@ -29,7 +28,6 @@
 @media (max-width:600px) { .brand-logo-crop { width:145px; height:42px; } .brand-logo-crop img { width:152px; top:-31px; } .client-wordmark { width:190px; height:75px; } .product-card { aspect-ratio:auto; } .product-visual { aspect-ratio:1/1; height:auto; } }
 
 .logo-track { animation-duration:24s; }
-.client-wordmark { flex:0 0 260px; background:#fff; opacity:.72; }
+.client-wordmark { flex:0 0 260px; background:#fff; opacity:1; }
 .client-wordmark img { width:auto; height:auto; max-width:78%; max-height:58px; object-fit:contain; }
-.client-wordmark:hover { opacity:1; }
 @media (max-width:600px) { .client-wordmark { flex-basis:190px; } }
