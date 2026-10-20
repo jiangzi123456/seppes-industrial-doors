@@ -107,7 +107,7 @@ const productCases: Record<string, Array<{ image: string; title: string; text: s
 
 export function ProductDetailLayout({ product }: { product: ProductDetailContent }) {
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Product", name: product.name, description: product.heroDescription, image: [`https://www.seppesde.com${product.heroImage}`], category: product.category, brand: { "@type": "Brand", name: "SEPPES" }, manufacturer: { "@type": "Organization", name: "SEPPES", url: "https://www.seppesde.com" }, url: `https://www.seppesde.com/products/${product.slug}` },
+    { "@type": "WebPage", name: product.name, description: product.heroDescription, image: `https://www.seppesde.com${product.heroImage}`, url: `https://www.seppesde.com/products/${product.slug}`, about: { "@type": "Thing", name: product.name }, publisher: { "@type": "Organization", name: "SEPPES", url: "https://www.seppesde.com" } },
     { "@type": "FAQPage", mainEntity: product.faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
   ] };
   return <><div className="product-page">
