@@ -18,6 +18,7 @@ import { Footer } from "@/components/footer";
 import { HomeInquiryForm } from "@/components/home-inquiry-form";
 import { BackToTop } from "@/components/back-to-top";
 import { FloatingContact } from "@/components/floating-contact";
+import { siteSearchItems } from "@/lib/site-search";
 
 const siteUrl = "https://www.seppesde.com";
 
@@ -66,5 +67,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" data-scroll-behavior="smooth"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} /><Header /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /><FloatingContact /></body></html>;
+  return <html lang="en" data-scroll-behavior="smooth"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} /><Header searchItems={siteSearchItems} /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /><FloatingContact /></body></html>;
 }

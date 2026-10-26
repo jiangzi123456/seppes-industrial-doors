@@ -19,6 +19,8 @@
   transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
+.reference-header.has-search-open { z-index:100; }
+
 .reference-header .header-inner {
   justify-content: space-between;
 }
@@ -431,7 +433,40 @@ html.nav-dropdown-dismissed .nav-dropdown__trigger svg {
 .floating-whatsapp:hover { transform:translateY(-3px) scale(1.04); background:#1fb858; }
 .floating-whatsapp svg { width:27px; height:27px; }
 
+.site-search__trigger { width:40px; height:40px; flex:0 0 40px; display:grid; place-items:center; padding:0; border:0; background:transparent; color:#0b1f33; cursor:pointer; transition:color .2s ease,background-color .2s ease; }
+.site-search__trigger:hover,.site-search__trigger:focus-visible { color:#0068b5; background:#edf3f7; outline:none; }
+.site-search__trigger svg { width:20px; height:20px; }
+.reference-header.is-scrolled .site-search__trigger { color:#fff; }
+.reference-header.is-scrolled .site-search__trigger:hover,.reference-header.is-scrolled .site-search__trigger:focus-visible { color:#fff; background:rgba(255,255,255,.14); }
+.reference-header.has-search-open .desktop-nav { display:none; }
+.site-search__inline { position:relative; width:min(620px,calc(100vw - 390px)); margin-left:auto; }
+.site-search__inline-field { height:48px; display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:11px; padding:0 8px 0 17px; border:1px solid #c5d0d9; border-radius:999px; background:#fff; color:#0b1f33; box-shadow:0 5px 18px rgba(11,31,51,.08); }
+.site-search__inline-field:focus-within { border-color:#0068b5; box-shadow:0 0 0 3px rgba(0,104,181,.13); }
+.site-search__inline-field>svg { width:19px; color:#0068b5; }
+.site-search__inline-field input { width:100%; min-width:0; height:44px; padding:0; border:0; outline:0; background:transparent; color:#0b1f33; font:700 15px var(--font-body); }
+.site-search__inline-field input::placeholder { color:#7b8895; font-weight:500; }
+.site-search__inline-field input::-webkit-search-cancel-button { display:none; }
+.site-search__inline-field button { width:34px; height:34px; display:grid; place-items:center; padding:0; border:0; border-radius:50%; background:#edf3f7; color:#0b1f33; cursor:pointer; }
+.site-search__inline-field button:hover,.site-search__inline-field button:focus-visible { color:#0068b5; outline:none; }
+.site-search__inline-field button svg { width:17px; }
+.site-search__inline-results { position:absolute; top:calc(100% + 12px); right:0; z-index:60; width:min(760px,calc(100vw - 48px)); max-height:min(620px,calc(100vh - 120px)); overflow:auto; padding:10px; border-top:3px solid #0068b5; background:#fff; box-shadow:0 22px 56px rgba(11,31,51,.22); }
+.site-search__inline-results>p { margin:0; padding:22px; }
+.site-search__inline-results>a { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:18px; border-bottom:1px solid #e0e6eb; }
+.site-search__inline-results>a:last-child { border-bottom:0; }
+.site-search__inline-results>a:hover,.site-search__inline-results>a:focus-visible { background:#f1f5f8; outline:none; }
+.site-search__inline-results>a span { color:#d71920; font-size:9px; font-weight:850; letter-spacing:.1em; text-transform:uppercase; }
+.site-search__inline-results h3 { margin:5px 0 3px; font-family:var(--font-body); font-size:1rem; font-weight:850; letter-spacing:-.02em; }
+.site-search__inline-results p { margin:0; font-size:12px; line-height:1.5; }
+.site-search__inline-results>a>svg { width:18px; flex:none; color:#0068b5; }
+
+@media (max-width: 1050px) {
+  .reference-header.has-search-open .brand,.reference-header.has-search-open .menu-button { display:none; }
+  .site-search__inline { width:100%; margin:0; }
+}
+
 @media (max-width: 600px) {
+  .site-search__inline-results { width:calc(100vw - 32px); right:50%; transform:translateX(50%); }
+  .site-search__inline-results a p { display:none; }
   .floating-inquiry { top:auto; bottom:96px; transform:none; }
   .floating-inquiry__trigger { width:48px; min-height:158px; padding:14px 8px; border-radius:14px 0 0 14px; }
   .floating-inquiry__trigger span { font-size:11px; }

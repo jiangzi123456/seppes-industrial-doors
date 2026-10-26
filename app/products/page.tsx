@@ -1,25 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, Check, Factory, Gauge, ShieldCheck, Snowflake } from "lucide-react";
+import { ArrowDown, ArrowRight, Factory, Gauge, ShieldCheck, Snowflake } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { CTA } from "@/components/cta";
-import { products } from "@/data/site";
+import { ProductFamilyPagination } from "@/components/product-family-pagination";
 import "./products.css";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({ title: "Industrial Door Products", description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment.", path: "/products", image: "/images/hero-industrial-door.jpg" });
 
-const images: Record<string, string> = {
-  "high-speed-roll-up-door": "/images/catalog-high-speed-roll-up.webp",
-  "zipper-high-speed-door": "/images/products/zipper-high-speed-door-cleanroom.webp",
-  "high-speed-spiral-door": "/images/catalog-high-speed-spiral.webp",
-  "industrial-sectional-door": "/images/industrial-sectional-door.webp",
-  "hydraulic-dock-leveler": "/images/catalog-dock-leveler.webp",
-  "stacking-high-speed-door": "/images/products/stacking-high-speed-door-hero.webp",
-  "aluminium-roller-shutter-door": "/images/products/aluminium-roller-shutter-door-hero.webp",
-  "dock-shelter": "/images/products/dock-shelter-hero.webp",
-  "garage-high-speed-door": "/images/products/garage-high-speed-door-hero.webp",
-};
 const factors = [
   ["01", "Traffic Frequency", "Confirm daily cycles, peak traffic and required opening speed.", "High-speed door direction"],
   ["02", "Opening & Space", "Measure width, height, headroom and side-room conditions.", "Track and structure review"],
@@ -48,12 +37,8 @@ export default function ProductsPage() {
     </section>
     <Breadcrumb currentPath="/products" items={[{ label: "Home", href: "/" }, { label: "Industrial Door Products" }]} />
     <section className="products-overview__section" id="product-families"><div className="container">
-      <div className="products-overview__section-heading"><span className="eyebrow">Product families</span><h2>Five Solutions for Industrial Openings</h2><p>Each family addresses a different balance of speed, sealing, security, insulation and loading efficiency.</p></div>
-      <div className="products-overview__family-grid">{products.map(product => <article className="products-overview__family-card" id={product.slug} key={product.slug}>
-        <Link className="products-overview__media" href={`/products/${product.slug}`} aria-label={`View ${product.name} details`}><Image src={images[product.slug]} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" /></Link>
-        <div className="products-overview__family-body"><span className="eyebrow">{product.category}</span><h3>{product.name}</h3><p>{product.description}</p><h4>Key capabilities</h4><ul>{product.specs.map(spec => <li key={spec}><Check size={17}/>{spec}</li>)}</ul>
-          <Link className="products-overview__text-link" href={`/products/${product.slug}`}>View product details <ArrowRight size={17}/></Link>
-        </div></article>)}</div>
+      <div className="products-overview__section-heading"><span className="eyebrow">Product families</span><h2>Product Solutions for Industrial Openings</h2><p>Each family addresses a different balance of speed, sealing, security, insulation and loading efficiency.</p></div>
+      <ProductFamilyPagination />
     </div></section>
     <section className="products-overview__section products-overview__section--tint" id="compare-products"><div className="container">
       <div className="products-overview__section-heading"><span className="eyebrow">Product comparison</span><h2>Compare Industrial Door Types</h2><p>Use this as an initial planning reference. Exact configuration follows verified dimensions and site conditions.</p></div>

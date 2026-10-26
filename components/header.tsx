@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BrandLogo } from "./brand-logo";
+import type { SiteSearchItem } from "@/lib/site-search";
 
 type NavItem = {
   label: string;
@@ -33,14 +35,6 @@ const links: NavItem[] = [
         label: "Industrial Sectional Door",
         href: "/products/industrial-sectional-door",
       },
-      {
-        label: "Hydraulic Dock Leveler",
-        href: "/products/hydraulic-dock-leveler",
-      },
-      { label: "Stacking High Speed Door", href: "/products/stacking-high-speed-door" },
-      { label: "Aluminium Roller Shutter Door", href: "/products/aluminium-roller-shutter-door" },
-      { label: "Dock Shelter", href: "/products/dock-shelter" },
-      { label: "Garage High Speed Door", href: "/products/garage-high-speed-door" },
     ],
   },
   { label: "Solutions", href: "/solutions", children: [
@@ -58,10 +52,36 @@ const links: NavItem[] = [
 
 const dismissedDropdownKey = "seppes-dismissed-dropdown";
 
-export function Header() {
+export function Header({ searchItems }: { searchItems: SiteSearchItem[] }) {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [dismissedDropdown, setDismissedDropdown] = useState<string | null>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchAreaRef = useRef<HTMLDivElement>(null);
+
+  const searchResults = useMemo(() => {
+    const terms = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+    return searchItems.filter((item) => {
+      const haystack = `${item.title} ${item.category} ${item.description} ${item.terms}`.toLocaleLowerCase();
+      return terms.every((term) => haystack.includes(term));
+    }).slice(0, 10);
+  }, [query, searchItems]);
+
+  const closeSearch = () => {
+    setSearchOpen(false);
+    setQuery("");
+  };
+
+  const openSearchPage = (searchValue = query) => {
+    const value = searchValue.trim();
+    if (!value) return;
+    router.push(`/search?q=${encodeURIComponent(value)}`);
+    closeSearch();
+  };
 
   const dismissDropdown = (href: string) => {
     setDismissedDropdown(href);
@@ -80,6 +100,23 @@ export function Header() {
     setDismissedDropdown(dismissed);
     document.documentElement.classList.toggle("nav-dropdown-dismissed", Boolean(dismissed));
   }, []);
+
+  useEffect(() => {
+    if (!searchOpen) return;
+    searchInputRef.current?.focus();
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeSearch();
+    };
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      if (event.target instanceof Node && !searchAreaRef.current?.contains(event.target)) closeSearch();
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+    };
+  }, [searchOpen]);
 
   useEffect(() => {
     const getPageScrollTop = () =>
@@ -112,7 +149,7 @@ export function Header() {
 
   return (
     <header
-      className={`site-header reference-header${scrolled ? " is-scrolled" : ""}`}
+      className={`site-header reference-header${scrolled ? " is-scrolled" : ""}${searchOpen ? " has-search-open" : ""}`}
     >
       <div className="container header-inner">
         <Link className="brand" href="/" aria-label="SEPPES home">
@@ -166,6 +203,34 @@ export function Header() {
           )}
         </nav>
 
+        {searchOpen ? (
+          <div className="site-search__inline" ref={searchAreaRef}>
+            <form className="site-search__inline-field" action="/search" method="get" onSubmit={(event) => {
+              event.preventDefault();
+              openSearchPage(String(new FormData(event.currentTarget).get("q") ?? ""));
+            }}>
+              <Search aria-hidden="true" />
+              <input ref={searchInputRef} name="q" type="search" value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); openSearchPage(event.currentTarget.value); } }} placeholder="Search products and news" aria-label="Search products and news" />
+              <button type="button" onClick={closeSearch} aria-label="Close search"><X aria-hidden="true" /></button>
+            </form>
+            {query.trim() && (
+              <div className="site-search__inline-results" aria-live="polite">
+                {!searchResults.length && <p>No matching products or news found. Try a broader keyword.</p>}
+                {searchResults.map((item) => (
+                  <Link href={item.href} key={`${item.type}-${item.href}`} onClick={closeSearch}>
+                    <div><span>{item.type} · {item.category}</span><h3>{item.title}</h3><p>{item.description}</p></div>
+                    <ArrowRight aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        ) : (
+          <button className="site-search__trigger" type="button" aria-label="Search products and news" aria-expanded={false} onClick={() => { setOpen(false); setSearchOpen(true); }}>
+            <Search aria-hidden="true" />
+          </button>
+        )}
+
         <button
           className="menu-button"
           onClick={() => setOpen(!open)}
@@ -208,6 +273,7 @@ export function Header() {
           )}
         </nav>
       )}
+
     </header>
   );
 }
