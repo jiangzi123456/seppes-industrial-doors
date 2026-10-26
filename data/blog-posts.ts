@@ -5,6 +5,8 @@ import { cleanroomZipperHighSpeedDoorPost } from "./cleanroom-zipper-high-speed-
 import { highSpeedVsSectionalDoorPost } from "./high-speed-vs-sectional-door-post";
 import { hydraulicDockLevelerSelectionPost } from "./hydraulic-dock-leveler-selection-post";
 import { highSpeedDoorSafetySensorsPost } from "./high-speed-door-safety-sensors-post";
+import { dockShelterSelectionPost } from "./dock-shelter-selection-post";
+import { integratedLoadingBaySystemPost } from "./integrated-loading-bay-system-post";
 
 export type BlogSection = {
   table?: { caption: string; headers: string[]; rows: string[][] };
@@ -23,6 +25,7 @@ export type BlogSection = {
   image?: string;
   imageAlt?: string;
   imageCaption?: string;
+  imageFit?: "cover" | "contain";
 };
 
 export type BlogPost = {
@@ -53,6 +56,8 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  integratedLoadingBaySystemPost,
+  dockShelterSelectionPost,
   highSpeedDoorSafetySensorsPost,
   hydraulicDockLevelerSelectionPost,
   highSpeedVsSectionalDoorPost,
