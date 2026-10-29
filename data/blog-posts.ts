@@ -7,6 +7,7 @@ import { hydraulicDockLevelerSelectionPost } from "./hydraulic-dock-leveler-sele
 import { highSpeedDoorSafetySensorsPost } from "./high-speed-door-safety-sensors-post";
 import { dockShelterSelectionPost } from "./dock-shelter-selection-post";
 import { integratedLoadingBaySystemPost } from "./integrated-loading-bay-system-post";
+import { highSpeedSpiralDoorColdChainPost } from "./high-speed-spiral-door-cold-chain-post";
 
 export type BlogSection = {
   table?: { caption: string; headers: string[]; rows: string[][] };
@@ -56,6 +57,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  highSpeedSpiralDoorColdChainPost,
   integratedLoadingBaySystemPost,
   dockShelterSelectionPost,
   highSpeedDoorSafetySensorsPost,
