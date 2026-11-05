@@ -9,6 +9,7 @@ import { dockShelterSelectionPost } from "./dock-shelter-selection-post";
 import { integratedLoadingBaySystemPost } from "./integrated-loading-bay-system-post";
 import { highSpeedSpiralDoorColdChainPost } from "./high-speed-spiral-door-cold-chain-post";
 import { industrialSectionalDoorTrackSelectionPost } from "./industrial-sectional-door-track-selection-post";
+import { aluminiumRollerShutterSelectionPost } from "./aluminium-roller-shutter-selection-post";
 
 export type BlogSection = {
   table?: { caption: string; headers: string[]; rows: string[][] };
@@ -58,6 +59,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  aluminiumRollerShutterSelectionPost,
   industrialSectionalDoorTrackSelectionPost,
   highSpeedSpiralDoorColdChainPost,
   integratedLoadingBaySystemPost,
