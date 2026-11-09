@@ -11,7 +11,7 @@ export async function submitInquiry(form: HTMLFormElement, source: string) {
   const response = await fetch("/api/inquiry", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...payload, source }),
+    body: JSON.stringify({ ...payload, source, page: window.location.pathname }),
   });
 
   const result = (await response.json().catch(() => ({}))) as InquiryResponse;

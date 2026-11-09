@@ -7,7 +7,11 @@ import { ProductFamilyPagination } from "@/components/product-family-pagination"
 import "./products.css";
 import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = createPageMetadata({ title: "Industrial Door Products", description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment.", path: "/products", image: "/images/hero-industrial-door.jpg" });
+export async function generateMetadata({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const { page } = await searchParams;
+  const current = Math.min(3, Math.max(1, Math.floor(Number(page) || 1)));
+  return createPageMetadata({ title: `Industrial Door Products${current > 1 ? ` – Page ${current}` : ""}`, description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment.", path: current > 1 ? `/products?page=${current}` : "/products", image: "/images/hero-industrial-door.jpg" });
+}
 
 const factors = [
   ["01", "Traffic Frequency", "Confirm daily cycles, peak traffic and required opening speed.", "High-speed door direction"],
@@ -24,7 +28,9 @@ const faqs = [
   ["What is needed for a quotation?", "Share opening dimensions, application, indoor or outdoor position, traffic type, quantity, country and any drawings or site photos."],
 ];
 
-export default function ProductsPage() {
+export default async function ProductsPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const { page } = await searchParams;
+  const current = Math.min(3, Math.max(1, Math.floor(Number(page) || 1)));
   return <div className="products-overview">
     <section className="products-overview__hero">
       <Image className="products-overview__hero-image" src="/images/hero-industrial-door.jpg" alt="Industrial high-speed door" fill priority sizes="100vw" />
@@ -38,7 +44,7 @@ export default function ProductsPage() {
     <Breadcrumb currentPath="/products" items={[{ label: "Home", href: "/" }, { label: "Industrial Door Products" }]} />
     <section className="products-overview__section" id="product-families"><div className="container">
       <div className="products-overview__section-heading"><span className="eyebrow">Product families</span><h2>Product Solutions for Industrial Openings</h2><p>Each family addresses a different balance of speed, sealing, security, insulation and loading efficiency.</p></div>
-      <ProductFamilyPagination />
+      <ProductFamilyPagination initialPage={current} />
     </div></section>
     <section className="products-overview__section products-overview__section--tint" id="compare-products"><div className="container">
       <div className="products-overview__section-heading"><span className="eyebrow">Product comparison</span><h2>Compare Industrial Door Types</h2><p>Use this as an initial planning reference. Exact configuration follows verified dimensions and site conditions.</p></div>

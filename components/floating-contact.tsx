@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { MessageCircle, Send, X } from "lucide-react";
+import { InquiryProductSelect } from "./inquiry-product-select";
 import { InquirySubmitState, submitInquiry } from "./inquiry-submit";
 
 const whatsappUrl = "https://wa.me/8617798578460?text=Hello%2C%20I%20would%20like%20to%20discuss%20an%20industrial%20door%20project%20with%20SEPPES.";
@@ -13,6 +14,7 @@ export function FloatingContact() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (state === "submitting") return;
     const form = event.currentTarget;
     setState("submitting");
     setFeedback("");
@@ -40,8 +42,8 @@ export function FloatingContact() {
             <label><span>Company</span><input name="company" autoComplete="organization" /></label>
             <label><span>Email</span><input name="email" type="email" autoComplete="email" /></label>
             <label><span>Phone / WhatsApp <i>*</i></span><input name="phone" required autoComplete="tel" /></label>
-            <label className="full">Product Required<select name="product" defaultValue=""><option value="">Select a product</option><option>High Speed Roll Up Door</option><option>High Speed Spiral Door</option><option>Industrial Sectional Door</option><option>Hydraulic Dock Leveler</option><option>Not sure yet</option></select></label>
-            <label className="full"><span>Message <i>*</i></span><textarea name="message" rows={3} required /></label>
+            <label className="full">Product Required<InquiryProductSelect /></label>
+            <label className="full"><span>Message <i>*</i></span><textarea placeholder="Opening width × height, quantity, application, project location and control requirements" name="message" rows={3} required /></label>
           </div>
           <button className="floating-inquiry__submit" type="submit" disabled={state === "submitting"}><Send /> {state === "submitting" ? "Sending…" : "Send Inquiry"}</button>
           {feedback && <p className={`inquiry-feedback is-${state}`} role="status" aria-live="polite">{feedback}</p>}

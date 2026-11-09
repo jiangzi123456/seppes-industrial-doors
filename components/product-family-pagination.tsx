@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
-import { useState } from "react";
 import { products } from "@/data/site";
 
 const images: Record<string, string> = {
@@ -20,16 +19,13 @@ const images: Record<string, string> = {
 
 const pageSize = 4;
 
-export function ProductFamilyPagination() {
-  const [page, setPage] = useState(1);
+export function ProductFamilyPagination({ initialPage = 1 }: { initialPage?: number }) {
+  const page = initialPage;
   const pageCount = Math.ceil(products.length / pageSize);
   const start = (page - 1) * pageSize;
   const visibleProducts = products.slice(start, start + pageSize);
 
-  const changePage = (nextPage: number) => {
-    setPage(nextPage);
-    document.getElementById("product-families")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const pageHref = (number: number) => `${number === 1 ? "/products" : `/products?page=${number}`}#product-families`;
 
   return <>
     <div className="products-overview__family-grid">{visibleProducts.map(product => <article className="products-overview__family-card" id={product.slug} key={product.slug}>
@@ -38,9 +34,9 @@ export function ProductFamilyPagination() {
         <Link className="products-overview__text-link" href={`/products/${product.slug}`}>View product details <ArrowRight size={17}/></Link>
       </div></article>)}</div>
     <nav className="products-overview__pagination" aria-label="Product pages">
-      <button type="button" onClick={() => changePage(page - 1)} disabled={page === 1} aria-label="Previous product page"><ArrowLeft size={17}/>Previous</button>
-      <div>{Array.from({ length: pageCount }, (_, index) => index + 1).map(pageNumber => <button type="button" className={pageNumber === page ? "is-current" : ""} aria-current={pageNumber === page ? "page" : undefined} aria-label={`Product page ${pageNumber}`} onClick={() => changePage(pageNumber)} key={pageNumber}>{pageNumber}</button>)}</div>
-      <button type="button" onClick={() => changePage(page + 1)} disabled={page === pageCount} aria-label="Next product page">Next<ArrowRight size={17}/></button>
+      {page > 1 ? <a href={pageHref(page - 1)} aria-label="Previous product page"><ArrowLeft size={17}/>Previous</a> : <button disabled><ArrowLeft size={17}/>Previous</button>}
+      <div>{Array.from({ length: pageCount }, (_, index) => index + 1).map(pageNumber => <a className={pageNumber === page ? "is-current" : ""} aria-current={pageNumber === page ? "page" : undefined} aria-label={`Product page ${pageNumber}`} href={pageHref(pageNumber)} key={pageNumber}>{pageNumber}</a>)}</div>
+      {page < pageCount ? <a href={pageHref(page + 1)} aria-label="Next product page">Next<ArrowRight size={17}/></a> : <button disabled>Next<ArrowRight size={17}/></button>}
     </nav>
     <nav className="products-overview__all-product-links" aria-label="All product detail pages">{products.map(product => <Link href={`/products/${product.slug}`} key={product.slug}>{product.name}</Link>)}</nav>
   </>;

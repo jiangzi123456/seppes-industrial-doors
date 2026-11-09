@@ -25,7 +25,11 @@ export async function POST(request: Request) {
 
   let body: Record<string, unknown>;
   try {
-    body = await request.json();
+    const parsed: unknown = await request.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return Response.json({ message: "Invalid inquiry data." }, { status: 400 });
+    }
+    body = parsed as Record<string, unknown>;
   } catch {
     return Response.json({ message: "Invalid inquiry data." }, { status: 400 });
   }
@@ -36,6 +40,7 @@ export async function POST(request: Request) {
   }
 
   const source = clean(body.source, 100) || "Website inquiry";
+  const page = clean(body.page, 300);
   const name = clean(body.name, 120);
   const company = clean(body.company, 160);
   const email = clean(body.email, 180);
@@ -63,6 +68,7 @@ export async function POST(request: Request) {
   const fields = isNewsletter
     ? [["Work email", email]]
     : [
+        ["Page", page || "Not provided"],
         ["Full name", name],
         ["Company", company || "Not provided"],
         ["Email", email || "Not provided"],

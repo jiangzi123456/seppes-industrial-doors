@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "./breadcrumb";
 import { ProductComponentDetails } from "./product-component-details";
+import { ProductSelectionResources } from "./product-selection-resources";
 
 type Item = { title: string; text: string };
 type Fact = { label: string; value: string; icon: LucideIcon };
@@ -165,6 +166,7 @@ export function ProductDetailLayout({ product }: { product: ProductDetailContent
       <div className="product-page__case-grid">{productCases[product.slug].map((item, index) => <article key={item.title}><div className="product-page__case-image"><Image src={item.image} alt={item.title} fill sizes="(min-width: 900px) 33vw, 100vw" /></div><div className="product-page__case-copy"><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></div></article>)}</div>
     </div></section>
 
+    <ProductSelectionResources slug={product.slug} />
     <section className="product-page__related"><div className="container">
       <div className="product-page__related-head"><div><p className="reference-eyebrow blue">Product recommendations</p><h2>Explore More Industrial Door Systems</h2></div><Link className="reference-text-link" href="/products">View all products <ArrowRight size={17} /></Link></div>
       <div className="product-page__related-grid">{relatedProducts.map((item) => <Link className="product-page__related-card" href={item.href} key={item.href}><div className="product-page__related-image"><Image src={item.image} alt={item.title} fill sizes="(min-width: 1100px) 25vw, (min-width: 650px) 50vw, 100vw" /></div><div className="product-page__related-copy"><span>{item.category}</span><h3>{item.title}</h3><p>{item.text}</p><em>View product <ArrowRight size={16} /></em></div></Link>)}</div>

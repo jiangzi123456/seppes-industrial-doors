@@ -23,10 +23,10 @@ export type NewsFeedPost = {
   imageAlt: string;
 };
 
-export function GeoNewsFeed({ posts }: { posts: NewsFeedPost[] }) {
+export function GeoNewsFeed({ posts, initialPage = 1 }: { posts: NewsFeedPost[]; initialPage?: number }) {
   const [category, setCategory] = useState("All");
   const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(initialPage);
   const [newsletterState, setNewsletterState] = useState<InquirySubmitState>("idle");
   const [newsletterFeedback, setNewsletterFeedback] = useState("");
   const filteredPosts = useMemo(() => posts.filter((post) => (category === "All" || post.category === category) && `${post.title} ${post.excerpt}`.toLowerCase().includes(query.toLowerCase())), [category, posts, query]);
@@ -38,6 +38,7 @@ export function GeoNewsFeed({ posts }: { posts: NewsFeedPost[] }) {
     setPage(nextPage);
     document.getElementById("latest")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  const pageHref = (number: number) => `${number === 1 ? "/source/blog" : `/source/blog?page=${number}`}#latest`;
   const subscribe = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -70,7 +71,7 @@ export function GeoNewsFeed({ posts }: { posts: NewsFeedPost[] }) {
       <div className="geo-tools"><div className="geo-tabs" role="group" aria-label="Filter news by category">{categories.map((item) => <button key={item} className={category === item ? "active" : ""} onClick={() => { setCategory(item); setPage(1); }}>{item}</button>)}</div><label className="geo-search"><Search size={17} /><span className="sr-only">Search articles</span><input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Search insights" /></label></div>
       {visiblePosts.length ? <><div className="geo-card-grid">{visiblePosts.map((post, index) => <article className="geo-card" key={post.slug}><Link className={`geo-card__visual tone-${tones[(pageStart + index) % tones.length]}`} href={`/source/blog/${post.slug}`} aria-label={`Read ${post.title}`}><Image src={post.image} alt={post.imageAlt} fill sizes="(min-width: 1100px) 33vw, (min-width: 650px) 50vw, 100vw" /><span>{String(pageStart + index + 1).padStart(2, "0")}</span><b>{post.category}</b></Link>
         <div className="geo-card__body"><p className="geo-meta">{post.date} <span>·</span> <Clock3 size={13} /> {post.readTime}</p><h3><Link href={`/source/blog/${post.slug}`}>{post.title}</Link></h3><p>{post.excerpt}</p><Link href={`/source/blog/${post.slug}`} aria-label={`Read ${post.title}`}>Read insight <ArrowRight size={16} /></Link></div></article>)}</div>
-        {pageCount > 1 && <nav className="geo-pagination" aria-label="News pages"><button type="button" onClick={() => changePage(page - 1)} disabled={page === 1} aria-label="Previous news page"><ArrowLeft size={17} />Previous</button><div>{Array.from({ length: pageCount }, (_, index) => index + 1).map((pageNumber) => <button type="button" className={pageNumber === page ? "is-current" : ""} aria-current={pageNumber === page ? "page" : undefined} aria-label={`News page ${pageNumber}`} onClick={() => changePage(pageNumber)} key={pageNumber}>{pageNumber}</button>)}</div><button type="button" onClick={() => changePage(page + 1)} disabled={page === pageCount} aria-label="Next news page">Next<ArrowRight size={17} /></button></nav>}</> : <div className="geo-empty"><h3>No briefings found.</h3><p>Try another topic or clear your search.</p></div>}
+        {pageCount > 1 && <nav className="geo-pagination" aria-label="News pages">{page > 1 ? <a href={pageHref(page - 1)} onClick={(event) => { if (category !== "All" || query) { event.preventDefault(); changePage(page - 1); } }}><ArrowLeft size={17} />Previous</a> : <button disabled><ArrowLeft size={17} />Previous</button>}<div>{Array.from({ length: pageCount }, (_, index) => index + 1).map((pageNumber) => <a href={pageHref(pageNumber)} className={pageNumber === page ? "is-current" : ""} aria-current={pageNumber === page ? "page" : undefined} aria-label={`News page ${pageNumber}`} onClick={(event) => { if (category !== "All" || query) { event.preventDefault(); changePage(pageNumber); } }} key={pageNumber}>{pageNumber}</a>)}</div>{page < pageCount ? <a href={pageHref(page + 1)} onClick={(event) => { if (category !== "All" || query) { event.preventDefault(); changePage(page + 1); } }}>Next<ArrowRight size={17} /></a> : <button disabled>Next<ArrowRight size={17} /></button>}</nav>}</> : <div className="geo-empty"><h3>No briefings found.</h3><p>Try another topic or clear your search.</p></div>}
     </div></section>
 
     <section className="geo-newsletter" id="newsletter"><div className="container geo-newsletter__inner"><div><p className="geo-kicker">SEPPES Industry Updates</p><h2>New products.<br />Practical solutions.</h2></div><div><p>Receive selected product releases, application advice and industrial project stories from our manufacturing team.</p><form onSubmit={subscribe}><div className="inquiry-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div><label><span className="sr-only">Work email</span><input required name="email" type="email" autoComplete="email" placeholder="Work email address" /></label><button type="submit" disabled={newsletterState === "submitting"}>{newsletterState === "submitting" ? "Sending…" : "Request Updates"} <ArrowRight size={17} /></button></form><small>Your request will be sent directly to our team.</small>{newsletterFeedback && <p className={`inquiry-feedback is-${newsletterState}`} role="status" aria-live="polite">{newsletterFeedback}</p>}</div></div></section>
