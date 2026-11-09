@@ -10,7 +10,6 @@ export const stackingDoorWarehousePost: BlogPost = {
   excerpt: "Plan wide warehouse vehicle access with a stacking high-speed door: check curtain reinforcement, headroom, wind exposure, traffic controls and installation fit.",
   image: "/images/products/stacking-high-speed-door-hero.webp",
   imageAlt: "SEPPES reinforced stacking high-speed door at a wide industrial opening",
-  imageCaption: "SEPPES product photography illustrates the stacking-door format; it does not establish a wind rating for a proposed installation.",
   keywords: ["stacking high-speed doors", "wide warehouse door", "reinforced fabric door", "warehouse vehicle entrance"],
   intro: "Choose a stacking high-speed door for a wide warehouse opening when frequent vehicle access calls for a reinforced flexible curtain and sufficient overhead stacking space is available. Confirm the opening, supporting structure, wind exposure, traffic pattern and controls together. Horizontal reinforcement can help stabilize the curtain, but final dimensions, operating limits and wind suitability require project-specific engineering confirmation.",
   quickQuestion: "When should a warehouse consider a stacking high-speed door?",
