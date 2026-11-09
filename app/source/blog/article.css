@@ -99,3 +99,10 @@
 /* Keep the guide contents visible while reading; clip does not create a scroll container. */
 main:has(.blog-post--editorial){overflow:clip}
 @media(max-width:700px){.blog-post__table-wrap caption:after{content:'Swipe horizontally to compare →';display:block;margin-top:8px;font-weight:400;font-size:11px;color:#526a7d}}
+
+/* Keep the mobile article readable while retaining a compact inquiry entry. */
+@media(max-width:600px){
+  body:has(.blog-post) .floating-inquiry:not(.is-open){right:82px;bottom:18px;top:auto;transform:none}
+  body:has(.blog-post) .floating-inquiry__trigger{width:54px;min-height:54px;height:54px;padding:0;justify-content:center;border-radius:50%;gap:0}
+  body:has(.blog-post) .floating-inquiry__trigger span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+}
