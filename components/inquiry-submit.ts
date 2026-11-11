@@ -8,6 +8,14 @@ export async function submitInquiry(form: HTMLFormElement, source: string) {
   const formData = new FormData(form);
   const payload = Object.fromEntries(formData.entries());
 
+  if (source !== "Blog newsletter") {
+    const email = String(payload.email ?? "").trim();
+    const phone = String(payload.phone ?? "").trim();
+    if (!email && !phone) {
+      throw new Error("Please provide an email address or a phone / WhatsApp number.");
+    }
+  }
+
   const response = await fetch("/api/inquiry", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

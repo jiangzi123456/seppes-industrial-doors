@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight, BookOpen, Factory, Settings2, ShieldCheck } from "lucide-react";
 
 const resources: Record<string, { intro: string; links: Array<[string, string]> }> = {
   "high-speed-roll-up-door": {
@@ -22,11 +23,28 @@ const resources: Record<string, { intro: string; links: Array<[string, string]> 
 export function ProductSelectionResources({ slug }: { slug: string }) {
   const resource = resources[slug];
   if (!resource) return null;
-  return <section className="product-page__planning"><div className="container">
-    <p className="reference-eyebrow blue">Selection resources</p>
-    <h2>Plan the Door Around Your Application</h2>
-    <p>{resource.intro}</p>
-    <ul>{resource.links.map(([href, label]) => <li key={href}><Link className="reference-text-link" href={href}>{label}</Link></li>)}</ul>
-    <p><Link className="reference-text-link" href="/quality-certifications">Review certification scope and inspection documents</Link></p>
+  const categories = [
+    { label: "Selection guide", icon: BookOpen },
+    { label: "Project application", icon: Factory },
+    { label: "Industry solution", icon: Settings2 },
+    { label: "Quality & certification", icon: ShieldCheck },
+  ];
+  const links = [...resource.links, ["/quality-certifications", "Review certification scope and inspection documents"]];
+  return <section className="product-page__planning selection-resources"><div className="container">
+    <div className="selection-resources__heading">
+      <div><p className="reference-eyebrow blue">Selection resources</p><h2>Plan the Door Around Your Application</h2></div>
+      <p className="selection-resources__intro">{resource.intro}</p>
+    </div>
+    <nav className="selection-resources__grid" aria-label="Product selection resources">
+      {links.map(([href, label], index) => {
+        const { label: category, icon: Icon } = categories[index];
+        return <Link className="selection-resources__card" href={href} key={href}>
+          <span className="selection-resources__top"><span className="selection-resources__icon"><Icon size={23} aria-hidden="true" /></span><span className="selection-resources__number">0{index + 1}</span></span>
+          <span className="selection-resources__category">{category}</span>
+          <span className="selection-resources__title">{label}</span>
+          <span className="selection-resources__footer">Explore resource <ArrowUpRight size={18} aria-hidden="true" /></span>
+        </Link>;
+      })}
+    </nav>
   </div></section>;
 }

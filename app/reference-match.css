@@ -51,3 +51,26 @@
 
 
 .reference-application-grid a:focus-visible { outline: 3px solid #0069ae; outline-offset: 4px; }
+
+/* Shared footer project action */
+.reference-footer .footer-proposal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 13px 22px;
+  border: 1px solid #2384c6;
+  border-radius: 7px;
+  background: #006bb3;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 12%);
+  transition: background-color .2s, border-color .2s;
+}
+.reference-footer .footer-proposal:hover { background: #087fc9; border-color: #64b5e8; color: #fff; }
+.reference-footer .footer-proposal:focus-visible { outline: 3px solid #93d6ff; outline-offset: 4px; }
+@media(prefers-reduced-motion: reduce) { .reference-footer .footer-proposal { transition: none; } }

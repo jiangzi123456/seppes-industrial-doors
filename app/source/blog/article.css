@@ -106,3 +106,13 @@ main:has(.blog-post--editorial){overflow:clip}
   body:has(.blog-post) .floating-inquiry__trigger{width:54px;min-height:54px;height:54px;padding:0;justify-content:center;border-radius:50%;gap:0}
   body:has(.blog-post) .floating-inquiry__trigger span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 }
+
+/* Related reading follows the shared resource-card treatment. */
+.blog-post__reading { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; background: #f3f7fb; border-radius: 12px; }
+.blog-post__reading h2 { grid-column: 1 / -1; margin-bottom: 8px; }
+.blog-post__reading a { align-items: flex-start; padding: 22px; background: #fff; border: 1px solid var(--post-line); border-radius: 8px; text-decoration: none; line-height: 1.6; box-shadow: 0 3px 12px rgb(18 53 82 / 3%); transition: border-color .2s, box-shadow .2s; }
+.blog-post__reading a svg { margin-top: 3px; }
+.blog-post__reading a:hover { border-color: #8fbddd; box-shadow: 0 6px 20px rgb(18 53 82 / 8%); }
+.blog-post__reading a:focus-visible { outline: 3px solid #0069ae; outline-offset: 4px; }
+@media(max-width: 700px) { .blog-post__reading { grid-template-columns: 1fr; padding: 22px; } .blog-post__reading a { padding: 18px; } }
+@media(prefers-reduced-motion: reduce) { .blog-post__reading a { transition: none; } }

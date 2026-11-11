@@ -48,7 +48,7 @@ export default function PrivacyPage() {
               This policy explains what information SEPPES receives when you visit our website or contact our team, why we use it, and the choices available to you.
             </p>
             <div className="privacy-hero__meta">
-              <span><Clock3 /> Last updated: August 14, 2026</span>
+              <span><Clock3 /> Last updated: November 11, 2026</span>
               <span><Globe2 /> Applies to seppesde.com</span>
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
                 <li><b>Technical information:</b> IP address, browser and device information, access time, requested pages and basic server security logs that may be generated when you visit the website.</li>
                 <li><b>Update requests:</b> the work email address you use to ask for SEPPES industry updates.</li>
               </ul>
-              <div className="privacy-note"><CheckCircle2 /><p><b>How our forms work:</b> the inquiry and update forms on this website prepare a message in your own email application. The form is not submitted to or stored by our website before you choose to send that email.</p></div>
+              <div className="privacy-note"><CheckCircle2 /><p><b>How our forms work:</b> when you submit an inquiry or update request, the website sends the information through our inquiry service to the SEPPES sales email inbox. We do not intentionally store completed form submissions in a separate website customer database, but our hosting, email-delivery and business-email providers may process message content and technical delivery records to provide their services.</p></div>
               <p>Please do not send passwords, payment-card data, government identification numbers, health information or other unnecessary sensitive information through an inquiry.</p>
             </section>
 

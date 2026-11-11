@@ -410,6 +410,7 @@ html.nav-dropdown-dismissed .nav-dropdown__trigger svg {
 .floating-inquiry__fields input:focus,
 .floating-inquiry__fields select:focus,
 .floating-inquiry__fields textarea:focus { outline:2px solid rgba(0,104,181,.2); border-color:#0068b5; }
+.floating-inquiry__contact-note { margin:10px 0 0; color:#637484; font-size:11px; line-height:1.55; }
 .floating-inquiry__submit { display:flex; align-items:center; justify-content:center; gap:9px; width:100%; margin-top:16px; padding:13px 16px; border:0; border-radius:8px; background:#0068b5; color:#fff; font:800 13px var(--font-body); cursor:pointer; }
 .floating-inquiry__submit svg { width:17px; }
 .floating-inquiry__panel .inquiry-feedback { margin-bottom: 0; }

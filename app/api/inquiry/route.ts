@@ -54,8 +54,8 @@ export async function POST(request: Request) {
     return Response.json({ message: "Please enter a valid email address." }, { status: 400 });
   }
 
-  if (isNewsletter ? !email : (!name || !phone || !message)) {
-    return Response.json({ message: isNewsletter ? "Please enter your work email." : "Please complete all required fields." }, { status: 400 });
+  if (isNewsletter ? !email : (!name || (!email && !phone) || !message)) {
+    return Response.json({ message: isNewsletter ? "Please enter your work email." : "Please provide your name, project requirements, and an email address or phone / WhatsApp number." }, { status: 400 });
   }
 
   const apiKey = process.env.RESEND_API_KEY;

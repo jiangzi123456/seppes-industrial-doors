@@ -41,10 +41,11 @@ export function FloatingContact() {
             <label><span>Full Name <i>*</i></span><input name="name" required autoComplete="name" /></label>
             <label><span>Company</span><input name="company" autoComplete="organization" /></label>
             <label><span>Email</span><input name="email" type="email" autoComplete="email" /></label>
-            <label><span>Phone / WhatsApp <i>*</i></span><input name="phone" required autoComplete="tel" /></label>
+            <label><span>Phone / WhatsApp</span><input name="phone" autoComplete="tel" /></label>
             <label className="full">Product Required<InquiryProductSelect /></label>
             <label className="full"><span>Message <i>*</i></span><textarea placeholder="Opening width × height, quantity, application, project location and control requirements" name="message" rows={3} required /></label>
           </div>
+          <p className="floating-inquiry__contact-note">Provide either Email or Phone / WhatsApp.</p>
           <button className="floating-inquiry__submit" type="submit" disabled={state === "submitting"}><Send /> {state === "submitting" ? "Sending…" : "Send Inquiry"}</button>
           {feedback && <p className={`inquiry-feedback is-${state}`} role="status" aria-live="polite">{feedback}</p>}
         </form>
