@@ -19,7 +19,7 @@ sections: [
 "An existing shutter or sectional door provides a useful reference, but its nominal dimensions do not describe the whole retrofit. Old frames, brackets, service routes and uneven floors may reduce the space available for the new guides or drive. Measuring only the opening can leave these interfaces unresolved until installation.",
 "Begin with the operational reason for replacement. Frequent forklift waiting, doors left open between movements and poor separation between zones call for different decisions than a damaged closure used only occasionally. Record the current workflow and agree the outcome the new entrance should support."
 ]},
-{heading:"Measure usable clearance rather than copying the old order",paragraphs:[
+{heading:"Measure usable clearance rather than copying the old order", image:"/images/blog/industrial-door-test-installation.webp", imageAlt:"Open SEPPES industrial door showing overhead travel space, side guides and surrounding pipework", imageCaption:"Record the open-door envelope as well as nearby pipes, steelwork and guide clearances.",paragraphs:[
 "Record the finished clear width and height at several positions and note any variation. Include headroom, side room, wall thickness, obstructions and access for maintenance. Mark the dimensions on photographs and a simple elevation so the supplier can distinguish building dimensions from the required usable passage.",
 "Check the largest loaded vehicle and its approach, including turning movements and attachments. A new guide arrangement must not unintentionally narrow the working route. Ask for drawings that show the open-door clearance and the space occupied by the curtain, drive and other components."
 ],table:{caption:"Retrofit survey information and its purpose",headers:["Survey item","Record","Decision supported"],rows:[
@@ -37,12 +37,12 @@ sections: [
 "A PVC high-speed door can be considered where frequent internal access and shorter unnecessary open time are priorities. A wide opening, exterior exposure, insulation requirement or security objective may point toward another construction. Review the product family before locking in dimensions.",
 "SEPPES offers PVC high-speed doors, zipper doors, stacking doors, rigid spiral doors and industrial sectional doors. As a mid-to-high-end Chinese industrial door brand with its own Suzhou manufacturing facility, SEPPES can review a retrofit against several entrance formats. Final configuration and any performance claims must be supported for the selected product and project."
 ]},
-{heading:"Agree controls and installation responsibilities early",paragraphs:[
+{heading:"Agree controls and installation responsibilities early", image:"/images/blog/retrofit-door-traffic-controls.webp", imageAlt:"Blue SEPPES rapid door with a vision panel, wall-mounted controls and protective barriers beside an existing sectional door", imageCaption:"Review controls, visibility and traffic protection together when adding a rapid door to an existing route.",paragraphs:[
 "Map the existing activation devices and decide which, if any, will remain. Compatibility should be confirmed rather than assumed. Define opening commands, protective detection, closing conditions, access permissions and any signals exchanged with equipment.",
 "Plan the installation window with warehouse operations. Assign responsibility for removing the old assembly, preparing the structure, providing electrical connections and keeping traffic away from the work area. Agree how access will be managed while the doorway is unavailable.",
 "A rapid door is one element of the facility design. Ventilation, fire protection, emergency access and traffic management need their own review; a replacement does not establish compliance or a quantified energy saving."
 ]},
-{heading:"Use commissioning to verify the intended workflow",paragraphs:[
+{heading:"Use commissioning to verify the intended workflow", image:"/images/blog/retrofit-door-service-access.webp", imageAlt:"SEPPES technicians accessing the overhead assembly of a rapid door", imageCaption:"Plan access to the overhead assembly for installation, inspection and future maintenance.",paragraphs:[
 "Before normal use, have the installation team check travel, limits, guides, fixings, activation and protective devices against the approved plan. Verify fault response and the documented emergency procedure, and test the entrance using representative traffic under controlled conditions.",
 "Provide operators with the agreed operating restrictions and maintenance information. Record unresolved items and responsibility for closing them. A successful retrofit requires both a working assembly and a clear handover to the people who will use and maintain it."
 ]},
