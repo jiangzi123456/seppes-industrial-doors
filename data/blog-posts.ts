@@ -1,3 +1,4 @@
+import { retrofitSurveyPost } from "./retrofit-survey-post";
 import { stackingDoorWarehousePost } from "./stacking-door-warehouse-post";
 import { editorialPosts } from "./editorial-posts";
 import { zipperVsBrushPost } from "./zipper-vs-brush-post";
@@ -60,6 +61,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  retrofitSurveyPost,
   stackingDoorWarehousePost,
   aluminiumRollerShutterSelectionPost,
   industrialSectionalDoorTrackSelectionPost,
@@ -367,4 +369,5 @@ export const blogPosts: BlogPost[] = [
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
 }
+
 
