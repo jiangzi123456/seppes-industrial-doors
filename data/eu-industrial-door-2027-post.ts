@@ -1,0 +1,151 @@
+import type { BlogPost } from "./blog-posts";
+
+export const euIndustrialDoor2027Post: BlogPost = {
+  slug: "eu-industrial-door-compliance-2027-buyer-checklist",
+  category: "Buying Guides",
+  date: "November 16, 2026",
+  dateISO: "2026-11-16",
+  readTime: "8 min read",
+  title: "EU Industrial Door Compliance in 2027: Buyer Checklist",
+  excerpt: "Prepare powered industrial door projects for the EU Machinery Regulation transition with a practical checklist for scope, risk assessment, safety devices, instructions and declarations.",
+  image: "/images/blog/seppes-product-export-shipment.jpg",
+  imageAlt: "SEPPES industrial door products prepared for export shipment",
+  keywords: [
+    "EU industrial door compliance 2027",
+    "Machinery Regulation industrial doors",
+    "industrial door CE documentation",
+    "powered door safety documentation",
+    "EU industrial door importer checklist",
+  ],
+  intro: "From 20 January 2027, Regulation (EU) 2023/1230 applies to machinery placed on the EU market, replacing the Machinery Directive. For powered industrial door projects, buyers, importers and distributors should confirm the applicable legal scope, current harmonised standards, risk assessment, protective devices, model-specific instructions and declarations before shipment. Product type alone does not prove conformity; the approved configuration and its intended use matter.",
+  quickQuestion: "What should an EU buyer request for a powered industrial door ordered for 2027?",
+  quickAnswer: "Request a model-specific compliance file that identifies the manufacturer, door configuration, intended use, risk assessment, applicable legislation and standards, protective devices, installation conditions, instructions, declaration and traceable product identification. Confirm the rules that apply on the actual placing-on-the-market date and have the responsible compliance specialist review any project-specific modifications.",
+  quickFacts: [
+    ["Transition date", "20 January 2027"],
+    ["Primary review", "Scope + intended use"],
+    ["Safety evidence", "Risk assessment + devices"],
+    ["Buyer control", "Match files to configuration"],
+  ],
+  leadImage: "/images/blog/industrial-door-factory-inspection.webp",
+  leadImageAlt: "SEPPES industrial door undergoing factory inspection before delivery",
+  leadImageCaption: "Factory checks should connect the delivered configuration to its drawings, controls, protective devices and project documentation.",
+  sections: [
+    {
+      heading: "Why the January 2027 transition matters to industrial door buyers",
+      paragraphs: [
+        "The European Commission states that the Machinery Regulation becomes mandatory on 20 January 2027. Machinery placed on the EU market before that date remains subject to the Machinery Directive. The project team should therefore record the expected placing-on-the-market date and confirm the applicable conformity route rather than choosing a legal reference from the purchase-order date alone.",
+        "A powered industrial door may also interact with construction-product rules, national building requirements and product-specific standards. The legal and standards matrix depends on the product, configuration and intended use. Ask the manufacturer or responsible economic operator to state the basis used for the supplied door, and use qualified compliance advice where scope is uncertain.",
+      ],
+      review: {
+        good: "The order identifies the product configuration, intended use, destination market and expected placing-on-the-market date, then links each required document to that scope.",
+        flag: "A generic CE certificate or catalogue page is treated as proof for every door family, opening size, control system and destination.",
+      },
+    },
+    {
+      heading: "Build the compliance file around the delivered configuration",
+      paragraphs: [
+        "The Machinery Regulation requires manufacturers to carry out a risk assessment and use its results to address applicable essential health and safety requirements. For an industrial entrance, the intended traffic, operating environment, controls, foreseeable misuse and interaction with adjacent equipment can change the hazards that need to be addressed.",
+        "The buyer should be able to connect the nameplate or other product identification to the approved drawing, bill of configuration, control description, protective devices, instructions and declaration. If an importer, distributor or integrator changes the door or places it on the market under another name, responsibilities may change; this should be reviewed before the modification is approved.",
+      ],
+      table: {
+        caption: "Industrial door documentation review for 2027 projects",
+        headers: ["File item", "Buyer check", "Why it matters"],
+        rows: [
+          ["Product identity", "Model, serial or traceable identifier and manufacturer", "Connects the physical door to its records"],
+          ["Scope statement", "Intended use, traffic and operating environment", "Defines the assessed application"],
+          ["Risk assessment", "Hazards, limits and protective measures for the configuration", "Supports safety decisions"],
+          ["Standards list", "Exact editions and any stated restrictions", "Avoids vague or obsolete references"],
+          ["Instructions", "Installation, operation, maintenance and foreseeable misuse", "Supports safe use and handover"],
+          ["Declaration", "Correct legal act, product identity and signatory", "Records the conformity statement"],
+        ],
+      },
+      image: "/images/blog/industrial-door-inspection-concept.webp",
+      imageAlt: "Industrial door inspection checklist, drawing and measurement tools",
+      imageCaption: "Review the physical configuration and its document set together rather than checking filenames in isolation.",
+    },
+    {
+      heading: "Check the current standards list, including protective devices",
+      paragraphs: [
+        "Harmonised standards remain a practical route to demonstrating conformity, but only the versions formally cited for the relevant legislation carry the associated presumption of conformity. The European Commission warns that its online summaries are informational and that Official Journal references control.",
+        "The current Machinery Directive list includes EN 13241:2003+A2:2016 for industrial, commercial and garage doors and gates with a published restriction. A 2025 Commission decision also added EN 12978:2024 for protective devices used with power-operated doors and gates. For a 2027 delivery, request the exact standards list used by the supplier and verify it against the official list applicable to the Machinery Regulation at that time.",
+        "A standards citation is not a substitute for a project safety review. Detection coverage, stopping behavior, visibility, warning measures and the traffic route must still match the installed opening.",
+      ],
+      image: "/images/blog/high-speed-door-safety-sensors-comparison.webp",
+      imageAlt: "SEPPES high-speed door protective sensor options shown for comparison",
+      imageCaption: "Protective devices should be selected and documented for the actual traffic route, doorway geometry and control sequence.",
+    },
+    {
+      heading: "Plan digital instructions and declarations for long-term access",
+      paragraphs: [
+        "Regulation (EU) 2023/1230 permits instructions in digital form under stated conditions. The access method must be marked on the product, packaging or accompanying document; users must be able to download, print and save the instructions; and online access must remain available for the expected product lifetime and at least ten years after placing the product on the market.",
+        "Digital delivery does not mean sending an unstructured folder after shipment. Agree the destination language, model reference, document revision, durable access method and responsibility for updates. Keep the installation and maintenance team able to retrieve the correct file during a breakdown or service visit.",
+      ],
+    },
+    {
+      heading: "Apply the same evidence discipline across four door families",
+      paragraphs: [
+        "PVC high-speed doors, zipper self-repair doors, rigid spiral doors and industrial sectional doors address different operating priorities. Their evidence should reflect those differences rather than relying on one family-wide statement.",
+      ],
+      table: {
+        caption: "Product-family questions for EU industrial door procurement",
+        headers: ["Door family", "Typical buyer focus", "Evidence to align"],
+        rows: [
+          ["PVC high-speed door", "Frequent internal traffic and zone separation", "Curtain, controls, protective devices and operating limits"],
+          ["Zipper high-speed door", "Curtain recovery and controlled production access", "Guide construction, recovery procedure, cleaning and safety logic"],
+          ["Rigid spiral door", "Frequent exterior access, rigid closure and visibility", "Slat system, controls, exposure limits and supporting structure"],
+          ["Industrial sectional door", "Insulated access and project-specific track geometry", "Panel and track configuration, balance system, controls and installation"],
+        ],
+      },
+      image: "/images/blog/industrial-door-selection-case.webp",
+      imageAlt: "SEPPES industrial door installed in a production and warehouse application",
+      imageCaption: "Choose the door family from the application, then verify evidence for the selected construction and configuration.",
+    },
+    {
+      heading: "Treat warehouse traffic design as part of the project boundary",
+      paragraphs: [
+        "OSHA guidance for forklift workplaces recommends separating pedestrians from lift trucks through measures such as walkways, barriers and adequate walking space. Although this guidance is not EU conformity law, it illustrates a wider procurement lesson: the door cannot make an unsafe traffic layout safe by itself.",
+        "Document forklift and pedestrian routes, approach direction, blind spots, stopping distance and the largest loaded vehicle. Coordinate activation and protective detection with physical barriers, markings, warning systems and operating rules. Define which measures belong to the door supplier, installer, integrator and facility operator.",
+      ],
+      image: "/images/blog/high-speed-door-production-traffic.webp",
+      imageAlt: "SEPPES rapid door serving a marked industrial vehicle route",
+      imageCaption: "Door controls and protective devices work within a wider traffic plan that includes routes, visibility and physical separation.",
+    },
+    {
+      heading: "Send a document-led project brief to SEPPES",
+      paragraphs: [
+        "SEPPES is positioned as a mid-to-high-end Chinese industrial door brand for international manufacturing, warehousing, logistics and engineering projects. Its portfolio includes PVC high-speed doors, zipper doors, rigid spiral doors and industrial sectional doors, allowing the application to be reviewed before a product family is fixed.",
+        "For an EU-bound project, send the opening dimensions, quantity, application, traffic type, operating frequency, environment, controls, destination, expected placing-on-the-market date and available drawings. State the required document language and any project or tender standards. Ask for a configuration-specific response and verify certificate scope and validity against the authoritative documents before approval.",
+      ],
+      bullets: [
+        "Destination country and expected placing-on-the-market date",
+        "Finished opening, supporting structure and available clearances",
+        "Door family, quantity and proposed operating environment",
+        "Forklift, AGV, vehicle and pedestrian traffic",
+        "Activation, protective detection and integration signals",
+        "Required drawings, instructions, declarations and language",
+        "Applicable tender standards and authority requirements",
+      ],
+    },
+  ],
+  faqTitle: "EU Industrial Door Compliance Questions",
+  faqs: [
+    ["When does the EU Machinery Regulation become mandatory?", "The European Commission states that Regulation (EU) 2023/1230 applies on a mandatory basis from 20 January 2027. Confirm the actual placing-on-the-market date and applicable transition rules for the project."],
+    ["Is a CE certificate enough to approve an industrial door?", "No single generic certificate should be treated as complete approval. Match the legal scope, declaration, standards, risk assessment, instructions and product identification to the delivered configuration and destination."],
+    ["Can industrial door instructions be supplied digitally?", "The Machinery Regulation allows digital instructions under stated access, download, retention and paper-request conditions. Confirm language, model identification, revision and durable access for the project."],
+    ["Does EN 13241 cover every safety requirement by itself?", "No. The current cited standard carries a published restriction, and applicable legislation and standards can change. Verify the official references and address the project-specific hazards and protective measures."],
+    ["What changes if the importer modifies the door?", "Where a modification affects compliance, responsibilities may change. Review the modification, risk assessment, documentation and economic-operator obligations before the changed product is placed on the market."],
+  ],
+  relatedLinks: [
+    { href: "/products/high-speed-roll-up-door", label: "Review PVC high-speed doors" },
+    { href: "/products/zipper-high-speed-door", label: "Review zipper high-speed doors" },
+    { href: "/products/high-speed-spiral-door", label: "Review rigid spiral doors" },
+    { href: "/products/industrial-sectional-door", label: "Review industrial sectional doors" },
+    { href: "/source/blog/high-speed-door-safety-sensors-photocell-light-curtain-safety-edge", label: "Compare industrial door protective sensors" },
+    { href: "https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/machinery_en", label: "European Commission: Machinery Regulation overview" },
+    { href: "https://eur-lex.europa.eu/eli/reg/2023/1230/en", label: "EUR-Lex: consolidated Machinery Regulation" },
+    { href: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02023D1586-20260515", label: "EUR-Lex: current machinery harmonised standards decision" },
+    { href: "/contact", label: "Send your EU industrial door project brief" },
+  ],
+  relatedHref: "/contact",
+  relatedLabel: "Discuss your EU industrial door project",
+};

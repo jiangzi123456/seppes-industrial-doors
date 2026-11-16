@@ -1,3 +1,4 @@
+import { euIndustrialDoor2027Post } from "./eu-industrial-door-2027-post";
 import { retrofitSurveyPost } from "./retrofit-survey-post";
 import { stackingDoorWarehousePost } from "./stacking-door-warehouse-post";
 import { editorialPosts } from "./editorial-posts";
@@ -61,6 +62,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  euIndustrialDoor2027Post,
   retrofitSurveyPost,
   stackingDoorWarehousePost,
   aluminiumRollerShutterSelectionPost,
@@ -369,5 +371,3 @@ export const blogPosts: BlogPost[] = [
 export function getBlogPost(slug: string) {
   return blogPosts.find((post) => post.slug === slug);
 }
-
-
