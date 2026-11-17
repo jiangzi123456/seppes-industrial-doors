@@ -5,12 +5,17 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Building2, Check, PackageCheck, ShieldCheck } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { createPageMetadata } from "@/lib/seo";
+import { serializeJsonLd } from "@/lib/structured-data";
 import { getProjectStory, projectStories } from "@/data/project-stories";
 import "../rapid-doors-for-an-automated-assembly-workshop/case-study.css";
 
 type Props = { params: Promise<{ slug: string }> };
+const metadataTitles: Record<string, string> = {
+  "cleanroom-zipper-door-access": "Cleanroom Zipper Door Access Project",
+  "integrated-logistics-loading-bay": "Integrated Logistics Loading Bay Project",
+};
 export function generateStaticParams() { return projectStories.map(({ slug }) => ({ slug })); }
-export async function generateMetadata({ params }: Props): Promise<Metadata> { const { slug } = await params; const story = getProjectStory(slug); if (!story) return {}; return createPageMetadata({ title: story.title, description: story.summary, path: `/project-support/${slug}`, image: story.image }); }
+export async function generateMetadata({ params }: Props): Promise<Metadata> { const { slug } = await params; const story = getProjectStory(slug); if (!story) return {}; return createPageMetadata({ title: metadataTitles[slug] ?? story.title, description: story.summary, path: `/project-support/${slug}`, image: story.image }); }
 const process = [["01","Confirm site conditions","Verify the finished opening, mounting structure, surrounding environment and available installation space."],["02","Define the workflow","Record traffic, operating frequency, activation, safety zones and the required control sequence."],["03","Approve the configuration","Confirm product construction, interfaces, drawings, supply scope and required supporting documents."],["04","Inspect and hand over","Check the agreed functions, identification, packing and documents before delivery and site installation."]];
 export default async function ProjectStoryPage({ params }: Props) {
  const { slug } = await params; const story = getProjectStory(slug); if (!story) notFound();
@@ -23,5 +28,5 @@ export default async function ProjectStoryPage({ params }: Props) {
   <section className="cases-feature"><div className="container cases-feature__grid"><div className="cases-feature__visual"><Image src={story.image} alt={`${story.title} engineering review`} fill sizes="(max-width: 820px) 100vw, 50vw"/><div><ShieldCheck/><span>Product, safety and control requirements reviewed as one system</span></div></div><div className="cases-feature__copy"><p className="cases-kicker">Engineering focus</p><h2>Confirm the conditions that affect reliable operation.</h2><p>{story.challenge}</p><ul>{story.requirements.map(item=><li key={item}><Check/>{item}</li>)}</ul><Link href="/contact">Discuss the application details <ArrowRight size={17}/></Link></div></div></section>
   <section className="cases-process"><div className="container"><div className="cases-section-head"><div><p className="cases-kicker cases-kicker--blue">Project confirmation</p><h2>Four checks before production.</h2></div><p>{story.outcome}</p></div><ol>{process.map(([number,title,copy])=><li key={number}><b>{number}</b><Building2/><h3>{title}</h3><p>{copy}</p></li>)}</ol></div></section>
   <section className="cases-cta"><div className="container cases-cta__inner"><PackageCheck/><div><p className="cases-kicker">Plan a similar application</p><h2>Send the opening and workflow details.</h2><p>Share dimensions, quantity, application, project location and available drawings or site photos.</p></div><Link className="cases-button cases-button--white" href="/contact">Request project review <ArrowRight size={17}/></Link></div></section>
- </div><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/></>;
+ </div><script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd(schema)}}/></>;
 }

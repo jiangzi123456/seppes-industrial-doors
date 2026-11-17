@@ -24,7 +24,10 @@ export const stackingDoorWarehousePost: BlogPost = {
       paragraphs: [
         "A wide warehouse entrance may serve forklifts carrying bulky loads, delivery vehicles and internal handling equipment. If opening takes too long, operators may leave the entrance open between movements. That can undermine the intended separation between the warehouse and the adjoining area.",
         "Record peak traffic rather than only an average daily count. Include the largest loaded vehicle, its turning path and the waiting space on each side. The useful opening must accommodate the load and its movement, not simply the vehicle body. A faster door alone will not resolve a congested approach or conflicting traffic routes."
-      ]
+      ],
+      image: "/images/blog/stacking-door-warehouse-route.jpg",
+      imageAlt: "Wide SEPPES stacking door installed on a warehouse shipping route",
+      imageCaption: "A wide warehouse route should be surveyed around the loaded vehicle envelope, approach space and nearby storage—not the opening dimensions alone."
     },
     {
       heading: "Understand what the stacking curtain changes",
@@ -42,14 +45,20 @@ export const stackingDoorWarehousePost: BlogPost = {
           ["Traffic approach", "Allow detection and waiting space", "Route plan and peak movements"],
           ["Exposure", "Select an appropriate assembly", "Indoor or exterior position and site conditions"]
         ]
-      }
+      },
+      image: "/images/blog/stacking-door-reinforced-wide-opening.jpg",
+      imageAlt: "Large red stacking door with horizontal curtain reinforcement",
+      imageCaption: "Horizontal reinforcement supports the flexible curtain across a large opening, while the complete assembly still depends on guides, fixings and overhead space."
     },
     {
       heading: "Treat wind exposure as a project requirement",
       paragraphs: [
         "For an exterior warehouse entrance, give the supplier the site location, opening orientation and design conditions supplied by the building engineer. Ask which door configuration and dimensions the proposed evidence covers. A generic wind-resistance label does not establish that every opening size or installation is suitable.",
         "Clarify whether documented limits concern the closed door, operation during wind, or both. Agree the operating restrictions and response to adverse conditions. Reinforcement is a construction feature; it is not a substitute for verified performance of the curtain, guides, fixings and supporting building."
-      ]
+      ],
+      image: "/images/blog/stacking-door-exterior-exposure.jpg",
+      imageAlt: "Yellow reinforced stacking door installed on an exterior industrial opening",
+      imageCaption: "Exterior installations need project-specific review of opening orientation, surrounding structure, guides, fixings and operating limits."
     },
     {
       heading: "Configure activation around loaded vehicles",
@@ -63,7 +72,10 @@ export const stackingDoorWarehousePost: BlogPost = {
         "Agree detection coverage and closing conditions.",
         "Document power-loss, fault and restart behavior.",
         "Verify the sequence with representative traffic during commissioning."
-      ]
+      ],
+      image: "/images/blog/stacking-door-traffic-protection-headbox.jpg",
+      imageAlt: "Blue SEPPES stacking door with protective barriers and a nearby control point",
+      imageCaption: "Protective barriers, controls and detection should be coordinated with the real approach path and the people working near the opening."
     },
     {
       heading: "Know when another door family fits better",
@@ -78,7 +90,10 @@ export const stackingDoorWarehousePost: BlogPost = {
         "SEPPES is a mid-to-high-end Chinese industrial door brand with its own manufacturing facility in Suzhou. Its portfolio includes stacking doors, PVC high-speed doors, rigid spiral doors and industrial sectional doors, allowing the entrance requirement to be reviewed against more than one construction.",
         "For a wide warehouse route, request a proposed assembly drawing, confirmed operating limits, control sequence, installation responsibilities and maintenance access requirements. Ask for current product-specific documentation whenever a certificate or performance requirement forms part of procurement approval.",
         "Send SEPPES the finished opening dimensions, quantity, application, vehicle and load sizes, peak movements, environment, required controls, project location and available photographs or drawings. Include headroom, side room and supporting-structure details so the proposal can address the actual building."
-      ]
+      ],
+      image: "/images/blog/stacking-door-multiple-openings.jpg",
+      imageAlt: "Two reinforced stacking doors arranged across adjacent industrial openings",
+      imageCaption: "Adjacent openings should be reviewed together so structure, controls, traffic protection and maintenance access remain practical across the route."
     }
   ],
   faqTitle: "Wide Warehouse Stacking Door Questions",

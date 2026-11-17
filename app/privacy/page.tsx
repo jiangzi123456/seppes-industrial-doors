@@ -17,7 +17,7 @@ import "./privacy.css";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Privacy Policy",
+  title: "SEPPES Website Privacy Policy",
   description:
     "Learn how Seppes Door Industry (Suzhou) Co., Ltd. collects, uses, protects and manages personal information submitted through the SEPPES website.",
   path: "/privacy",

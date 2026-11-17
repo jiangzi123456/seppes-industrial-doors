@@ -6,7 +6,7 @@ export function Footer() {
   return <footer className="footer reference-footer">
     <div className="container footer-grid">
       <div><div className="brand brand-light"><BrandLogo light /></div><p>Industrial door and loading dock solutions for global projects, engineered in Suzhou, China.</p></div>
-      <div><h3>Explore</h3><Link href="/products">Products</Link><Link href="/solutions">Solutions</Link><Link href="/project-support">Case Studies</Link><Link href="/quality-certifications">Quality & Certifications</Link><Link href="/source/blog">Blog</Link><Link href="/about">About</Link></div>
+      <div><h3>Explore</h3><Link href="/products">All Products</Link><Link href="/products/high-speed-doors">High Speed Doors</Link><Link href="/products/industrial-sectional-doors">Sectional Doors</Link><Link href="/products/loading-dock-equipment">Loading Dock Equipment</Link><Link href="/solutions">Solutions</Link><Link href="/project-support">Case Studies</Link><Link href="/quality-certifications">Quality & Certifications</Link><Link href="/source/blog">Blog</Link><Link href="/about">About</Link></div>
       <div><h3>Contact</h3><p><MapPin size={17} /> Suzhou, Jiangsu, China</p><p><Phone size={17} /> <a href="https://wa.me/8617798578460" target="_blank" rel="noreferrer">+86 177 9857 8460</a></p><p><Mail size={17} /> <a href="mailto:huijia@seppes.com.cn">huijia@seppes.com.cn</a></p></div>
       <div><h3>Start a project</h3><p>Share your opening size, application and quantity. Our team will review the project requirements and follow up with you.</p><Link className="footer-proposal" href="/contact">Request a proposal</Link></div>
     </div>

@@ -6,19 +6,10 @@ import "./reference-redesign.css";
 import "./reference-match.css";
 import "./inquiry-enhancements.css";
 import "./logo-form-fixes.css";
-import "./product-page.css";
-import "./inner-pages-theme.css";
-import "./contact/contact.css";
-import "./source/blog/blog.css";
-import "./solutions/solutions.css";
-import "./about/about.css";
-import "./project-support/project-support.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { HomeInquiryForm } from "@/components/home-inquiry-form";
 import { BackToTop } from "@/components/back-to-top";
 import { FloatingContact } from "@/components/floating-contact";
-import { siteSearchItems } from "@/lib/site-search";
 
 const siteUrl = "https://www.seppesde.com";
 
@@ -41,12 +32,27 @@ const siteSchema = {
       url: siteUrl,
       logo: `${siteUrl}/seppes-logo-cropped.png`,
       foundingDate: "2011",
+      email: "huijia@seppes.com.cn",
+      telephone: "+86 177 9857 8460",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "huijia@seppes.com.cn",
+        telephone: "+86 177 9857 8460",
+        availableLanguage: ["English", "Chinese"],
+      },
       address: {
         "@type": "PostalAddress",
+        streetAddress: "Building 4, No. 59 Zoumatang Road, Mudu Town, Wuzhong District",
         addressLocality: "Suzhou",
         addressRegion: "Jiangsu",
         addressCountry: "CN",
       },
+      sameAs: [
+        "https://www.youtube.com/@%E7%8E%8B%E6%9D%BE-o4j",
+        "https://www.tiktok.com/@seppes_george",
+        "https://www.facebook.com/profile.php?id=61580385533175",
+      ],
     },
   ],
 };
@@ -67,5 +73,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" data-scroll-behavior="smooth"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} /><Header searchItems={siteSearchItems} /><main>{children}<HomeInquiryForm /></main><Footer /><BackToTop /><FloatingContact /></body></html>;
+  return <html lang="en" data-scroll-behavior="smooth"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} /><Header /><main>{children}</main><Footer /><BackToTop /><FloatingContact /></body></html>;
 }

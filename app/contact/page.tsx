@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ContactMap } from "@/components/contact-map";
+import { HomeInquiryForm } from "@/components/home-inquiry-form";
 import { createPageMetadata } from "@/lib/seo";
+import { serializeJsonLd } from "@/lib/structured-data";
 import {
   ArrowRight,
   Building2,
@@ -26,6 +28,30 @@ export const metadata = createPageMetadata({
 
 const whatsapp = "https://wa.me/8617798578460?text=Hello%2C%20I%20would%20like%20to%20discuss%20an%20industrial%20door%20project%20with%20SEPPES.";
 
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://www.seppesde.com/contact#webpage",
+  url: "https://www.seppesde.com/contact",
+  name: "Discuss Your Industrial Door Project",
+  description: "Contact SEPPES about industrial doors and loading dock equipment for global projects.",
+  about: { "@id": "https://www.seppesde.com/#organization" },
+  mainEntity: {
+    "@id": "https://www.seppesde.com/#organization",
+    "@type": "Organization",
+    name: "Seppes Door Industry (Suzhou) Co., Ltd.",
+    email: "huijia@seppes.com.cn",
+    telephone: "+86 177 9857 8460",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Building 4, No. 59 Zoumatang Road, Mudu Town, Wuzhong District",
+      addressLocality: "Suzhou",
+      addressRegion: "Jiangsu",
+      addressCountry: "CN",
+    },
+  },
+};
+
 const projectInfo = [
   { icon: Ruler, title: "Opening Dimensions", text: "Provide the clear opening width and height, available headroom and side room, plus any surrounding structural constraints." },
   { icon: Building2, title: "Building & Application", text: "Tell us whether the opening serves a factory, warehouse, cleanroom, cold store, logistics center or another industrial facility." },
@@ -37,6 +63,7 @@ const projectInfo = [
 
 export default function ContactPage() {
   return <div className="contact-reference">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(contactSchema) }} />
     <header className="contact-hero">
       <Image src="/images/hero-industrial-door.jpg" alt="SEPPES industrial door project consultation" fill priority sizes="100vw" />
       <div className="contact-hero__shade" />
@@ -44,7 +71,7 @@ export default function ContactPage() {
         <p className="contact-kicker">PROJECT INQUIRY</p>
         <h1>Discuss Your Industrial Door Project</h1>
         <p>Send your opening dimensions, application, project location and any drawings or site photographs already available. SEPPES will review the conditions and help clarify the suitable product direction and supply scope.</p>
-        <div className="contact-actions"><a className="contact-button primary" href="#inquiry">Send an Inquiry <ArrowRight size={18} /></a><a className="contact-button secondary" href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Contact Us on WhatsApp</a></div>
+        <div className="contact-actions"><a className="contact-button primary" href="#project-inquiry">Send an Inquiry <ArrowRight size={18} /></a><a className="contact-button secondary" href={whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={18} /> Contact Us on WhatsApp</a></div>
       </div></div>
     </header>
     <Breadcrumb currentPath="/contact" items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
@@ -83,5 +110,6 @@ export default function ContactPage() {
         <div className="contact-company__panel"><h3>Project Contact</h3><dl><div><dt>Email</dt><dd><a href="mailto:huijia@seppes.com.cn">huijia@seppes.com.cn</a></dd></div><div><dt>Phone / WhatsApp</dt><dd><a href="tel:+8617798578460">+86 177 9857 8460</a></dd></div><div><dt>Address</dt><dd>Building 4, No. 59 Zoumatang Road, Mudu Town, Wuzhong District, Suzhou, Jiangsu, China</dd></div></dl><div className="contact-company__social"><span>Stay connected</span><p>Follow our channels to explore product demonstrations, factory insights, project updates and the latest news from SEPPES.</p><div><a href="https://www.youtube.com/@%E7%8E%8B%E6%9D%BE-o4j" target="_blank" rel="noreferrer">YouTube</a><a href="https://www.tiktok.com/@seppes_george" target="_blank" rel="noreferrer">TikTok</a><a href="https://www.facebook.com/profile.php?id=61580385533175" target="_blank" rel="noreferrer">Facebook</a></div></div></div>
       </div>
     </div></section>
+    <HomeInquiryForm />
   </div>;
 }

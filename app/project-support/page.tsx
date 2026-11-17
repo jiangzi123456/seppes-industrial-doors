@@ -7,6 +7,7 @@ import {
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ClientLogos } from "@/components/client-logos";
 import { createPageMetadata } from "@/lib/seo";
+import { createCollectionPageSchema, serializeJsonLd } from "@/lib/structured-data";
 
 export const metadata = createPageMetadata({
   title: "Industrial Door Project Case Studies",
@@ -49,7 +50,17 @@ const priorities = [
 ];
 
 export default function ProjectSupportPage() {
-  return <div className="project-support-page">
+  const schema = createCollectionPageSchema({
+    path: "/project-support",
+    name: "Industrial Door Project Case Studies",
+    description: "Industrial entrance project applications organized by operating context and selection requirements.",
+    items: library.slice(0, 4).map((item, index) => ({
+      name: item.title,
+      path: index === 0 ? "/project-support/rapid-doors-for-an-automated-assembly-workshop" : item.href!,
+      image: item.image,
+    })),
+  });
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} /><div className="project-support-page">
     <section className="ps-hero">
       <Image src="/images/factory-doors.jpg" alt="Industrial door systems in a modern production facility" fill priority sizes="100vw" />
       <div className="ps-hero__overlay" />
@@ -92,5 +103,5 @@ export default function ProjectSupportPage() {
     <section className="ps-brief"><div className="container ps-brief__inner"><div><p className="ps-kicker ps-kicker--blue">Start your project</p><h2>Have a similar opening?</h2><p>Send the width, height, quantity, application and project country. Drawings or site photos help us move faster.</p></div><div className="ps-brief__proof"><span><Globe2 /> Global export support</span><span><ShieldCheck /> Pre-shipment checks</span><span><Headphones /> Remote assistance</span></div><Link href="/contact" className="ps-button ps-button--red">Request project review <ArrowRight size={18}/></Link></div></section>
 
     <div className="ps-clients-heading"><div className="container"><p className="ps-kicker ps-kicker--blue">Selected project partners</p><h2>Built for long-term cooperation.</h2></div></div><ClientLogos />
-  </div>;
+  </div></>;
 }

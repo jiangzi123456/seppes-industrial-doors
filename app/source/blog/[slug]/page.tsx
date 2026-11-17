@@ -9,6 +9,23 @@ import "../article.css";
 
 type Props = { params: Promise<{ slug: string }> };
 
+const seoOverrides: Record<string, { title: string; description?: string }> = {
+  "high-speed-door-retrofit-warehouse-site-survey": { title: "Warehouse High-Speed Door Retrofit Checklist" },
+  "industrial-sectional-door-track-selection-headroom": { title: "Industrial Sectional Door Track Selection" },
+  "how-to-choose-dock-shelter": { title: "Dock Shelter Selection Guide for Loading Bays" },
+  "high-speed-door-safety-sensors-photocell-light-curtain-safety-edge": { title: "High-Speed Door Safety Sensor Comparison" },
+  "how-to-choose-hydraulic-dock-leveler": { title: "Hydraulic Dock Leveler Selection Guide" },
+  "high-speed-door-vs-industrial-sectional-door": { title: "High-Speed Door vs Sectional Door Guide" },
+  "high-speed-door-for-industrial-equipment-integration": { title: "High-Speed Doors for Equipment Integration" },
+  "cleanroom-door-solutions-food-pharmaceutical": { title: "Clean Access Doors for Food and Pharma Facilities" },
+  "industrial-door-pre-delivery-inspection": { title: "Industrial Door Pre-Delivery Inspection Guide" },
+  "new-generation-high-speed-roll-up-door": { title: "High-Speed Roll-Up Doors for Production Areas" },
+  "eu-industrial-door-compliance-2027-buyer-checklist": {
+    title: "EU Industrial Door Compliance: 2027 Buyer Checklist",
+    description: "Prepare powered industrial door projects for the EU Machinery Regulation transition by reviewing scope, risk assessment, safety devices and declarations.",
+  },
+};
+
 export function generateStaticParams() {
   return blogPosts.map(({ slug }) => ({ slug }));
 }
@@ -16,9 +33,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPost((await params).slug);
   if (!post) return {};
+  const seo = seoOverrides[post.slug];
+  const title = seo?.title ?? post.title;
+  const description = seo?.description ?? post.excerpt;
   return {
-    title: post.title,
-    description: post.excerpt,
+    title,
+    description,
     keywords: post.keywords ?? (post.slug === "high-speed-roll-up-door-food-material-access"
       ? ["high-speed roll-up door for food processing", "food production high-speed door", "raw material access door", "dust control door", "rapid roll door for food factory"]
       : post.slug === "control-dust-and-airflow-between-production-zones"
@@ -28,15 +48,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "article",
       url: `/source/blog/${post.slug}`,
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       publishedTime: post.dateISO,
       images: [{ url: post.image, alt: post.imageAlt }],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       images: [post.image],
     },
   };

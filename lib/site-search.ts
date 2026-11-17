@@ -1,8 +1,9 @@
 import { blogPosts } from "@/data/blog-posts";
 import { products } from "@/data/site";
+import { productCategories } from "@/data/product-categories";
 
 export type SiteSearchItem = {
-  type: "Product" | "News";
+  type: "Category" | "Product" | "News";
   title: string;
   description: string;
   category: string;
@@ -23,6 +24,14 @@ const productSearchAliases: Record<string, string> = {
 };
 
 export const siteSearchItems: SiteSearchItem[] = [
+  ...productCategories.map((category) => ({
+    type: "Category" as const,
+    title: category.name,
+    description: category.description,
+    category: "Product Category",
+    href: `/products/${category.slug}`,
+    terms: [category.title, category.directAnswer, ...category.selectionFactors.map((factor) => `${factor.title} ${factor.text}`)].join(" "),
+  })),
   ...products.map((product) => ({
     type: "Product" as const,
     title: product.name,

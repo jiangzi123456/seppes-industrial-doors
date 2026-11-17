@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeoNewsFeed } from "./geo-news-feed";
 import { blogPosts } from "@/data/blog-posts";
 import { createPageMetadata } from "@/lib/seo";
+import { createCollectionPageSchema, serializeJsonLd } from "@/lib/structured-data";
 
 const baseMetadata: Metadata = createPageMetadata({
   title: "Industrial Door Blog: Product News & Solutions",
@@ -13,7 +14,7 @@ const baseMetadata: Metadata = createPageMetadata({
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page } = await searchParams;
   const current = Math.min(Math.ceil(blogPosts.length / 6), Math.max(1, Math.floor(Number(page) || 1)));
-  return current === 1 ? baseMetadata : createPageMetadata({ title: `Industrial Door Blog – Page ${current}`, description: `Browse page ${current} of SEPPES industrial door buying guides, solutions and project insights.`, path: `/source/blog?page=${current}` });
+  return current === 1 ? baseMetadata : createPageMetadata({ title: `Industrial Door Blog – Page ${current}`, description: `Browse page ${current} of SEPPES industrial door buying guides, product selection advice, application solutions and project insights for global facilities.`, path: `/source/blog?page=${current}` });
 }
 
 export default async function GeoNewsPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
@@ -33,5 +34,15 @@ export default async function GeoNewsPage({ searchParams }: { searchParams: Prom
       imageAlt,
     }));
 
-  return <GeoNewsFeed posts={posts} initialPage={current} key={current} />;
+  const visiblePosts = posts.slice((current - 1) * 6, current * 6);
+  const path = current === 1 ? "/source/blog" : `/source/blog?page=${current}`;
+  const schema = createCollectionPageSchema({
+    path,
+    name: `SEPPES Industrial Door Blog${current > 1 ? ` – Page ${current}` : ""}`,
+    description: "Industrial door buying guides, product news, application solutions and project insights.",
+    itemType: "Article",
+    items: visiblePosts.map((post) => ({ name: post.title, path: `/source/blog/${post.slug}`, image: post.image })),
+  });
+
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} /><GeoNewsFeed posts={posts} initialPage={current} key={current} /></>;
 }

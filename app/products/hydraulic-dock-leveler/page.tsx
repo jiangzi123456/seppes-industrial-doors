@@ -70,6 +70,7 @@ const product: ProductDetailContent = {
   ],
   parameterNote: "Rated capacity, platform dimensions, pit design and accessory package must be confirmed by project engineering before production.",
   supportingLinks: [
+    { href: "/products/loading-dock-equipment", label: "Plan the complete loading dock system" },
     { href: "/source/blog/how-to-choose-hydraulic-dock-leveler", label: "Read the dock leveler selection guide" },
   ],
   applicationsLead: "Best suited to warehouses, distribution centres and manufacturing loading bays.",

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown, Menu, Search, X } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "./brand-logo";
 import type { SiteSearchItem } from "@/lib/site-search";
 
@@ -20,20 +20,16 @@ const links: NavItem[] = [
     href: "/products",
     children: [
       {
-        label: "High Speed Roll Up Door",
-        href: "/products/high-speed-roll-up-door",
+        label: "High Speed Doors",
+        href: "/products/high-speed-doors",
       },
       {
-        label: "Zipper High Speed Door",
-        href: "/products/zipper-high-speed-door",
+        label: "Industrial Sectional Doors",
+        href: "/products/industrial-sectional-doors",
       },
       {
-        label: "High Speed Spiral Door",
-        href: "/products/high-speed-spiral-door",
-      },
-      {
-        label: "Industrial Sectional Door",
-        href: "/products/industrial-sectional-door",
+        label: "Loading Dock Equipment",
+        href: "/products/loading-dock-equipment",
       },
     ],
   },
@@ -52,29 +48,51 @@ const links: NavItem[] = [
 
 const dismissedDropdownKey = "seppes-dismissed-dropdown";
 
-export function Header({ searchItems }: { searchItems: SiteSearchItem[] }) {
+export function Header() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<SiteSearchItem[]>([]);
+  const [searching, setSearching] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dismissedDropdown, setDismissedDropdown] = useState<string | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchAreaRef = useRef<HTMLDivElement>(null);
 
-  const searchResults = useMemo(() => {
-    const terms = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
-    if (!terms.length) return [];
-    return searchItems.filter((item) => {
-      const haystack = `${item.title} ${item.category} ${item.description} ${item.terms}`.toLocaleLowerCase();
-      return terms.every((term) => haystack.includes(term));
-    }).slice(0, 10);
-  }, [query, searchItems]);
-
   const closeSearch = () => {
     setSearchOpen(false);
     setQuery("");
+    setSearchResults([]);
   };
+
+  useEffect(() => {
+    const value = query.trim();
+    if (!searchOpen || !value) {
+      setSearchResults([]);
+      setSearching(false);
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = window.setTimeout(async () => {
+      setSearching(true);
+      try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(value)}`, { signal: controller.signal });
+        const payload = response.ok ? await response.json() as { results?: SiteSearchItem[] } : {};
+        setSearchResults(payload.results ?? []);
+      } catch (error) {
+        if (!(error instanceof DOMException && error.name === "AbortError")) setSearchResults([]);
+      } finally {
+        if (!controller.signal.aborted) setSearching(false);
+      }
+    }, 180);
+
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [query, searchOpen]);
 
   const openSearchPage = (searchValue = query) => {
     const value = searchValue.trim();
@@ -215,7 +233,8 @@ export function Header({ searchItems }: { searchItems: SiteSearchItem[] }) {
             </form>
             {query.trim() && (
               <div className="site-search__inline-results" aria-live="polite">
-                {!searchResults.length && <p>No matching products or news found. Try a broader keyword.</p>}
+                {searching && <p>Searching products and news…</p>}
+                {!searching && !searchResults.length && <p>No matching products or news found. Try a broader keyword.</p>}
                 {searchResults.map((item) => (
                   <Link href={item.href} key={`${item.type}-${item.href}`} onClick={closeSearch}>
                     <div><span>{item.type} · {item.category}</span><h3>{item.title}</h3><p>{item.description}</p></div>

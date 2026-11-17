@@ -29,6 +29,7 @@ const product: ProductDetailContent = {
   introLead: "Designed for demanding factory, warehouse and logistics openings.",
   introText: "Double-skin aluminium slats with a high-density polyurethane core travel into a non-contact spiral track. The servo drive and torque-balancing design support smooth high-cycle movement while helping reduce air exchange and energy loss.",
   supportingLinks: [
+    { href: "/products/high-speed-doors", label: "Compare high speed door types" },
     { href: "/source/blog/high-speed-door-safety-sensors-photocell-light-curtain-safety-edge", label: "Compare high-speed door safety sensors" },
   ],
   benefits: [

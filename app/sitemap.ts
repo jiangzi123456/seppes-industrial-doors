@@ -2,9 +2,16 @@ import type { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blog-posts";
 import { products } from "@/data/site";
 
+const sourceDateEpoch = Number(process.env.SOURCE_DATE_EPOCH || 0);
+const contentReleaseDate = process.env.SITE_CONTENT_UPDATED_AT
+  || (sourceDateEpoch > 0 ? new Date(sourceDateEpoch * 1000).toISOString() : "2026-11-17");
+
 const staticRoutes = [
   { route: "", lastModified: "2026-11-09" },
   { route: "/products", lastModified: "2026-11-05" },
+  { route: "/products/high-speed-doors", lastModified: "2026-11-17" },
+  { route: "/products/industrial-sectional-doors", lastModified: "2026-11-17" },
+  { route: "/products/loading-dock-equipment", lastModified: "2026-11-17" },
   { route: "/products/high-speed-roll-up-door", lastModified: "2026-11-05" },
   { route: "/products/zipper-high-speed-door", lastModified: "2026-11-05" },
   { route: "/products/high-speed-spiral-door", lastModified: "2026-11-05" },
@@ -35,8 +42,8 @@ const staticRoutes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.seppesde.com";
   return [
-    ...staticRoutes.map(({ route, lastModified }) => ({ url: `${base}${route}`, lastModified: route === "/source/blog" ? blogPosts.reduce((latest, post) => post.dateISO > latest ? post.dateISO : latest, lastModified) : lastModified })),
-    ...Array.from({ length: Math.ceil(products.length / 4) - 1 }, (_, i) => ({ url: `${base}/products?page=${i + 2}`, lastModified: "2026-11-05" })),
+    ...staticRoutes.map(({ route, lastModified }) => ({ url: `${base}${route}`, lastModified: route === "/source/blog" ? blogPosts.reduce((latest, post) => post.dateISO > latest ? post.dateISO : latest, contentReleaseDate) : contentReleaseDate || lastModified })),
+    ...Array.from({ length: Math.ceil(products.length / 4) - 1 }, (_, i) => ({ url: `${base}/products?page=${i + 2}`, lastModified: contentReleaseDate })),
     ...Array.from({ length: Math.ceil(blogPosts.length / 6) - 1 }, (_, i) => ({ url: `${base}/source/blog?page=${i + 2}`, lastModified: blogPosts.reduce((latest, post) => post.dateISO > latest ? post.dateISO : latest, "2026-10-26") })),
     ...blogPosts.map((post) => ({
       url: `${base}/source/blog/${post.slug}`,

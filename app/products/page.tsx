@@ -6,11 +6,14 @@ import { CTA } from "@/components/cta";
 import { ProductFamilyPagination } from "@/components/product-family-pagination";
 import "./products.css";
 import { createPageMetadata } from "@/lib/seo";
+import { createCollectionPageSchema, createFaqPageSchema, serializeJsonLd } from "@/lib/structured-data";
+import { products } from "@/data/site";
+import { productCategories } from "@/data/product-categories";
 
 export async function generateMetadata({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page } = await searchParams;
   const current = Math.min(3, Math.max(1, Math.floor(Number(page) || 1)));
-  return createPageMetadata({ title: `Industrial Door Products${current > 1 ? ` – Page ${current}` : ""}`, description: "Compare SEPPES high-speed doors, sectional doors and loading dock equipment.", path: current > 1 ? `/products?page=${current}` : "/products", image: "/images/hero-industrial-door.jpg" });
+  return createPageMetadata({ title: `Industrial Door Products${current > 1 ? ` – Page ${current}` : ""}`, description: "Compare SEPPES high-speed doors, sectional doors, roller shutters and loading dock equipment by traffic, environment and application requirements.", path: current > 1 ? `/products?page=${current}` : "/products", image: "/images/hero-industrial-door.jpg" });
 }
 
 const factors = [
@@ -21,7 +24,7 @@ const factors = [
   ["05", "Vehicle & Workflow", "Map forklifts, pedestrians and loading movements.", "Safety and activation plan"],
   ["06", "Project Integration", "Confirm controls, interlocks and access interfaces.", "Controls and supply scope"],
 ];
-const faqs = [
+const faqs: Array<[string, string]> = [
   ["Which door suits high-frequency traffic?", "High-speed roll-up doors are a common starting point for frequent internal traffic. Final selection depends on size, environment and wind exposure."],
   ["When should I choose a spiral door?", "A spiral door suits demanding exterior openings that need rapid operation, rigid security, insulation and wind resistance."],
   ["Can the doors be customized?", "Yes. Dimensions, curtain or panel construction, colors, windows, controls and sensors can be reviewed for your project."],
@@ -31,7 +34,23 @@ const faqs = [
 export default async function ProductsPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page } = await searchParams;
   const current = Math.min(3, Math.max(1, Math.floor(Number(page) || 1)));
-  return <div className="products-overview">
+  const pagePath = current > 1 ? `/products?page=${current}` : "/products";
+  const visibleProducts = products.slice((current - 1) * 4, current * 4);
+  const collectionSchema = createCollectionPageSchema({
+    path: pagePath,
+    name: `SEPPES Industrial Door Products${current > 1 ? ` – Page ${current}` : ""}`,
+    description: "Industrial door and loading dock systems organized for application-led product selection.",
+    itemType: "Product",
+    items: visibleProducts.map((product) => ({ name: product.name, path: `/products/${product.slug}` })),
+  });
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      ...collectionSchema["@graph"],
+      ...(current === 1 ? [{ "@id": "https://www.seppesde.com/products#faq", ...createFaqPageSchema(faqs) }] : []),
+    ],
+  };
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} /><div className="products-overview">
     <section className="products-overview__hero">
       <Image className="products-overview__hero-image" src="/images/hero-industrial-door.jpg" alt="Industrial high-speed door" fill priority sizes="100vw" />
       <div className="products-overview__hero-shade" />
@@ -42,13 +61,19 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
       </div></div>
     </section>
     <Breadcrumb currentPath="/products" items={[{ label: "Home", href: "/" }, { label: "Industrial Door Products" }]} />
+    {current === 1 && <section className="products-overview__section products-overview__category-hubs"><div className="container">
+      <div className="products-overview__section-heading"><span className="eyebrow">Browse by category</span><h2>Start with the Product Family</h2><p>Category pages compare product directions, applications and selection conditions before you review a specific model.</p></div>
+      <div className="products-overview__category-grid">{productCategories.map((category) => <Link className="products-overview__category-card" href={`/products/${category.slug}`} key={category.slug}>
+        <div><span>{String(category.products.length).padStart(2, "0")} product {category.products.length === 1 ? "direction" : "directions"}</span><h3>{category.name}</h3><p>{category.description}</p></div><strong>Explore category <ArrowRight size={17} /></strong>
+      </Link>)}</div>
+    </div></section>}
     <section className="products-overview__section" id="product-families"><div className="container">
       <div className="products-overview__section-heading"><span className="eyebrow">Product families</span><h2>Product Solutions for Industrial Openings</h2><p>Each family addresses a different balance of speed, sealing, security, insulation and loading efficiency.</p></div>
       <ProductFamilyPagination initialPage={current} />
     </div></section>
     <section className="products-overview__section products-overview__section--tint" id="compare-products"><div className="container">
       <div className="products-overview__section-heading"><span className="eyebrow">Product comparison</span><h2>Compare Industrial Door Types</h2><p>Use this as an initial planning reference. Exact configuration follows verified dimensions and site conditions.</p></div>
-      <div className="products-overview__comparison"><table><thead><tr><th>Selection factor</th><th>Roll-up</th><th>Zipper</th><th>Spiral</th><th>Sectional</th><th>Dock leveler</th></tr></thead><tbody>
+      <p className="products-overview__comparison-hint">Swipe horizontally to compare all door types.</p><div className="products-overview__comparison" tabIndex={0} role="region" aria-label="Industrial door type comparison"><table><thead><tr><th>Selection factor</th><th>Roll-up</th><th>Zipper</th><th>Spiral</th><th>Sectional</th><th>Dock leveler</th></tr></thead><tbody>
         <tr><th>Primary role</th><td>Fast traffic separation</td><td>Controlled rapid access</td><td>Fast exterior security</td><td>Insulated general access</td><td>Vehicle-to-dock bridge</td></tr>
         <tr><th>Typical position</th><td>Interior / sheltered</td><td>Interior / controlled</td><td>Exterior</td><td>Exterior</td><td>Loading bay</td></tr>
         <tr><th>Operating speed</th><td>Very high</td><td>Very high</td><td>High</td><td>Standard</td><td>Hydraulic cycle</td></tr>
@@ -64,7 +89,7 @@ export default async function ProductsPage({ searchParams }: { searchParams: Pro
       <div><span className="eyebrow light">Project confidence</span><h2>More than a door product.</h2><p>SEPPES supports industrial projects from opening review through product configuration, export packaging and technical documentation.</p></div>
       <div className="products-overview__support-points"><span><Gauge/><strong>Performance-led</strong><small>Matched to operating conditions</small></span><span><ShieldCheck/><strong>Safety considered</strong><small>Sensors, controls and interfaces</small></span><span><Factory/><strong>Made to measure</strong><small>Project-specific dimensions</small></span><span><Snowflake/><strong>Environment ready</strong><small>Sealing and insulation needs</small></span></div>
     </div></section>
-    <section className="products-overview__section products-overview__section--tint"><div className="container"><div className="products-overview__section-heading"><span className="eyebrow">Practical answers</span><h2>Industrial Door FAQs</h2></div><div className="products-overview__faq">{faqs.map(([q,a]) => <details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></div></section>
+    {current === 1 && <section className="products-overview__section products-overview__section--tint"><div className="container"><div className="products-overview__section-heading"><span className="eyebrow">Practical answers</span><h2>Industrial Door FAQs</h2></div><div className="products-overview__faq">{faqs.map(([q,a]) => <details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></div></section>}
     <CTA />
-  </div>;
+  </div></>;
 }

@@ -19,6 +19,8 @@ import {
 import { Breadcrumb } from "./breadcrumb";
 import { ProductComponentDetails } from "./product-component-details";
 import { ProductSelectionResources } from "./product-selection-resources";
+import { createProductPageSchema, serializeJsonLd } from "@/lib/structured-data";
+import { productCategoryByProduct } from "@/data/product-categories";
 
 type Item = { title: string; text: string };
 type Fact = { label: string; value: string; icon: LucideIcon };
@@ -107,10 +109,17 @@ const productCases: Record<string, Array<{ image: string; title: string; text: s
 };
 
 export function ProductDetailLayout({ product }: { product: ProductDetailContent }) {
-  const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "WebPage", name: product.name, description: product.heroDescription, image: `https://www.seppesde.com${product.heroImage}`, url: `https://www.seppesde.com/products/${product.slug}`, about: { "@type": "Thing", name: product.name }, publisher: { "@type": "Organization", name: "SEPPES", url: "https://www.seppesde.com" } },
-    { "@type": "FAQPage", mainEntity: product.faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
-  ] };
+  const parentCategory = productCategoryByProduct[product.slug];
+  const schema = createProductPageSchema({
+    slug: product.slug,
+    name: product.name,
+    description: product.heroDescription,
+    image: product.heroImage,
+    category: product.category,
+    series: product.series,
+    parameters: product.parameters,
+    faqs: product.faqs,
+  });
   return <><div className="product-page">
     <section className="product-page__hero">
       <Image src={product.heroImage} alt={product.heroAlt} fill priority sizes="100vw" className="product-page__hero-image" />
@@ -129,7 +138,7 @@ export function ProductDetailLayout({ product }: { product: ProductDetailContent
       </div>
     </section>
 
-    <Breadcrumb currentPath={`/products/${product.slug}`} items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products" }, { label: product.name }]} />
+    <Breadcrumb currentPath={`/products/${product.slug}`} items={[{ label: "Home", href: "/" }, { label: "Products", href: "/products" }, ...(parentCategory ? [{ label: parentCategory.name, href: `/products/${parentCategory.slug}` }] : []), { label: product.name }]} />
 
     <section className="product-page__intro">
       <div className="container product-page__intro-grid">
@@ -180,7 +189,7 @@ export function ProductDetailLayout({ product }: { product: ProductDetailContent
     <section className="product-page__faq"><div className="container"><div className="product-page__center-head"><p className="reference-eyebrow blue">FAQ</p><h2>{product.name} Questions</h2><p>Use these answers for early planning, then confirm the final configuration in the project proposal.</p></div><div className="product-page__faq-list">{product.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></div></section>
 
     <section className="product-page__project-cta"><div className="container"><div><p className="reference-eyebrow">Project consultation</p><h2>Send Us Your Opening Details.</h2><p>Share the dimensions, quantity, application, project location and available photos or drawings.</p></div><Link className="reference-button reference-button--white" href="/contact">Get a Configuration <ArrowRight size={18} /></Link></div></section>
-  </div><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></>;
+  </div><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} /></>;
 }
 
 export const standardHeroIcons = { speed: Gauge, size: Maximize2, safety: ShieldCheck };

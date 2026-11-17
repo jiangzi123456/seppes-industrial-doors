@@ -2,6 +2,36 @@ import { Resend } from "resend";
 
 const recipient = process.env.INQUIRY_TO_EMAIL || "huijia@seppes.com.cn";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const rateLimitWindowMs = 10 * 60 * 1000;
+const rateLimitMaxRequests = 5;
+type RateLimitEntry = { count: number; resetAt: number };
+
+const globalRateLimit = globalThis as typeof globalThis & {
+  seppesInquiryRateLimit?: Map<string, RateLimitEntry>;
+};
+const rateLimitStore = globalRateLimit.seppesInquiryRateLimit ??= new Map<string, RateLimitEntry>();
+
+function getClientIp(request: Request) {
+  return request.headers.get("cf-connecting-ip")
+    || request.headers.get("x-real-ip")
+    || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    || "unknown";
+}
+
+function checkRateLimit(request: Request) {
+  const now = Date.now();
+  const key = getClientIp(request);
+  const current = rateLimitStore.get(key);
+
+  if (!current || current.resetAt <= now) {
+    rateLimitStore.set(key, { count: 1, resetAt: now + rateLimitWindowMs });
+    return null;
+  }
+
+  if (current.count >= rateLimitMaxRequests) return current.resetAt;
+  current.count += 1;
+  return null;
+}
 
 function clean(value: unknown, maxLength = 500) {
   return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
@@ -18,6 +48,21 @@ function escapeHtml(value: string) {
 }
 
 export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+  const requestOrigin = new URL(request.url).origin;
+  if (origin && origin !== requestOrigin && origin !== "https://www.seppesde.com") {
+    return Response.json({ message: "This inquiry source is not allowed." }, { status: 403 });
+  }
+
+  const rateLimitReset = checkRateLimit(request);
+  if (rateLimitReset) {
+    const retryAfter = Math.max(1, Math.ceil((rateLimitReset - Date.now()) / 1000));
+    return Response.json(
+      { message: "Too many inquiries were submitted. Please wait a few minutes and try again." },
+      { status: 429, headers: { "Retry-After": String(retryAfter), "Cache-Control": "no-store" } },
+    );
+  }
+
   const contentLength = Number(request.headers.get("content-length") || 0);
   if (contentLength > 20_000) {
     return Response.json({ message: "The inquiry is too large." }, { status: 413 });
