@@ -1,3 +1,4 @@
+import { warehouseDoorEnergyPerformancePost } from "./warehouse-door-energy-performance-post";
 import { euIndustrialDoor2027Post } from "./eu-industrial-door-2027-post";
 import { retrofitSurveyPost } from "./retrofit-survey-post";
 import { stackingDoorWarehousePost } from "./stacking-door-warehouse-post";
@@ -62,6 +63,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  warehouseDoorEnergyPerformancePost,
   euIndustrialDoor2027Post,
   retrofitSurveyPost,
   stackingDoorWarehousePost,
