@@ -73,6 +73,7 @@ export const industrialDoorMaintenancePlanPost: BlogPost = {
       image: "/images/blog/zipper-door-installation-check.webp",
       imageAlt: "SEPPES zipper high-speed door checked after installation",
       imageCaption: "Zipper-door service information should match the supplied curtain edge, guide, controls and protective devices.",
+      imageFit: "contain",
     },
     {
       heading: "Treat rigid spiral doors as a complete moving assembly",
