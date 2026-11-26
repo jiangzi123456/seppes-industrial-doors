@@ -1,3 +1,4 @@
+import { amrDoorPost } from "./amr-door-post";
 import { industrialDoorMaintenancePlanPost } from "./industrial-door-maintenance-plan-post";
 import { warehouseDoorEnergyPerformancePost } from "./warehouse-door-energy-performance-post";
 import { euIndustrialDoor2027Post } from "./eu-industrial-door-2027-post";
@@ -64,6 +65,7 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  amrDoorPost,
   industrialDoorMaintenancePlanPost,
   warehouseDoorEnergyPerformancePost,
   euIndustrialDoor2027Post,
