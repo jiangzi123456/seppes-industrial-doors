@@ -1,0 +1,27 @@
+.nav {
+  width: 100%;
+  background: #f7f9fb;
+  border-bottom: 1px solid #d9e0e7;
+}
+.nav > div {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #697888;
+}
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.item a { color: #697888; text-decoration: none; }
+.item a:hover { color: #0068b5; text-decoration: underline; }
+.item > span { color: #0b1f33; font-weight: 700; overflow-wrap: anywhere; }
+.item svg { width: 13px; height: 13px; flex: 0 0 13px; color: #8794a0; }

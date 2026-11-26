@@ -12,6 +12,9 @@ export const amrDoorPost: BlogPost = {
   excerpt: "Growing transport robotics makes doorway coordination a procurement priority. Plan door clearance, robot permissions and recovery before warehouse commissioning.",
   image: "/images/blog/rapid-door-agv-access.jpg",
   imageAlt: "SEPPES rapid door at an automated material transport opening",
+  leadImage: "/images/blog/rapid-door-zone-separation.jpg",
+  leadImageAlt: "Two yellow SEPPES PVC rapid doors separating industrial production zones",
+  leadImageCaption: "Define the traffic route and separation boundary for each opening before configuring automated access.",
   keywords: ["high-speed doors for AMR", "AGV warehouse doors", "robot door integration", "automated warehouse doorway"],
   intro: "Specify high-speed doors for AMR warehouse crossings around the complete robot journey: approach, request, confirmed clear opening, passage and release. Match the door to the environment and the loaded vehicle envelope, then agree who owns the interface and recovery sequence. A door-open command alone does not establish that a robot can safely enter the crossing.",
   quickQuestion: "What should buyers specify for an AMR door crossing?",
@@ -66,6 +69,9 @@ export const amrDoorPost: BlogPost = {
     },
     {
       heading: "Commission representative traffic and recovery cases",
+      image: "/images/blog/rapid-door-production-line.jpg",
+      imageAlt: "SEPPES rapid doors with vision panels beside automated production equipment",
+      imageCaption: "Production equipment access and warehouse robot crossings both require an agreed operating sequence and commissioning responsibilities.",
       paragraphs: [
         "Acceptance should demonstrate the agreed sequence with representative loads and approach conditions, including queues where relevant. Verify that the requested clear opening is reached, the load clears the doorway and closure follows the approved logic. Tests involving protective functions or faults should be planned and performed by competent personnel.",
         "Record the approved configuration, signals, settings, test results and responsible parties. Repeat affected checks when a robot route, load envelope, door component or control configuration changes. Define who can restore operation and what information must be sent to remote support."

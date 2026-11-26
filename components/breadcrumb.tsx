@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./breadcrumb.module.css";
 import { ChevronRight } from "lucide-react";
 
 type BreadcrumbItem = { label: string; href?: string };
@@ -17,8 +18,8 @@ export function Breadcrumb({ items, currentPath }: { items: BreadcrumbItem[]; cu
     })),
   } : null;
 
-  return <><nav className="product-page__breadcrumb" aria-label="Breadcrumb"><div className="container">
-    {items.map((item, index) => <span className="breadcrumb-item" key={`${item.label}-${index}`}>
+  return <><nav className={styles.nav} aria-label="Breadcrumb"><div className="container">
+    {items.map((item, index) => <span className={styles.item} key={`${item.label}-${index}`}>
       {index > 0 && <ChevronRight aria-hidden="true" />}
       {item.href ? <Link href={item.href}>{item.label}</Link> : <span aria-current="page">{item.label}</span>}
     </span>)}
